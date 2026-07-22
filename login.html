@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartron - Login</title>
+    <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: var(--bg-gradient-1);
+            min-height: 100vh;
+            height: 100vh;
+            color: var(--text-color);
+            overflow: hidden;
+            width: 100%;
+            transition: background var(--transition), color var(--transition);
+            direction: var(--rtl-direction);
+            position: relative;
+            padding-top: 90px;
+        }
+
+        body.menu-open {
+            overflow: hidden !important;
+            position: fixed !important;
+            width: 100% !important;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        :root {
+            --bg-gradient-1: #0a0a0a;
+            --text-color: #f0f4fc;
+            --card-bg: rgba(60, 60, 60, 0.6);
+            --card-border: rgba(80, 80, 80, 0.3);
+            --nav-bg: rgba(20, 20, 20, 0.95);
+            --shadow: rgba(0, 0, 0, 0.5);
+            --btn-hover: #ff6b35;
+            --gold: #ff6b35;
+            --gold-rgb: 255, 107, 53;
+            --badge-color: #ff6b35;
+            --badge-bg: rgba(255, 107, 53, 0.15);
+            --transition: 0.4s ease;
+            --tag-bg: rgba(255, 107, 53, 0.15);
+            --tag-border: rgba(255, 107, 53, 0.1);
+            --tag-color: var(--gold);
+            --rtl-direction: ltr;
+            --dropdown-bg: rgba(20, 20, 20, 0.95);
+            --nav-link-color: rgba(255, 255, 255, 0.8);
+            --nav-link-hover: var(--gold);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --input-bg: rgba(255, 255, 255, 0.08);
+            --input-border: rgba(255, 255, 255, 0.15);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient-1: #f0f2f5;
+            --text-color: #1a1a2e;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --card-border: rgba(200, 200, 200, 0.3);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --shadow: rgba(0, 0, 0, 0.08);
+            --gold: #d95c2b;
+            --gold-rgb: 217, 92, 43;
+            --badge-color: #d95c2b;
+            --badge-bg: rgba(217, 92, 43, 0.15);
+            --tag-bg: rgba(217, 92, 43, 0.12);
+            --tag-border: rgba(217, 92, 43, 0.08);
+            --tag-color: #d95c2b;
+            --dropdown-bg: rgba(255, 255, 255, 0.95);
+            --nav-link-color: rgba(0, 0, 0, 0.7);
+            --nav-link-hover: #d95c2b;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(200, 200, 200, 0.25);
+            --input-bg: rgba(0, 0, 0, 0.04);
+            --input-border: rgba(0, 0, 0, 0.12);
+        }
+
+        [dir="rtl"] {
+            --rtl-direction: rtl;
+        }
+
+        /* ===== NAVIGATION - SIMPLIFIED ===== */
+        nav {
+            width: 94%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 35px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--card-border);
+            border-radius: 60px;
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            box-shadow: 0 15px 35px var(--shadow);
+            transition: background var(--transition), border var(--transition), box-shadow var(--transition);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .logo i {
+            color: var(--gold);
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 40px;
+            padding: 6px 12px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+
+        .rtl-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 40px;
+            padding: 6px 14px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .rtl-toggle:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ============================================
+                   LOGIN SECTION - FULL HEIGHT NO SCROLL
+           ============================================ */
+        .login-section {
+            width: 100%;
+            height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: var(--bg-gradient-1);
+            overflow: hidden;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* ===== GLASS MORPHISM LOGIN CARD ===== */
+        .login-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 32px 32px 28px;
+            box-shadow: 0 20px 60px var(--shadow);
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .login-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 25px 70px rgba(255, 107, 53, 0.12);
+        }
+
+        .login-card .login-header {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .login-card .login-header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 2px;
+        }
+
+        .login-card .login-header p {
+            font-size: 14px;
+            opacity: 0.6;
+            color: var(--text-color);
+        }
+
+        .login-card .form-group {
+            margin-bottom: 14px;
+        }
+
+        .login-card .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        .login-card .form-group label .required {
+            color: var(--gold);
+        }
+
+        .login-card .form-group .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .login-card .form-group .input-wrapper .input-icon {
+            position: absolute;
+            left: 14px;
+            color: var(--text-color);
+            opacity: 0.4;
+            font-size: 14px;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        [dir="rtl"] .login-card .form-group .input-wrapper .input-icon {
+            left: auto;
+            right: 14px;
+        }
+
+        .login-card .form-group .input-wrapper .toggle-password {
+            position: absolute;
+            right: 14px;
+            color: var(--text-color);
+            opacity: 0.4;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 2;
+        }
+
+        [dir="rtl"] .login-card .form-group .input-wrapper .toggle-password {
+            right: auto;
+            left: 14px;
+        }
+
+        .login-card .form-group .input-wrapper .toggle-password:hover {
+            opacity: 0.8;
+            color: var(--gold);
+        }
+
+        .login-card .form-group input {
+            width: 100%;
+            padding: 10px 44px 10px 42px;
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        [dir="rtl"] .login-card .form-group input {
+            padding: 10px 42px 10px 44px;
+        }
+
+        .login-card .form-group input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.08);
+        }
+
+        .login-card .form-group input::placeholder {
+            color: var(--text-color);
+            opacity: 0.35;
+        }
+
+        .login-card .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .login-card .form-options .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-color);
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .login-card .form-options .remember-me input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: var(--gold);
+            cursor: pointer;
+        }
+
+        .login-card .form-options .forgot-link {
+            font-size: 13px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .login-card .form-options .forgot-link:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+
+        .login-card .login-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 60px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .login-card .login-btn:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .login-card .login-btn i {
+            transition: 0.3s;
+        }
+
+        .login-card .login-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        [dir="rtl"] .login-card .login-btn:hover i {
+            transform: translateX(-4px);
+        }
+
+        .login-card .signup-link {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .login-card .signup-link a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .login-card .signup-link a:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+
+        /* ===== SOCIAL LOGIN - ROW LAYOUT ===== */
+        .login-card .social-login {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .login-card .social-login p {
+            font-size: 13px;
+            color: var(--text-color);
+            opacity: 0.5;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .login-card .social-login p::before,
+        .login-card .social-login p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: var(--input-border);
+        }
+
+        .login-card .social-login p::before {
+            left: 0;
+        }
+
+        .login-card .social-login p::after {
+            right: 0;
+        }
+
+        [dir="rtl"] .login-card .social-login p::before {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .login-card .social-login p::after {
+            right: auto;
+            left: 0;
+        }
+
+        /* ===== SOCIAL ICONS - ROW ===== */
+        .login-card .social-login .social-icons {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .login-card .social-login .social-icons a {
+            flex: 1;
+            padding: 10px 8px;
+            border-radius: 60px;
+            border: 1px solid var(--input-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--text-color);
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.3s;
+            text-decoration: none;
+            opacity: 0.7;
+        }
+
+        .login-card .social-login .social-icons a i {
+            font-size: 16px;
+        }
+
+        .login-card .social-login .social-icons a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.08);
+        }
+
+        .login-card .social-login .social-icons a.google-btn i {
+            color: #ea4335;
+        }
+
+        .login-card .social-login .social-icons a.facebook-btn i {
+            color: #1877f2;
+        }
+
+        .login-card .social-login .social-icons a.apple-btn i {
+            color: var(--text-color);
+        }
+
+        .login-card .social-login .social-icons a.google-btn:hover {
+            border-color: #ea4335;
+            color: #ea4335;
+        }
+
+        .login-card .social-login .social-icons a.facebook-btn:hover {
+            border-color: #1877f2;
+            color: #1877f2;
+        }
+
+        .login-card .social-login .social-icons a.apple-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+              /* ============================================
+                   RESPONSIVE - FIXED IPAD SPACING
+           ============================================ */
+
+        /* ===== IPAD PRO (1024px x 1366px) ===== */
+        @media (max-width: 1024px) and (min-width: 821px) {
+            .login-section {
+                height: calc(100vh - 80px);
+                padding: 40px 30px;
+            }
+            .login-wrapper {
+                max-width: 520px;
+            }
+            .login-card {
+                padding: 45px 45px 38px;
+                border-radius: 32px;
+            }
+            .login-card .login-header {
+                margin-bottom: 28px;
+            }
+            .login-card .login-header h1 {
+                font-size: 32px;
+            }
+            .login-card .login-header p {
+                font-size: 16px;
+            }
+            .login-card .form-group {
+                margin-bottom: 18px;
+            }
+            .login-card .form-group label {
+                font-size: 15px;
+            }
+            .login-card .form-group input {
+                padding: 14px 52px 14px 50px;
+                font-size: 16px;
+                border-radius: 14px;
+            }
+            [dir="rtl"] .login-card .form-group input {
+                padding: 14px 50px 14px 52px;
+            }
+            .login-card .form-group .input-wrapper .input-icon {
+                font-size: 18px;
+                left: 18px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .input-icon {
+                left: auto;
+                right: 18px;
+            }
+            .login-card .form-group .input-wrapper .toggle-password {
+                font-size: 18px;
+                right: 18px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .toggle-password {
+                right: auto;
+                left: 18px;
+            }
+            .login-card .form-options {
+                margin-bottom: 22px;
+            }
+            .login-card .form-options .remember-me {
+                font-size: 15px;
+            }
+            .login-card .form-options .forgot-link {
+                font-size: 15px;
+            }
+            .login-card .login-btn {
+                padding: 16px;
+                font-size: 17px;
+                border-radius: 60px;
+            }
+            .login-card .signup-link {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            .login-card .social-login {
+                margin-top: 24px;
+            }
+            .login-card .social-login p {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+            .login-card .social-login .social-icons a {
+                padding: 13px 12px;
+                font-size: 15px;
+                border-radius: 60px;
+            }
+            .login-card .social-login .social-icons a i {
+                font-size: 18px;
+            }
+        }
+
+        /* ===== IPAD AIR (820px x 1180px) ===== */
+        @media (max-width: 820px) and (min-width: 769px) {
+            .login-section {
+                height: calc(100vh - 80px);
+                padding: 35px 25px;
+            }
+            .login-wrapper {
+                max-width: 460px;
+            }
+            .login-card {
+                padding: 38px 36px 32px;
+                border-radius: 28px;
+            }
+            .login-card .login-header {
+                margin-bottom: 24px;
+            }
+            .login-card .login-header h1 {
+                font-size: 28px;
+            }
+            .login-card .login-header p {
+                font-size: 15px;
+            }
+            .login-card .form-group {
+                margin-bottom: 16px;
+            }
+            .login-card .form-group label {
+                font-size: 14px;
+            }
+            .login-card .form-group input {
+                padding: 12px 48px 12px 46px;
+                font-size: 15px;
+                border-radius: 13px;
+            }
+            [dir="rtl"] .login-card .form-group input {
+                padding: 12px 46px 12px 48px;
+            }
+            .login-card .form-group .input-wrapper .input-icon {
+                font-size: 16px;
+                left: 16px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .input-icon {
+                left: auto;
+                right: 16px;
+            }
+            .login-card .form-group .input-wrapper .toggle-password {
+                font-size: 17px;
+                right: 16px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .toggle-password {
+                right: auto;
+                left: 16px;
+            }
+            .login-card .form-options {
+                margin-bottom: 20px;
+            }
+            .login-card .form-options .remember-me {
+                font-size: 14px;
+            }
+            .login-card .form-options .forgot-link {
+                font-size: 14px;
+            }
+            .login-card .login-btn {
+                padding: 14px;
+                font-size: 16px;
+                border-radius: 60px;
+            }
+            .login-card .signup-link {
+                font-size: 15px;
+                margin-top: 18px;
+            }
+            .login-card .social-login {
+                margin-top: 20px;
+            }
+            .login-card .social-login p {
+                font-size: 13px;
+                margin-bottom: 14px;
+            }
+            .login-card .social-login .social-icons a {
+                padding: 11px 10px;
+                font-size: 14px;
+                border-radius: 60px;
+            }
+            .login-card .social-login .social-icons a i {
+                font-size: 17px;
+            }
+        }
+
+        /* ===== IPAD MINI (768px x 1024px) ===== */
+        @media (max-width: 768px) and (min-width: 600px) {
+            .login-section {
+                height: calc(100vh - 80px);
+                padding: 30px 20px;
+            }
+            .login-wrapper {
+                max-width: 420px;
+            }
+            .login-card {
+                padding: 32px 28px 26px;
+                border-radius: 24px;
+            }
+            .login-card .login-header {
+                margin-bottom: 20px;
+            }
+            .login-card .login-header h1 {
+                font-size: 26px;
+            }
+            .login-card .login-header p {
+                font-size: 14px;
+            }
+            .login-card .form-group {
+                margin-bottom: 14px;
+            }
+            .login-card .form-group label {
+                font-size: 13px;
+            }
+            .login-card .form-group input {
+                padding: 11px 44px 11px 42px;
+                font-size: 14px;
+                border-radius: 12px;
+            }
+            [dir="rtl"] .login-card .form-group input {
+                padding: 11px 42px 11px 44px;
+            }
+            .login-card .form-group .input-wrapper .input-icon {
+                font-size: 15px;
+                left: 14px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .input-icon {
+                left: auto;
+                right: 14px;
+            }
+            .login-card .form-group .input-wrapper .toggle-password {
+                font-size: 16px;
+                right: 14px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .toggle-password {
+                right: auto;
+                left: 14px;
+            }
+            .login-card .form-options {
+                margin-bottom: 18px;
+            }
+            .login-card .form-options .remember-me {
+                font-size: 13px;
+            }
+            .login-card .form-options .forgot-link {
+                font-size: 13px;
+            }
+            .login-card .login-btn {
+                padding: 12px;
+                font-size: 15px;
+                border-radius: 60px;
+            }
+            .login-card .signup-link {
+                font-size: 14px;
+                margin-top: 16px;
+            }
+            .login-card .social-login {
+                margin-top: 18px;
+            }
+            .login-card .social-login p {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+            .login-card .social-login .social-icons a {
+                padding: 10px 8px;
+                font-size: 13px;
+                border-radius: 60px;
+            }
+            .login-card .social-login .social-icons a i {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 72px;
+            }
+            .login-section {
+                height: calc(100vh - 72px);
+                padding: 12px;
+            }
+            .login-wrapper {
+                max-width: 100%;
+            }
+            .login-card {
+                padding: 22px 18px 18px;
+                border-radius: 20px;
+            }
+            .login-card .login-header {
+                margin-bottom: 16px;
+            }
+            .login-card .login-header h1 {
+                font-size: 22px;
+            }
+            .login-card .login-header p {
+                font-size: 13px;
+            }
+            .login-card .form-group {
+                margin-bottom: 10px;
+            }
+            .login-card .form-group input {
+                padding: 8px 38px 8px 36px;
+                font-size: 13px;
+                border-radius: 10px;
+            }
+            [dir="rtl"] .login-card .form-group input {
+                padding: 8px 36px 8px 38px;
+            }
+            .login-card .form-group .input-wrapper .input-icon {
+                font-size: 13px;
+                left: 12px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .input-icon {
+                left: auto;
+                right: 12px;
+            }
+            .login-card .form-group .input-wrapper .toggle-password {
+                font-size: 14px;
+                right: 12px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .toggle-password {
+                right: auto;
+                left: 12px;
+            }
+            .login-card .form-options {
+                margin-bottom: 14px;
+            }
+            .login-card .form-options .remember-me {
+                font-size: 12px;
+            }
+            .login-card .form-options .forgot-link {
+                font-size: 12px;
+            }
+            .login-card .login-btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .login-card .signup-link {
+                font-size: 13px;
+                margin-top: 12px;
+            }
+            .login-card .social-login {
+                margin-top: 14px;
+            }
+            .login-card .social-login p {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+            .login-card .social-login .social-icons a {
+                padding: 8px 6px;
+                font-size: 11px;
+            }
+            .login-card .social-login .social-icons a i {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .login-card {
+                padding: 18px 14px 14px;
+            }
+            .login-card .login-header h1 {
+                font-size: 20px;
+            }
+            .login-card .form-group input {
+                font-size: 12px;
+                padding: 7px 34px 7px 32px;
+            }
+            [dir="rtl"] .login-card .form-group input {
+                padding: 7px 32px 7px 34px;
+            }
+            .login-card .form-group .input-wrapper .input-icon {
+                font-size: 12px;
+                left: 10px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .input-icon {
+                left: auto;
+                right: 10px;
+            }
+            .login-card .form-group .input-wrapper .toggle-password {
+                font-size: 12px;
+                right: 10px;
+            }
+            [dir="rtl"] .login-card .form-group .input-wrapper .toggle-password {
+                right: auto;
+                left: 10px;
+            }
+            .login-card .login-btn {
+                font-size: 13px;
+                padding: 8px;
+            }
+            .login-card .social-login .social-icons {
+                gap: 6px;
+            }
+            .login-card .social-login .social-icons a {
+                padding: 6px 4px;
+                font-size: 10px;
+            }
+            .login-card .social-login .social-icons a i {
+                font-size: 12px;
+            }
+        }
+        /* ===== Theme Color Support ===== */
+        [data-theme-color="blue"] {
+            --gold: #3b82f6;
+            --gold-rgb: 59, 130, 246;
+            --badge-color: #3b82f6;
+            --badge-bg: rgba(59, 130, 246, 0.15);
+            --nav-link-hover: #3b82f6;
+            --btn-hover: #60a5fa;
+        }
+        [data-theme-color="green"] {
+            --gold: #22c55e;
+            --gold-rgb: 34, 197, 94;
+            --badge-color: #22c55e;
+            --badge-bg: rgba(34, 197, 94, 0.15);
+            --nav-link-hover: #22c55e;
+            --btn-hover: #4ade80;
+        }
+        [data-theme-color="purple"] {
+            --gold: #8b5cf6;
+            --gold-rgb: 139, 92, 246;
+            --badge-color: #8b5cf6;
+            --badge-bg: rgba(139, 92, 246, 0.15);
+            --nav-link-hover: #8b5cf6;
+            --btn-hover: #a78bfa;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <a href="index.html" class="logo"><i class="fas fa-car"></i> Cartron</a>
+
+        <div class="nav-controls">
+            <button class="rtl-toggle" id="rtlToggle"><span id="desktopRtlLabel">RTL</span></button>
+            <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="toggleIcon"></i></button>
+        </div>
+    </nav>
+
+    <!-- ===== LOGIN SECTION ===== -->
+    <section class="login-section">
+        <div class="login-wrapper">
+            <!-- Glass Morphism Login Card -->
+            <div class="login-card">
+                <div class="login-header">
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your Cartron account</p>
+                </div>
+
+                <form id="loginForm" onsubmit="return handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" placeholder="john@example.com" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" placeholder="Enter your password" required />
+                            <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                                <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" /> Remember Me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">
+                        Sign In <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </div>
+
+                <div class="social-login">
+                    <p>Or continue with</p>
+                    <div class="social-icons">
+                        <a href="#" class="google-btn" onclick="socialLogin('Google')">
+                            <i class="fab fa-google"></i> Google
+                        </a>
+                        <a href="#" class="facebook-btn" onclick="socialLogin('Facebook')">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="#" class="apple-btn" onclick="socialLogin('Apple')">
+                            <i class="fab fa-apple"></i> Apple
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== TOGGLE PASSWORD VISIBILITY =====
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('passwordToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+
+        // ===== LOGIN FORM HANDLER - Redirect to Home Page =====
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            alert(`✅ Welcome back!\n\nYou have successfully signed in with:\n📧 ${email}`);
+            window.location.href = 'index.html';
+            return false;
+        }
+
+        // ===== SOCIAL LOGIN HANDLER =====
+        function socialLogin(platform) {
+            alert(`✅ You are signing in with ${platform}!\n\nRedirecting to your dashboard...`);
+            window.location.href = 'index.html';
+            return false;
+        }
+
+        // ===== DARK/LIGHT TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        let isDark = true;
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.className = 'fas fa-sun';
+            isDark = false;
+        } else {
+            toggleIcon.className = 'fas fa-moon';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggleIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+                isDark = false;
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                toggleIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+                isDark = true;
+            }
+        });
+
+        // ===== RTL TOGGLE =====
+        const rtlToggle = document.getElementById('rtlToggle');
+        const desktopRtlLabel = document.getElementById('desktopRtlLabel');
+        let isRTL = false;
+
+        if (localStorage.getItem('rtl') === 'true') {
+            document.documentElement.setAttribute('dir', 'rtl');
+            isRTL = true;
+        }
+
+        function updateRTLState() {
+            const label = isRTL ? 'LTR' : 'RTL';
+            if (desktopRtlLabel) desktopRtlLabel.textContent = label;
+        }
+
+        function toggleRTL() {
+            if (isRTL) {
+                document.documentElement.removeAttribute('dir');
+                localStorage.setItem('rtl', 'false');
+                isRTL = false;
+            } else {
+                document.documentElement.setAttribute('dir', 'rtl');
+                localStorage.setItem('rtl', 'true');
+                isRTL = true;
+            }
+            updateRTLState();
+        }
+
+        rtlToggle.addEventListener('click', toggleRTL);
+        updateRTLState();
+
+        // ===== KEYBOARD SUPPORT - Enter key toggles eye icon =====
+        document.getElementById('password').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                // Submit the form
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>

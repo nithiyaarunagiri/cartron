@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | Cartron</title>
+  <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+url('images/hero-bg.jpg') center/cover no-repeat;
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+padding:40px;
+max-width:700px;
+}
+
+.error{
+font-size:180px;
+font-weight:800;
+color:#ff4d30;
+line-height:1;
+text-shadow:0 10px 30px rgba(255,77,48,.5);
+}
+
+h2{
+color:#fff;
+font-size:42px;
+margin:20px 0 10px;
+}
+
+p{
+color:#dcdcdc;
+font-size:18px;
+line-height:1.8;
+margin-bottom:40px;
+}
+
+.btn{
+display:inline-block;
+padding:16px 38px;
+background:#ff4d30;
+color:#fff;
+text-decoration:none;
+font-weight:600;
+border-radius:50px;
+transition:.35s;
+box-shadow:0 10px 25px rgba(255,77,48,.35);
+}
+
+.btn:hover{
+background:#fff;
+color:#ff4d30;
+transform:translateY(-5px);
+}
+
+.car{
+font-size:65px;
+margin-bottom:15px;
+animation:drive 3s linear infinite;
+display:inline-block;
+}
+
+@keyframes drive{
+0%{transform:translateX(-25px);}
+50%{transform:translateX(25px);}
+100%{transform:translateX(-25px);}
+}
+
+@media(max-width:768px){
+
+.error{
+font-size:120px;
+}
+
+h2{
+font-size:30px;
+}
+
+p{
+font-size:16px;
+}
+
+.car{
+font-size:45px;
+}
+
+.btn{
+padding:14px 30px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="car">🚗</div>
+
+<div class="error">404</div>
+
+<h2>Oops! Page Not Found</h2>
+
+<p>
+The page you're looking for doesn't exist or may have been moved.
+Let's get you back on the road.
+</p>
+
+<a href="index.html" class="btn">🏠 Back to Home</a>
+
+</div>
+
+</body>
+</html>
