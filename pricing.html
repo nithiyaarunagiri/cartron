@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartron - Pricing Plans</title>
-      <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+    <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
@@ -637,90 +637,262 @@
             flex-direction: row-reverse;
         }
 
-        /* ============================================
-                   PAGE BANNER - FULL VIEWPORT
-           ============================================ */
+        /* ============================================ PRICING HERO - SPLIT LAYOUT ============================================ */
+
         .page-banner {
             width: 100%;
-            padding: 140px 60px;
+            min-height: 78vh;
+            padding: 120px 7%;
             position: relative;
             z-index: 2;
-            min-height: 100vh;
-            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background: var(--bg-gradient-1);
         }
+
         .page-banner::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--hero-overlay);
-            border-radius: 0;
-            z-index: 0;
-            transition: background var(--transition);
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 107, 53, 0.08);
+            border-radius: 50%;
+            right: -150px;
+            top: -100px;
+            filter: blur(10px);
         }
-        .page-banner .banner-content {
+
+        .banner-content {
             position: relative;
-            z-index: 1;
-            max-width: 850px;
-            text-align: center;
-            margin: 0 auto;
+            z-index: 2;
+            width: 45%;
+            text-align: left !important;
+            margin: 0 !important;
         }
+
+        .page-banner .banner-content .page-tag {
+            margin-bottom: 18px;
+        }
+
         .page-banner .banner-content h1 {
-            font-size: 52px;
-            line-height: 1.15;
+            font-size: 58px;
+            line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--hero-text-color);
-            text-shadow: var(--hero-text-shadow);
-            transition: color var(--transition), text-shadow var(--transition);
+            margin-bottom: 18px;
+            color: var(--text-color);
+            text-shadow: none;
         }
-        .page-banner .banner-content h1 span {
+
+        .page-banner .banner-content h1 span:first-child {
+            color: var(--text-color) !important;
+        }
+
+        .page-banner .banner-content h1 span:last-child {
             color: var(--gold);
-            text-shadow: 0 2px 20px rgba(255, 107, 53, 0.3);
         }
+
         .page-banner .banner-content p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.8;
-            opacity: 0.9;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--hero-text-color);
-            text-shadow: var(--hero-text-shadow);
-            transition: color var(--transition), text-shadow var(--transition);
+            max-width: 500px;
+            margin: 0;
+            color: var(--text-color) !important;
+            opacity: 0.75;
+            text-shadow: none;
         }
 
-        [data-theme="light"] .page-banner::before {
-            background: rgba(0, 0, 0, 0.4);
+        /* RIGHT SIDE IMAGE */
+        .page-banner-image {
+            position: absolute;
+            right: 6%;
+            width: 47%;
+            height: 70%;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
         }
-        [data-theme="light"] .page-banner .banner-content h1 {
-            color: #ffffff !important;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+
+        .page-banner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-        [data-theme="light"] .page-banner .banner-content h1 span {
+
+        /* Image overlay */
+        .page-banner-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,0.25),
+                transparent
+            );
+        }
+
+        /* FLOATING PRICE CARD */
+        .hero-price-card {
+            position: absolute;
+            z-index: 5;
+            right: 42%;
+            bottom: 12%;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 18px 22px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-price-card small {
+            display: block;
+            font-size: 11px;
+            opacity: 0.65;
+            margin-bottom: 4px;
+            color: var(--text-color);
+        }
+
+        .hero-price-card strong {
+            font-size: 28px;
             color: var(--gold);
-            text-shadow: 0 2px 30px rgba(217, 92, 43, 0.3);
-        }
-        [data-theme="light"] .page-banner .banner-content p {
-            color: #ffffff !important;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* ============================================
-                   SECTION TITLE
-           ============================================ */
+        .hero-price-card span {
+            font-size: 12px;
+            opacity: 0.6;
+            color: var(--text-color);
+        }
+
+        /* BUTTON */
+        .hero-pricing-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 11px 24px;
+            border-radius: 40px;
+            background: var(--gold);
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-pricing-btn:hover {
+            transform: translateY(-3px);
+            background: var(--btn-hover);
+        }
+
+        /* LIGHT MODE - FIXED TEXT COLORS */
+        [data-theme="light"] .page-banner {
+            background: #ffffff;
+        }
+
+        [data-theme="light"] .page-banner-image {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        [data-theme="light"] .page-banner .banner-content h1 {
+            color: #1a1a2e !important;
+        }
+
+        [data-theme="light"] .page-banner .banner-content h1 span:first-child {
+            color: #1a1a2e !important;
+        }
+
+        [data-theme="light"] .page-banner .banner-content h1 span:last-child {
+            color: #d95c2b !important;
+        }
+
+        [data-theme="light"] .page-banner .banner-content p {
+            color: #333333 !important;
+            opacity: 0.8;
+        }
+
+        [data-theme="light"] .hero-price-card small {
+            color: #333333 !important;
+        }
+
+        [data-theme="light"] .hero-price-card span {
+            color: #333333 !important;
+        }
+
+        /* TABLET */
+        @media (max-width: 1024px) {
+            .page-banner {
+                min-height: 65vh;
+                padding: 100px 5%;
+            }
+
+            .page-banner .banner-content h1 {
+                font-size: 42px;
+            }
+
+            .page-banner-image {
+                width: 48%;
+                height: 60%;
+                right: 4%;
+            }
+
+            .hero-price-card {
+                right: 40%;
+                bottom: 12%;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 767px) {
+            .page-banner {
+                min-height: auto;
+                padding: 100px 20px 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 30px;
+            }
+
+            .banner-content {
+                width: 100%;
+                text-align: center !important;
+            }
+
+            .page-banner .banner-content h1 {
+                font-size: 36px;
+            }
+
+            .page-banner .banner-content p {
+                font-size: 14px;
+                margin: 0 auto;
+            }
+
+            .hero-pricing-btn {
+                margin-top: 20px;
+            }
+
+            .page-banner-image {
+                position: relative;
+                right: auto;
+                width: 100%;
+                height: 280px;
+                border-radius: 22px;
+            }
+
+            .hero-price-card {
+                right: 20px;
+                bottom: 20px;
+                padding: 12px 16px;
+            }
+
+            .hero-price-card strong {
+                font-size: 22px;
+            }
+        }
+
+        /* ============================================ SECTION TITLE ============================================ */
         .section-title {
             text-align: center;
             margin-bottom: 25px;
@@ -748,9 +920,7 @@
             margin-bottom: 6px;
         }
 
-                    /* ============================================
-                   PRICING SECTION - FULL VIEWPORT
-           ============================================ */
+        /* ============================================ PRICING SECTION - FULL VIEWPORT ============================================ */
         .pricing {
             width: 94%;
             max-width: 1400px;
@@ -764,7 +934,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 70px;  /* Changed from 30px to 70px - slightly down */
+            margin-top: 70px;
         }
         .pricing-grid {
             display: grid;
@@ -975,9 +1145,7 @@
             background: rgba(217, 92, 43, 0.12);
         }
 
-        /* ============================================
-                   FOOTER - NORMAL (NOT FULL VIEWPORT)
-           ============================================ */
+        /* ============================================ FOOTER ============================================ */
         footer {
             margin-top: 50px;
             background: var(--footer-bg);
@@ -1065,11 +1233,9 @@
             color: var(--text-color);
         }
 
-        /* ============================================
-                   RESPONSIVE
-           ============================================ */
+        /* ============================================ RESPONSIVE ============================================ */
 
-                    /* ===== LAPTOP / DESKTOP (1025px+) ===== */
+        /* ===== LAPTOP / DESKTOP (1025px+) ===== */
         @media (min-width: 1025px) {
             .page-banner {
                 padding: 160px 100px;
@@ -1082,7 +1248,7 @@
             .pricing {
                 min-height: 100vh;
                 height: 100vh;
-                margin-top: 80px;  /* Changed from 40px to 80px - slightly down */
+                margin-top: 80px;
             }
             .pricing-grid {
                 max-width: 1200px;
@@ -1095,9 +1261,8 @@
             }
         }
 
-        /* ===== TABLET (768px - 1024px) - FIXED SPACING ===== */
+        /* ===== TABLET (768px - 1024px) ===== */
         @media (max-width: 1024px) and (min-width: 768px) {
-            /* Hero */
             .page-banner {
                 min-height: 60vh;
                 height: 60vh;
@@ -1110,7 +1275,6 @@
                 font-size: 15px;
             }
 
-            /* Pricing Section - Reduced margin-top */
             .pricing {
                 min-height: auto;
                 height: auto;
@@ -1159,7 +1323,6 @@
                 transform: translateY(-8px);
             }
 
-            /* Footer */
             footer {
                 padding: 30px 30px 20px;
                 margin-top: 30px;
@@ -1503,13 +1666,39 @@
     <!-- ===== PAGE BANNER - FULL VIEWPORT ===== -->
     <section class="page-banner" id="top">
         <div class="banner-content">
-            <h1><span style="color: #ffffff !important;">Our</span> <span>Pricing</span></h1>
-            <p style="color: white;">Affordable plans designed to meet your automotive needs</p>
+            <span class="page-tag">
+                <i class="fas fa-tag"></i> PRICING PLANS
+            </span>
+            <h1>
+                Plans Built for
+                <span>Your Drive.</span>
+            </h1>
+            <p>
+                Choose a flexible automotive care plan designed
+                to keep your vehicle running smoothly, safely,
+                and efficiently.
+            </p>
+            <a href="#pricing" class="hero-pricing-btn">
+                Explore Plans
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="page-banner-image">
+            <img 
+                src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1200&q=80"
+                alt="Professional car service"
+            >
+            <div class="hero-price-card">
+                <small>STARTING FROM</small>
+                <strong>$49</strong>
+                <span>/ month</span>
+            </div>
         </div>
     </section>
 
     <!-- ===== PRICING SECTION - FULL VIEWPORT ===== -->
-    <section class="pricing">
+    <section class="pricing" id="pricing">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-tag"></i> Pricing Plans</span>
             <h1>Choose Your Plan</h1>

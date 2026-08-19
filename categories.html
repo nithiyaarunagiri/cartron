@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartron - Categories</title>
-      <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+    <link rel="icon" type="image/x-icon" href="images/tyre service.jpg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ===== 1. RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -16,12 +15,10 @@
             font-family: 'Poppins', system-ui, sans-serif;
             scroll-behavior: smooth;
         }
-
         html {
             overflow-x: hidden;
             width: 100%;
         }
-
         body {
             background: var(--bg-gradient-1);
             min-height: 100vh;
@@ -33,7 +30,6 @@
             position: relative;
             padding-top: 90px;
         }
-
         body.menu-open {
             overflow: hidden !important;
             position: fixed !important;
@@ -43,15 +39,14 @@
             right: 0;
         }
 
+        /* ===== 2. CSS VARIABLES ===== */
         :root {
             --bg-gradient-1: #0a0a0a;
-            --bg-gradient-2: #0a0a0a;
-            --bg-gradient-3: #0a0a0a;
             --text-color: #f0f4fc;
             --card-bg: rgba(60, 60, 60, 0.6);
             --card-border: rgba(80, 80, 80, 0.3);
             --nav-bg: rgba(20, 20, 20, 0.95);
-            --footer-bg: rgba(10, 10, 10, 0.9);
+            --footer-bg: rgba(10, 10, 10, 0.95);
             --shadow: rgba(0, 0, 0, 0.5);
             --btn-hover: #ff6b35;
             --gold: #ff6b35;
@@ -59,48 +54,35 @@
             --badge-color: #ff6b35;
             --badge-bg: rgba(255, 107, 53, 0.15);
             --transition: 0.4s ease;
-            --stat-bg: rgba(60, 60, 60, 0.4);
-            --stat-border: rgba(80, 80, 80, 0.3);
-            --cta-bg: rgba(255, 107, 53, 0.08);
             --footer-text: #d0dfec;
             --footer-link-hover: var(--gold);
             --tag-bg: rgba(255, 107, 53, 0.15);
             --tag-border: rgba(255, 107, 53, 0.1);
             --tag-color: var(--gold);
             --rtl-direction: ltr;
-            --rtl-text-align: center;
             --dropdown-bg: rgba(20, 20, 20, 0.95);
             --nav-link-color: rgba(255, 255, 255, 0.8);
             --nav-link-hover: var(--gold);
             --mobile-nav-bg: rgba(10, 10, 10, 0.98);
             --mobile-nav-border: 2px solid var(--gold);
             --drawer-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-            --hero-text-color: #ffffff;
-            --hero-text-shadow: 0 2px 20px rgba(0,0,0,0.4);
             --hero-overlay: rgba(0, 0, 0, 0.55);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --cta-bg: rgba(255, 107, 53, 0.08);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.12);
         }
-
         [data-theme="light"] {
-            --bg-gradient-1: #ffffff;
-            --bg-gradient-2: #ffffff;
-            --bg-gradient-3: #ffffff;
+            --bg-gradient-1: #f8f9fa;
             --text-color: #1a1a2e;
-            --card-bg: rgba(240, 240, 240, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.8);
             --card-border: rgba(200, 200, 200, 0.4);
             --nav-bg: rgba(255, 255, 255, 0.95);
-            --footer-bg: rgba(240, 240, 240, 0.9);
+            --footer-bg: rgba(240, 240, 240, 0.95);
             --shadow: rgba(0, 0, 0, 0.08);
             --gold: #d95c2b;
             --gold-rgb: 217, 92, 43;
             --badge-color: #d95c2b;
             --badge-bg: rgba(217, 92, 43, 0.15);
-            --stat-bg: rgba(240, 240, 240, 0.6);
-            --stat-border: rgba(200, 200, 200, 0.3);
-            --cta-bg: rgba(217, 92, 43, 0.06);
-            --footer-text: #2a2a3e;
-            --footer-link-hover: #d95c2b;
             --tag-bg: rgba(217, 92, 43, 0.12);
             --tag-border: rgba(217, 92, 43, 0.08);
             --tag-color: #d95c2b;
@@ -108,19 +90,17 @@
             --nav-link-color: rgba(0, 0, 0, 0.7);
             --nav-link-hover: #d95c2b;
             --mobile-nav-bg: rgba(255, 255, 255, 0.98);
-            --hero-text-color: #1a1a2e;
-            --hero-text-shadow: 0 2px 20px rgba(255,255,255,0.3);
             --hero-overlay: rgba(255, 255, 255, 0.65);
-            --glass-bg: rgba(0, 0, 0, 0.03);
-            --glass-border: rgba(0, 0, 0, 0.08);
+            --cta-bg: rgba(217, 92, 43, 0.06);
+            --input-bg: rgba(0, 0, 0, 0.04);
+            --input-border: rgba(0, 0, 0, 0.12);
+            --footer-text: #2a2a3e;
         }
-
         [dir="rtl"] {
             --rtl-direction: rtl;
-            --rtl-text-align: center;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* ===== 3. NAVIGATION ===== */
         nav {
             width: 94%;
             max-width: 1400px;
@@ -141,7 +121,6 @@
             box-shadow: 0 15px 35px var(--shadow);
             transition: background var(--transition), border var(--transition), box-shadow var(--transition);
         }
-
         .logo {
             font-size: 26px;
             font-weight: 600;
@@ -156,7 +135,6 @@
         .logo i {
             color: var(--gold);
         }
-
         nav ul {
             display: flex;
             list-style: none;
@@ -192,7 +170,6 @@
         nav ul li a:hover .dropdown-arrow {
             transform: rotate(180deg);
         }
-
         nav ul li .nav-dropdown {
             position: absolute;
             top: 32px;
@@ -241,15 +218,12 @@
             color: var(--gold);
             opacity: 1;
         }
-
         .mobile-home-links {
             display: none !important;
         }
-
         .desktop-home-dropdown {
             display: flex !important;
         }
-
         .auth-buttons {
             display: flex;
             gap: 10px;
@@ -270,7 +244,6 @@
             white-space: nowrap;
         }
         .auth-buttons .login-btn:hover {
-            background: var(--btn-secondary-hover);
             border-color: var(--gold);
             opacity: 1;
         }
@@ -290,7 +263,6 @@
             background: var(--btn-hover);
             transform: scale(1.05);
         }
-
         .theme-toggle {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -309,7 +281,6 @@
             transform: scale(1.05);
             border-color: var(--gold);
         }
-
         .rtl-toggle {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -328,14 +299,12 @@
             border-color: var(--gold);
             color: var(--gold);
         }
-
         .nav-controls {
             display: flex;
             gap: 8px;
             align-items: center;
             flex-shrink: 0;
         }
-
         .hamburger {
             display: none;
             flex-direction: column;
@@ -364,7 +333,6 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(4px, -5px);
         }
-
         .mobile-only {
             display: none !important;
         }
@@ -393,7 +361,6 @@
                 font-size: 14px;
             }
         }
-
         @media screen and (max-width: 900px) {
             body {
                 padding-top: 80px;
@@ -413,19 +380,15 @@
             nav .nav-controls .rtl-toggle {
                 display: none;
             }
-
             .hamburger {
                 display: flex;
             }
-
             .mobile-only {
                 display: flex !important;
             }
-
             .desktop-home-dropdown {
                 display: none !important;
             }
-
             .mobile-home-links {
                 display: flex !important;
                 flex-direction: column;
@@ -454,7 +417,6 @@
                 width: 20px;
                 color: var(--gold);
             }
-
             nav ul {
                 position: fixed;
                 top: 0;
@@ -478,26 +440,21 @@
                 max-width: 300px;
                 z-index: 1000;
             }
-
             nav ul.active {
                 right: 0;
             }
-
             nav ul li {
                 width: 100%;
             }
-
             nav ul li a {
                 justify-content: space-between;
                 width: 100%;
                 padding: 10px 14px;
                 font-size: 14px;
             }
-
             nav ul li a .dropdown-arrow {
                 display: none;
             }
-
             .mobile-auth {
                 margin-top: 12px;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -506,7 +463,6 @@
                 flex-direction: column;
                 width: 100%;
             }
-
             .mobile-auth a {
                 width: 100%;
                 text-align: center;
@@ -520,7 +476,6 @@
                 align-items: center;
                 gap: 8px;
             }
-
             .mobile-auth .mobile-login {
                 color: var(--gold);
                 border: 2px solid var(--gold);
@@ -537,7 +492,6 @@
             .mobile-auth .mobile-signup:hover {
                 background: var(--btn-hover);
             }
-
             .mobile-actions {
                 margin-top: 8px;
                 gap: 8px;
@@ -545,7 +499,6 @@
                 display: flex;
                 flex-wrap: wrap;
             }
-
             .mobile-actions button {
                 border-radius: 25px;
                 padding: 8px 14px;
@@ -564,17 +517,14 @@
                 transition: 0.3s;
                 font-weight: 500;
             }
-
             .mobile-actions button:hover {
                 border-color: var(--gold);
                 background: var(--badge-bg);
             }
-
             .mobile-actions button i {
                 font-size: 14px;
             }
         }
-
         @media screen and (max-width: 600px) {
             body {
                 padding-top: 72px;
@@ -618,7 +568,6 @@
                 padding: 6px 12px;
             }
         }
-
         [dir="rtl"] nav ul {
             right: auto;
             left: -100%;
@@ -637,106 +586,22 @@
             flex-direction: row-reverse;
         }
 
-        /* ============================================
-                   PAGE BANNER - FULL VIEWPORT
-           ============================================ */
-        .page-banner {
-            width: 100%;
-            padding: 140px 60px;
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        .page-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--hero-overlay);
-            border-radius: 0;
-            z-index: 0;
-            transition: background var(--transition);
-        }
-        .page-banner .banner-content {
-            position: relative;
-            z-index: 1;
-            max-width: 850px;
-            text-align: center;
-            margin: 0 auto;
-        }
-        .page-banner .banner-content h1 {
-            font-size: 52px;
-            line-height: 1.15;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--hero-text-color);
-            text-shadow: var(--hero-text-shadow);
-            transition: color var(--transition), text-shadow var(--transition);
-        }
-        .page-banner .banner-content h1 span {
-            color: var(--gold);
-            text-shadow: 0 2px 20px rgba(255, 107, 53, 0.3);
-        }
-        .page-banner .banner-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            opacity: 0.9;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--hero-text-color);
-            text-shadow: var(--hero-text-shadow);
-            transition: color var(--transition), text-shadow var(--transition);
-        }
-
-        [data-theme="light"] .page-banner::before {
-            background: rgba(0, 0, 0, 0.4);
-        }
-        [data-theme="light"] .page-banner .banner-content h1 {
-            color: #ffffff !important;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
-        }
-        [data-theme="light"] .page-banner .banner-content h1 span {
-            color: var(--gold);
-            text-shadow: 0 2px 30px rgba(217, 92, 43, 0.3);
-        }
-        [data-theme="light"] .page-banner .banner-content p {
-            color: #ffffff !important;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* ============================================
-                   SECTION TITLE
-           ============================================ */
+        /* ===== 4. SECTION TITLE ===== */
         .section-title {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
         }
         .section-title h1 {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 600;
             color: var(--text-color);
         }
         .section-title p {
-            font-size: 15px;
+            font-size: 16px;
             opacity: 0.75;
-            margin-top: 5px;
+            margin-top: 6px;
             color: var(--text-color);
         }
-
         .page-tag {
             display: inline-block;
             background: var(--tag-bg);
@@ -745,40 +610,191 @@
             font-size: 12px;
             color: var(--tag-color);
             border: 1px solid var(--tag-border);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
-        /* ============================================
-                   CATEGORY SECTIONS - FIXED SPACING
-           ============================================ */
-        .category-section,
-        .category-section-2,
-        .category-section-3 {
-            width: 94%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 30px 0 20px;
+        /* ===== 5. PAGE BANNER - UNIQUE LAYOUT WITH CAR IMAGE ===== */
+        .page-banner {
+            width: 100%;
+            padding: 80px 60px;
             position: relative;
             z-index: 2;
-            min-height: auto;
-            height: auto;
+            min-height: 70vh;
+            height: 70vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            overflow: hidden;
+            background: var(--bg-gradient-1);
+            gap: 40px;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+            z-index: 0;
+        }
+        .page-banner .banner-content {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 50%;
+            max-width: 600px;
+        }
+        .page-banner .banner-content .banner-tag {
+            display: inline-block;
+            background: var(--badge-bg);
+            padding: 6px 20px;
+            border-radius: 60px;
+            font-size: 12px;
+            color: var(--gold);
+            border: 1px solid var(--tag-border);
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .page-banner .banner-content h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+        .page-banner .banner-content h1 span {
+            color: var(--gold);
+        }
+        .page-banner .banner-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 28px;
+            max-width: 480px;
+            color: var(--text-color);
+        }
+        .page-banner .banner-content .banner-search-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 12px 16px;
+            max-width: 550px;
+            box-shadow: 0 12px 30px var(--shadow);
+        }
+        .page-banner .banner-content .banner-search-row input,
+        .page-banner .banner-content .banner-search-row select {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 14px;
+            border: 1px solid var(--input-border);
+            border-radius: 10px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .page-banner .banner-content .banner-search-row input:focus,
+        .page-banner .banner-content .banner-search-row select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.08);
+        }
+        .page-banner .banner-content .banner-search-row select option {
+            background: var(--bg-gradient-1);
+            color: var(--text-color);
+        }
+        .page-banner .banner-content .banner-search-row .search-btn {
+            padding: 10px 28px;
+            border: none;
+            border-radius: 10px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .page-banner .banner-content .banner-search-row .search-btn:hover {
+            background: var(--btn-hover);
+            transform: scale(1.02);
+        }
+        .page-banner .banner-content .banner-quick-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .page-banner .banner-content .banner-quick-links a {
+            padding: 6px 18px;
+            border: 1px solid var(--card-border);
+            border-radius: 60px;
+            background: transparent;
+            color: var(--text-color);
+            font-size: 12px;
+            text-decoration: none;
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+        .page-banner .banner-content .banner-quick-links a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            opacity: 1;
         }
 
+        .page-banner .banner-image {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 45%;
+            max-width: 520px;
+        }
+        .page-banner .banner-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px var(--shadow);
+            object-fit: cover;
+        }
+        .page-banner .banner-image .floating-badge {
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            background: var(--gold);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 13px;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .page-banner .banner-image .floating-badge i {
+            font-size: 20px;
+        }
+
+        [data-theme="light"] .page-banner {
+            background: #f8f9fa;
+        }
+        [data-theme="light"] .page-banner .banner-content .banner-search-row {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== 6. CATEGORY CARDS WITH PRICES ===== */
         .category-section {
-            margin-top: 20px;
+            width: 94%;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
         }
-        .category-section-2,
-        .category-section-3 {
-            margin-top: 10px;
-        }
-
-        .category-section .category-grid,
-        .category-section-2 .category-grid,
-        .category-section-3 .category-grid {
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
@@ -788,10 +804,7 @@
             justify-items: center;
             align-items: stretch;
         }
-
-        .category-section .cat-card,
-        .category-section-2 .cat-card,
-        .category-section-3 .cat-card {
+        .cat-card {
             padding: 0;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -809,10 +822,7 @@
             max-width: 340px;
             margin: 0 auto;
         }
-
-        .category-section .cat-card::before,
-        .category-section-2 .cat-card::before,
-        .category-section-3 .cat-card::before {
+        .cat-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -824,84 +834,321 @@
             transition: transform 0.4s ease;
             z-index: 2;
         }
-
-        .category-section .cat-card:hover::before,
-        .category-section-2 .cat-card:hover::before,
-        .category-section-3 .cat-card:hover::before {
+        .cat-card:hover::before {
             transform: scaleX(1);
         }
-
-        .category-section .cat-card:hover,
-        .category-section-2 .cat-card:hover,
-        .category-section-3 .cat-card:hover {
+        .cat-card:hover {
             transform: translateY(-8px);
             border-color: var(--gold);
             box-shadow: 0 16px 35px rgba(255, 107, 53, 0.12);
         }
-
-        .category-section .cat-card .cat-img,
-        .category-section-2 .cat-card .cat-img,
-        .category-section-3 .cat-card .cat-img {
+        .cat-card .cat-img {
             width: 100%;
             height: 180px;
             object-fit: cover;
             transition: 0.4s;
             flex-shrink: 0;
         }
-
-        .category-section .cat-card:hover .cat-img,
-        .category-section-2 .cat-card:hover .cat-img,
-        .category-section-3 .cat-card:hover .cat-img {
+        .cat-card:hover .cat-img {
             transform: scale(1.03);
         }
-
-        .category-section .cat-card .cat-body,
-        .category-section-2 .cat-card .cat-body,
-        .category-section-3 .cat-card .cat-body {
+        .cat-card .cat-body {
             padding: 16px 18px 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
         }
-
-        .category-section .cat-card .cat-body h2,
-        .category-section-2 .cat-card .cat-body h2,
-        .category-section-3 .cat-card .cat-body h2 {
+        .cat-card .cat-body h2 {
             font-size: 17px;
             font-weight: 600;
             color: var(--text-color);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
-
-        .category-section .cat-card .cat-body p,
-        .category-section-2 .cat-card .cat-body p,
-        .category-section-3 .cat-card .cat-body p {
-            opacity: 0.7;
+        .cat-card .cat-body .cat-desc {
+            opacity: 0.6;
             font-size: 13px;
             color: var(--text-color);
-            margin-bottom: 8px;
-            flex: 1;
+            margin-bottom: 4px;
         }
-
-        .category-section .cat-card .cat-body .cat-count,
-        .category-section-2 .cat-card .cat-body .cat-count,
-        .category-section-3 .cat-card .cat-body .cat-count {
+        .cat-card .cat-body .cat-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 4px 0 8px;
+        }
+        .cat-card .cat-body .cat-price .old-price {
+            font-size: 16px;
+            font-weight: 400;
+            text-decoration: line-through;
+            opacity: 0.4;
+            margin-left: 8px;
+            color: var(--text-color);
+        }
+        .cat-card .cat-body .cat-count {
             display: inline-block;
             font-size: 11px;
             font-weight: 600;
-            color: var(--gold);
-            padding: 3px 14px;
+            color: var(--text-color);
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+        .cat-card .cat-body .cat-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .cat-card .cat-body .cat-actions .shop-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 60px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cat-card .cat-body .cat-actions .shop-btn:hover {
+            background: var(--btn-hover);
+            transform: scale(1.02);
+        }
+        .cat-card .cat-body .cat-actions .enquire-btn {
+            padding: 10px 16px;
             border: 1px solid var(--gold);
             border-radius: 60px;
+            background: transparent;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cat-card .cat-body .cat-actions .enquire-btn:hover {
+            background: var(--gold);
+            color: #fff;
         }
 
-        /* ============================================
-                   FOOTER
-           ============================================ */
+        /* ===== 7. SHOP BY CAR TYPE ===== */
+        .car-types {
+            width: 94%;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .car-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .car-type-card {
+            padding: 25px 20px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 12px 30px var(--shadow);
+            cursor: pointer;
+        }
+        .car-type-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+        .car-type-card .car-icon {
+            font-size: 42px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .car-type-card h3 {
+            font-size: 18px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .car-type-card p {
+            font-size: 13px;
+            opacity: 0.6;
+            color: var(--text-color);
+        }
+
+        /* ===== 8. POPULAR PRODUCTS ===== */
+        .popular-products {
+            width: 94%;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .popular-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 12px 30px var(--shadow);
+        }
+        .popular-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+        .popular-card .pop-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+        .popular-card:hover .pop-img {
+            transform: scale(1.04);
+        }
+        .popular-card .pop-body {
+            padding: 14px 16px 18px;
+        }
+        .popular-card .pop-body h3 {
+            font-size: 15px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .popular-card .pop-body .pop-vehicle {
+            font-size: 12px;
+            opacity: 0.5;
+            color: var(--text-color);
+        }
+        .popular-card .pop-body .pop-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 4px 0;
+        }
+        .popular-card .pop-body .pop-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .popular-card .pop-body .pop-actions .btn-buy {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 60px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .popular-card .pop-body .pop-actions .btn-buy:hover {
+            background: var(--btn-hover);
+        }
+        .popular-card .pop-body .pop-actions .btn-enquire {
+            padding: 8px 14px;
+            border: 1px solid var(--gold);
+            border-radius: 60px;
+            background: transparent;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .popular-card .pop-body .pop-actions .btn-enquire:hover {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        /* ===== 9. CTA SECTION ===== */
+        .cta-section {
+            width: 94%;
+            max-width: 1400px;
+            margin: 30px auto 40px;
+            padding: 40px 35px;
+            background: var(--cta-bg);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: background var(--transition), border var(--transition);
+        }
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.7;
+            margin-bottom: 25px;
+            color: var(--text-color);
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-section .cta-btn-primary {
+            padding: 12px 38px;
+            border: none;
+            border-radius: 60px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cta-section .cta-btn-primary:hover {
+            background: var(--btn-hover);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        .cta-section .cta-btn-secondary {
+            padding: 12px 38px;
+            border: 1px solid var(--card-border);
+            border-radius: 60px;
+            background: transparent;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cta-section .cta-btn-secondary:hover {
+            background: var(--card-bg);
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        /* ===== 10. FOOTER ===== */
         footer {
-            margin-top: 0;
+            margin-top: 60px;
             background: var(--footer-bg);
             backdrop-filter: blur(18px);
             padding: 40px 40px 25px;
@@ -928,7 +1175,7 @@
         .footer-box p,
         .footer-box a {
             line-height: 1.8;
-            opacity: 0.7;
+            opacity: 0.8;
             color: var(--footer-text);
             text-decoration: none;
             display: block;
@@ -939,7 +1186,6 @@
             color: var(--footer-link-hover);
             opacity: 1;
         }
-
         .footer-logo-link {
             display: inline-flex !important;
             align-items: center;
@@ -958,7 +1204,6 @@
             color: var(--gold) !important;
             opacity: 1 !important;
         }
-
         .social {
             display: flex;
             gap: 14px;
@@ -969,6 +1214,7 @@
             color: var(--footer-text);
             opacity: 0.7;
             transition: 0.2s;
+            font-size: 22px;
         }
         .social a:hover {
             color: var(--footer-link-hover);
@@ -987,399 +1233,173 @@
             color: var(--text-color);
         }
 
-        /* ============================================
-                   RESPONSIVE - FIXED SPACING FOR IPAD & DESKTOP
-           ============================================ */
-
-        /* ===== LAPTOP / DESKTOP (1025px+) ===== */
-        @media (min-width: 1025px) {
+        /* ===== 11. RESPONSIVE ===== */
+        @media (max-width: 1024px) {
             .page-banner {
-                padding: 160px 100px;
-                min-height: 100vh;
-                height: 100vh;
-            }
-            .page-banner .banner-content h1 {
-                font-size: 60px;
-            }
-            .category-section,
-            .category-section-2,
-            .category-section-3 {
-                min-height: auto;
-                height: auto;
-                padding: 40px 0 30px;
-            }
-            .category-section {
-                margin-top: 30px;
-            }
-            .category-section-2 {
-                margin-top: 20px;
-            }
-            .category-section-3 {
-                margin-top: 20px;
-            }
-            .category-section .category-grid,
-            .category-section-2 .category-grid,
-            .category-section-3 .category-grid {
-                max-width: 1200px;
-                gap: 30px;
-            }
-            .category-section .cat-card .cat-img,
-            .category-section-2 .cat-card .cat-img,
-            .category-section-3 .cat-card .cat-img {
-                height: 200px;
-            }
-            .category-section .cat-card .cat-body h2,
-            .category-section-2 .cat-card .cat-body h2,
-            .category-section-3 .cat-card .cat-body h2 {
-                font-size: 19px;
-            }
-        }
-
-        /* ===== TABLET (768px - 1024px) ===== */
-        @media (max-width: 1024px) and (min-width: 768px) {
-            /* Hero */
-            .page-banner {
+                padding: 60px 35px;
                 min-height: 60vh;
                 height: 60vh;
-                padding: 60px 30px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .page-banner .banner-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            .page-banner .banner-content p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .page-banner .banner-content .banner-search-row {
+                max-width: 100%;
+                justify-content: center;
+            }
+            .page-banner .banner-content .banner-quick-links {
+                justify-content: center;
             }
             .page-banner .banner-content h1 {
                 font-size: 38px;
             }
-            .page-banner .banner-content p {
-                font-size: 15px;
+            .page-banner .banner-image {
+                max-width: 100%;
+                flex: 1 1 100%;
             }
-
-            /* Category Section 1 */
-            .category-section {
-                min-height: auto;
-                height: auto;
-                padding: 35px 5% 25px;
-                margin-top: 20px;
+            .page-banner .banner-image img {
+                max-height: 220px;
+                width: 100%;
+                object-fit: cover;
             }
-            .category-section .section-title {
-                margin-bottom: 20px;
+            .page-banner .banner-image .floating-badge {
+                bottom: 5px;
+                left: 5px;
+                padding: 8px 14px;
+                font-size: 11px;
             }
-            .category-section .section-title h1 {
-                font-size: 28px;
-            }
-            .category-section .section-title p {
-                font-size: 14px;
-            }
-            .category-section .category-grid {
+            .category-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
                 max-width: 600px;
             }
-            .category-section .cat-card .cat-img {
-                height: 150px;
-            }
-            .category-section .cat-card .cat-body {
-                padding: 14px 16px 18px;
-            }
-            .category-section .cat-card .cat-body h2 {
-                font-size: 16px;
-            }
-            .category-section .cat-card .cat-body p {
-                font-size: 13px;
-            }
-
-            /* Category Section 2 */
-            .category-section-2 {
-                min-height: auto;
-                height: auto;
-                padding: 25px 5% 25px;
-                margin-top: 15px;
-            }
-            .category-section-2 .section-title {
-                margin-bottom: 20px;
-            }
-            .category-section-2 .section-title h1 {
-                font-size: 28px;
-            }
-            .category-section-2 .section-title p {
-                font-size: 14px;
-            }
-            .category-section-2 .category-grid {
+            .car-types-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                max-width: 600px;
             }
-            .category-section-2 .cat-card .cat-img {
-                height: 150px;
-            }
-            .category-section-2 .cat-card .cat-body {
-                padding: 14px 16px 18px;
-            }
-            .category-section-2 .cat-card .cat-body h2 {
-                font-size: 16px;
-            }
-            .category-section-2 .cat-card .cat-body p {
-                font-size: 13px;
-            }
-
-            /* Category Section 3 */
-            .category-section-3 {
-                min-height: auto;
-                height: auto;
-                padding: 25px 5% 25px;
-                margin-top: 15px;
-            }
-            .category-section-3 .section-title {
-                margin-bottom: 20px;
-            }
-            .category-section-3 .section-title h1 {
-                font-size: 28px;
-            }
-            .category-section-3 .section-title p {
-                font-size: 14px;
-            }
-            .category-section-3 .category-grid {
+            .popular-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                max-width: 600px;
-            }
-            .category-section-3 .cat-card .cat-img {
-                height: 150px;
-            }
-            .category-section-3 .cat-card .cat-body {
-                padding: 14px 16px 18px;
-            }
-            .category-section-3 .cat-card .cat-body h2 {
-                font-size: 16px;
-            }
-            .category-section-3 .cat-card .cat-body p {
-                font-size: 13px;
-            }
-
-            /* Footer */
-            footer {
-                padding: 30px 30px 20px;
-                margin-top: 15px;
             }
             .footer-container {
                 gap: 25px;
             }
             .footer-box {
-                flex: 1 1 150px;
-            }
-            .footer-box h2 {
-                font-size: 17px;
-            }
-            .footer-box p,
-            .footer-box a {
-                font-size: 13px;
-            }
-            .footer-logo-link {
-                font-size: 22px !important;
-            }
-            hr {
-                margin: 25px auto 12px;
+                flex: 1 1 160px;
             }
         }
-
-        /* ===== SMALL TABLET / LARGE PHONE (600px - 767px) ===== */
-        @media (max-width: 767px) and (min-width: 600px) {
+        @media (max-width: 600px) {
             .page-banner {
+                padding: 40px 20px;
                 min-height: 50vh;
                 height: 50vh;
-                padding: 50px 25px;
             }
             .page-banner .banner-content h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             .page-banner .banner-content p {
                 font-size: 14px;
             }
-
-            .category-section {
-                min-height: auto;
-                height: auto;
-                padding: 30px 5% 20px;
-                margin-top: 15px;
+            .page-banner .banner-content .banner-search-row {
+                flex-direction: column;
+                padding: 12px;
             }
-            .category-section .section-title h1 {
-                font-size: 26px;
+            .page-banner .banner-content .banner-search-row input,
+            .page-banner .banner-content .banner-search-row select {
+                min-width: 100%;
             }
-            .category-section .category-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-                max-width: 100%;
+            .page-banner .banner-content .banner-search-row .search-btn {
+                width: 100%;
+                justify-content: center;
             }
-            .category-section .cat-card .cat-img {
-                height: 140px;
+            .page-banner .banner-image img {
+                max-height: 150px;
             }
-
-            .category-section-2 {
-                min-height: auto;
-                height: auto;
-                padding: 20px 5% 20px;
-                margin-top: 10px;
+            .page-banner .banner-image .floating-badge {
+                display: none;
             }
-            .category-section-2 .section-title h1 {
-                font-size: 26px;
-            }
-            .category-section-2 .category-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-                max-width: 100%;
-            }
-            .category-section-2 .cat-card .cat-img {
-                height: 140px;
-            }
-
-            .category-section-3 {
-                min-height: auto;
-                height: auto;
-                padding: 20px 5% 20px;
-                margin-top: 10px;
-            }
-            .category-section-3 .section-title h1 {
-                font-size: 26px;
-            }
-            .category-section-3 .category-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-                max-width: 100%;
-            }
-            .category-section-3 .cat-card .cat-img {
-                height: 140px;
-            }
-
-            footer {
-                padding: 25px 20px 18px;
-                margin-top: 10px;
-            }
-            .footer-container {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            .footer-box {
-                flex: 1 1 140px;
-            }
-        }
-
-        /* ===== MOBILE (up to 599px) ===== */
-        @media (max-width: 599px) {
-            .page-banner {
-                padding: 60px 20px;
-                min-height: 50vh;
-                height: 50vh;
-                background-attachment: scroll;
-            }
-            .page-banner .banner-content h1 {
-                font-size: 30px;
-            }
-            .page-banner .banner-content p {
-                font-size: 15px;
-            }
-
             .section-title h1 {
                 font-size: 22px;
             }
-            .section-title p {
-                font-size: 14px;
-            }
-
-            .category-section {
-                min-height: auto;
-                height: auto;
-                padding: 25px 0 15px;
-                margin-top: 15px;
-            }
-            .category-section .section-title {
-                margin-bottom: 16px;
-            }
-            .category-section .category-grid {
+            .category-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 14px;
                 max-width: 100%;
             }
-            .category-section .cat-card .cat-img {
+            .cat-card .cat-img {
                 height: 120px;
             }
-            .category-section .cat-card .cat-body {
+            .cat-card .cat-body {
                 padding: 12px 12px 16px;
             }
-            .category-section .cat-card .cat-body h2 {
+            .cat-card .cat-body h2 {
                 font-size: 14px;
             }
-            .category-section .cat-card .cat-body p {
+            .cat-card .cat-body .cat-desc {
                 font-size: 12px;
-                margin-bottom: 6px;
             }
-            .category-section .cat-card .cat-body .cat-count {
+            .cat-card .cat-body .cat-price {
+                font-size: 18px;
+            }
+            .cat-card .cat-body .cat-count {
                 font-size: 10px;
-                padding: 2px 10px;
             }
-
-            .category-section-2 {
-                min-height: auto;
-                height: auto;
-                padding: 15px 0 15px;
-                margin-top: 10px;
+            .cat-card .cat-body .cat-actions .shop-btn {
+                font-size: 11px;
+                padding: 8px;
             }
-            .category-section-2 .section-title {
-                margin-bottom: 16px;
+            .cat-card .cat-body .cat-actions .enquire-btn {
+                font-size: 11px;
+                padding: 8px 12px;
             }
-            .category-section-2 .category-grid {
+            .car-types-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 14px;
-                max-width: 100%;
             }
-            .category-section-2 .cat-card .cat-img {
-                height: 120px;
+            .car-type-card {
+                padding: 18px 14px;
             }
-            .category-section-2 .cat-card .cat-body {
-                padding: 12px 12px 16px;
+            .car-type-card .car-icon {
+                font-size: 32px;
             }
-            .category-section-2 .cat-card .cat-body h2 {
-                font-size: 14px;
+            .car-type-card h3 {
+                font-size: 15px;
             }
-            .category-section-2 .cat-card .cat-body p {
-                font-size: 12px;
-                margin-bottom: 6px;
+            .popular-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
             }
-            .category-section-2 .cat-card .cat-body .cat-count {
-                font-size: 10px;
-                padding: 2px 10px;
+            .popular-card .pop-img {
+                height: 140px;
             }
-
-            .category-section-3 {
-                min-height: auto;
-                height: auto;
-                padding: 15px 0 15px;
-                margin-top: 10px;
+            .cta-section {
+                padding: 25px 16px;
+                border-radius: 30px;
             }
-            .category-section-3 .section-title {
-                margin-bottom: 16px;
+            .cta-section h2 {
+                font-size: 20px;
             }
-            .category-section-3 .category-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 14px;
-                max-width: 100%;
+            .cta-section .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
-            .category-section-3 .cat-card .cat-img {
-                height: 120px;
+            .cta-section .cta-btn-primary,
+            .cta-section .cta-btn-secondary {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                padding: 10px 16px;
+                font-size: 13px;
             }
-            .category-section-3 .cat-card .cat-body {
-                padding: 12px 12px 16px;
-            }
-            .category-section-3 .cat-card .cat-body h2 {
-                font-size: 14px;
-            }
-            .category-section-3 .cat-card .cat-body p {
-                font-size: 12px;
-                margin-bottom: 6px;
-            }
-            .category-section-3 .cat-card .cat-body .cat-count {
-                font-size: 10px;
-                padding: 2px 10px;
-            }
-
             footer {
                 padding: 25px 16px 18px;
-                margin-top: 15px;
+                margin-top: 40px;
             }
             .footer-container {
                 gap: 16px;
@@ -1394,6 +1414,7 @@
             .footer-box p,
             .footer-box a {
                 font-size: 13px;
+                opacity: 0.8;
             }
             .footer-logo-link {
                 font-size: 20px !important;
@@ -1402,56 +1423,74 @@
                 font-size: 20px;
                 gap: 12px;
             }
+            .social a {
+                font-size: 20px;
+            }
             .copy {
                 font-size: 12px;
             }
             hr {
                 margin: 20px auto 10px;
             }
+            [dir="rtl"] .page-banner .banner-content {
+                text-align: center;
+            }
         }
-
         @media (max-width: 380px) {
             .page-banner .banner-content h1 {
-                font-size: 26px;
+                font-size: 24px;
             }
             .section-title h1 {
                 font-size: 20px;
             }
-            .category-section .cat-card .cat-img,
-            .category-section-2 .cat-card .cat-img,
-            .category-section-3 .cat-card .cat-img {
-                height: 100px;
-            }
-            .category-section .cat-card .cat-body h2,
-            .category-section-2 .cat-card .cat-body h2,
-            .category-section-3 .cat-card .cat-body h2 {
-                font-size: 13px;
-            }
-            .category-section .cat-card .cat-body p,
-            .category-section-2 .cat-card .cat-body p,
-            .category-section-3 .cat-card .cat-body p {
-                font-size: 11px;
-            }
             .category-grid {
-                gap: 10px;
+                grid-template-columns: 1fr;
+            }
+            .car-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 1400px) {
+            .page-banner {
+                padding: 100px 100px;
+                min-height: 75vh;
+                height: 75vh;
+            }
+            .page-banner .banner-content h1 {
+                font-size: 56px;
+            }
+            .page-banner .banner-image img {
+                max-height: 400px;
             }
         }
 
-        /* ===== RTL ===== */
+        /* ===== 12. RTL ===== */
         [dir="rtl"] .page-banner .banner-content {
-            text-align: center;
+            text-align: right;
+        }
+        [dir="rtl"] .page-banner .banner-image .floating-badge {
+            left: auto;
+            right: -15px;
         }
         [dir="rtl"] nav ul li .nav-dropdown {
             left: auto;
             right: 0;
         }
+        [dir="rtl"] .cat-card .cat-price .old-price {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+        @media (max-width: 1024px) {
+            [dir="rtl"] .page-banner .banner-content {
+                text-align: center;
+            }
+        }
 
-        /* ===== Theme Color Support ===== */
+        /* ===== 13. THEME COLOR SUPPORT ===== */
         [data-theme-color="blue"] {
             --gold: #3b82f6;
             --gold-rgb: 59, 130, 246;
             --badge-color: #3b82f6;
-            --toggle-active: #3b82f6;
             --badge-bg: rgba(59, 130, 246, 0.15);
             --nav-link-hover: #3b82f6;
             --footer-link-hover: #3b82f6;
@@ -1461,7 +1500,6 @@
             --gold: #22c55e;
             --gold-rgb: 34, 197, 94;
             --badge-color: #22c55e;
-            --toggle-active: #22c55e;
             --badge-bg: rgba(34, 197, 94, 0.15);
             --nav-link-hover: #22c55e;
             --footer-link-hover: #22c55e;
@@ -1471,7 +1509,6 @@
             --gold: #8b5cf6;
             --gold-rgb: 139, 92, 246;
             --badge-color: #8b5cf6;
-            --toggle-active: #8b5cf6;
             --badge-bg: rgba(139, 92, 246, 0.15);
             --nav-link-hover: #8b5cf6;
             --footer-link-hover: #8b5cf6;
@@ -1484,23 +1521,17 @@
     <nav>
         <a href="index.html" class="logo"><i class="fas fa-car"></i> Cartron</a>
         <ul>
-            <!-- Desktop Home Dropdown -->
             <li class="desktop-home-dropdown" id="homeDropdownLi">
-                <a href="#" id="homeDropdownLink">
-                    Home <span class="dropdown-arrow">▼</span>
-                </a>
+                <a href="#" id="homeDropdownLink">Home <span class="dropdown-arrow">▼</span></a>
                 <div class="nav-dropdown" id="homeDropdown">
                     <a href="index.html">Home 1</a>
                     <a href="home2.html">Home 2</a>
                 </div>
             </li>
-
-            <!-- Mobile Home Links -->
             <li class="mobile-home-links">
                 <a href="index.html">Home 1</a>
                 <a href="home2.html">Home 2</a>
             </li>
-
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="categories.html" class="active">Categories</a></li>
@@ -1509,7 +1540,6 @@
             <li><a href="booking.html">Booking</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
-
             <li class="mobile-only mobile-auth">
                 <a href="login.html" class="mobile-login"><i class="fas fa-sign-in-alt"></i> Login</a>
                 <a href="signup.html" class="mobile-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
@@ -1519,133 +1549,347 @@
                 <button id="mobile-dark-light"><i class="fas fa-moon" id="mobileDarkIcon"></i> <span id="mobileDarkLabel">Dark</span></button>
             </li>
         </ul>
-
         <div class="nav-controls">
             <button class="rtl-toggle" id="rtlToggle"><span id="desktopRtlLabel">RTL</span></button>
             <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="toggleIcon"></i></button>
             <div class="auth-buttons">
-                <a href="login.html" class="login-btn"> Login</a>
+                <a href="login.html" class="login-btn">Login</a>
                 <a href="signup.html" class="signup-btn">Sign Up</a>
             </div>
         </div>
-
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== PAGE BANNER ===== -->
+    <!-- ===== PAGE BANNER - UNIQUE LAYOUT WITH CAR IMAGE ===== -->
     <section class="page-banner" id="top">
         <div class="banner-content">
-           <h1><span style="color: white;">Our</span> <span>Categories</span></h1>
-           <p style="color: #ffffff !important;">Explore our wide range of auto parts and accessories</p>
+            <span class="banner-tag"><i class="fas fa-tag"></i> Shop by Category</span>
+            <h1>Explore <span>Auto Parts</span> & Accessories</h1>
+            <p>Find the right parts, accessories, and automotive products for your vehicle.</p>
+            <div class="banner-search-row">
+                <input type="text" placeholder="Search parts..." />
+                <select>
+                    <option value="">All Categories</option>
+                    <option value="engine">Engine Parts</option>
+                    <option value="brakes">Brake Systems</option>
+                    <option value="lighting">Lighting</option>
+                    <option value="suspension">Suspension</option>
+                </select>
+                <button class="search-btn" onclick="window.location.href='#categories'"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="banner-quick-links">
+                <a href="#engine">Engine Parts</a>
+                <a href="#brakes">Brake Systems</a>
+                <a href="#lighting">Lighting</a>
+                <a href="#bestsellers">Best Sellers</a>
+            </div>
+        </div>
+        <div class="banner-image">
+            <img src="images/hero car.jpg" alt="Auto Parts Categories">
+            <div class="floating-badge">
+                <i class="fas fa-tags"></i>
+                200+ Products
+            </div>
         </div>
     </section>
 
     <!-- ===== CATEGORY SECTION 1 - ENGINE & PERFORMANCE ===== -->
-    <section class="category-section">
+    <section class="category-section" id="engine">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-cogs"></i> Engine & Performance</span>
             <h1>Engine Parts</h1>
             <p>High-quality engine components for peak performance</p>
         </div>
         <div class="category-grid">
-            <div class="cat-card" onclick="alert('Explore Engine Oil')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/engine oil.jpg" alt="Engine Oil" class="cat-img">
                 <div class="cat-body">
                     <h2>Engine Oil</h2>
-                    <p>Premium synthetic & conventional oils</p>
+                    <p class="cat-desc">Premium Engine Oil</p>
+                    <div class="cat-price">₹1,899 <span class="old-price">₹2,499</span></div>
                     <span class="cat-count">45+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="cat-card" onclick="alert('Explore Air Filters')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/air filter.jpg" alt="Air Filters" class="cat-img">
                 <div class="cat-body">
                     <h2>Air Filters</h2>
-                    <p>High-flow performance air filters</p>
+                    <p class="cat-desc">Performance Air Filters</p>
+                    <div class="cat-price">₹1,299 <span class="old-price">₹1,799</span></div>
                     <span class="cat-count">30+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="cat-card" onclick="alert('Explore Spark Plugs')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/spark plugs.jpg" alt="Spark Plugs" class="cat-img">
                 <div class="cat-body">
                     <h2>Spark Plugs</h2>
-                    <p>Iridium & platinum spark plugs</p>
+                    <p class="cat-desc">Iridium Spark Plugs</p>
+                    <div class="cat-price">₹899 <span class="old-price">₹1,299</span></div>
                     <span class="cat-count">25+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== CATEGORY SECTION 2 - BRAKE & SUSPENSION ===== -->
-    <section class="category-section-2">
+    <section class="category-section" id="brakes">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-circle-stop"></i> Safety & Control</span>
             <h1>Brake & Suspension</h1>
             <p>Premium brake and suspension components for safety</p>
         </div>
         <div class="category-grid">
-            <div class="cat-card" onclick="alert('Explore Brake Pads')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/brake pads.jpg" alt="Brake Pads" class="cat-img">
                 <div class="cat-body">
                     <h2>Brake Pads</h2>
-                    <p>Ceramic & semi-metallic brake pads</p>
+                    <p class="cat-desc">Premium Brake Pads</p>
+                    <div class="cat-price">₹2,499 <span class="old-price">₹3,499</span></div>
                     <span class="cat-count">40+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="cat-card" onclick="alert('Explore Brake Rotors')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/brake rotars.jpg" alt="Brake Rotors" class="cat-img">
                 <div class="cat-body">
                     <h2>Brake Rotors</h2>
-                    <p>Drilled & slotted rotors</p>
+                    <p class="cat-desc">Drilled Brake Rotors</p>
+                    <div class="cat-price">₹3,999 <span class="old-price">₹5,499</span></div>
                     <span class="cat-count">28+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="cat-card" onclick="alert('Explore Shocks & Struts')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/shocks.jpg" alt="Shocks & Struts" class="cat-img">
                 <div class="cat-body">
                     <h2>Shocks & Struts</h2>
-                    <p>Performance shock absorbers</p>
+                    <p class="cat-desc">Performance Shocks</p>
+                    <div class="cat-price">₹4,499 <span class="old-price">₹6,499</span></div>
                     <span class="cat-count">32+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== CATEGORY SECTION 3 - LIGHTING & ELECTRICAL ===== -->
-    <section class="category-section-3">
+    <section class="category-section" id="lighting">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-lightbulb"></i> Lighting & Electrical</span>
             <h1>Lighting & Electrical</h1>
             <p>Bright, efficient lighting and electrical components</p>
         </div>
         <div class="category-grid">
-            <div class="cat-card" onclick="alert('Explore LED Lights')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/led light.jpg" alt="LED Lights" class="cat-img">
                 <div class="cat-body">
                     <h2>LED Lights</h2>
-                    <p>Energy-efficient LED headlights & bulbs</p>
+                    <p class="cat-desc">LED Headlights</p>
+                    <div class="cat-price">₹3,499 <span class="old-price">₹4,999</span></div>
                     <span class="cat-count">50+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="cat-card" onclick="alert('Explore Batteries')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/battery.jpg" alt="Batteries" class="cat-img">
                 <div class="cat-body">
                     <h2>Batteries</h2>
-                    <p>High-performance car batteries</p>
+                    <p class="cat-desc">Car Batteries</p>
+                    <div class="cat-price">₹5,999 <span class="old-price">₹7,499</span></div>
                     <span class="cat-count">22+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="cat-card" onclick="alert('Explore Alternators')">
+            <div class="cat-card" onclick="window.location.href='services.html'">
                 <img src="images/alternators.jpg" alt="Alternators" class="cat-img">
                 <div class="cat-body">
                     <h2>Alternators</h2>
-                    <p>Reliable alternators for all vehicles</p>
+                    <p class="cat-desc">Premium Alternators</p>
+                    <div class="cat-price">₹6,499 <span class="old-price">₹8,999</span></div>
                     <span class="cat-count">18+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORY SECTION 4 - INTERIOR & EXTERIOR ===== -->
+    <section class="category-section">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-paint-brush"></i> Interior & Exterior</span>
+            <h1>Accessories</h1>
+            <p>Stylish and functional accessories for your car</p>
+        </div>
+        <div class="category-grid">
+            <div class="cat-card" onclick="window.location.href='services.html'">
+                <img src="images/interior.jpg" alt="Interior Accessories" class="cat-img">
+                <div class="cat-body">
+                    <h2>Interior Accessories</h2>
+                    <p class="cat-desc">Seat Covers & Mats</p>
+                    <div class="cat-price">₹1,499 <span class="old-price">₹2,299</span></div>
+                    <span class="cat-count">35+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card" onclick="window.location.href='services.html'">
+                <img src="images/car wash.jpg" alt="Exterior Accessories" class="cat-img">
+                <div class="cat-body">
+                    <h2>Exterior Accessories</h2>
+                    <p class="cat-desc">Body Kits & Spoilers</p>
+                    <div class="cat-price">₹3,999 <span class="old-price">₹5,499</span></div>
+                    <span class="cat-count">28+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card" onclick="window.location.href='services.html'">
+                <img src="images/tyre service.jpg" alt="Wheels & Tires" class="cat-img">
+                <div class="cat-body">
+                    <h2>Wheels & Tires</h2>
+                    <p class="cat-desc">Alloy Wheels & Tires</p>
+                    <div class="cat-price">₹8,999 <span class="old-price">₹11,999</span></div>
+                    <span class="cat-count">42+ Products</span>
+                    <div class="cat-actions">
+                        <button class="shop-btn" onclick="event.stopPropagation();window.location.href='booking.html'">Shop Now</button>
+                        <button class="enquire-btn" onclick="event.stopPropagation();window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SHOP BY CAR TYPE ===== -->
+    <section class="car-types">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-car"></i> Shop by Car Type</span>
+            <h1>Shop by Car Type</h1>
+            <p>Find parts specifically for your vehicle type</p>
+        </div>
+        <div class="car-types-grid">
+            <div class="car-type-card" onclick="window.location.href='categories.html'">
+                <span class="car-icon"><i class="fas fa-caravan"></i></span>
+                <h3>SUV</h3>
+                <p>120+ Parts Available</p>
+            </div>
+            <div class="car-type-card" onclick="window.location.href='categories.html'">
+                <span class="car-icon"><i class="fas fa-car"></i></span>
+                <h3>Sedan</h3>
+                <p>200+ Parts Available</p>
+            </div>
+            <div class="car-type-card" onclick="window.location.href='categories.html'">
+                <span class="car-icon"><i class="fas fa-car-side"></i></span>
+                <h3>Hatchback</h3>
+                <p>150+ Parts Available</p>
+            </div>
+            <div class="car-type-card" onclick="window.location.href='categories.html'">
+                <span class="car-icon"><i class="fas fa-truck"></i></span>
+                <h3>MUV / MPV</h3>
+                <p>85+ Parts Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== POPULAR PRODUCTS ===== -->
+    <section class="popular-products" id="bestsellers">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-fire"></i> Popular Products</span>
+            <h1>Popular Auto Parts</h1>
+            <p>Most sought-after products for your vehicle</p>
+        </div>
+        <div class="popular-grid">
+            <div class="popular-card">
+                <img src="images/brake pads.jpg" alt="Bosch Brake Pads" class="pop-img">
+                <div class="pop-body">
+                    <h3>Bosch Brake Pads</h3>
+                    <p class="pop-vehicle">Hyundai Creta</p>
+                    <div class="pop-price">₹2,499</div>
+                    <div class="pop-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popular-card">
+                <img src="images/engine oil.jpg" alt="Castrol Engine Oil" class="pop-img">
+                <div class="pop-body">
+                    <h3>Castrol Engine Oil</h3>
+                    <p class="pop-vehicle">Toyota Innova</p>
+                    <div class="pop-price">₹2,199</div>
+                    <div class="pop-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popular-card">
+                <img src="images/led light.jpg" alt="LED Headlight" class="pop-img">
+                <div class="pop-body">
+                    <h3>LED Headlight</h3>
+                    <p class="pop-vehicle">Universal Fit</p>
+                    <div class="pop-price">₹3,499</div>
+                    <div class="pop-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popular-card">
+                <img src="images/battery.jpg" alt="Car Battery" class="pop-img">
+                <div class="pop-body">
+                    <h3>Car Battery</h3>
+                    <p class="pop-vehicle">Maruti / Hyundai</p>
+                    <div class="pop-price">₹5,999</div>
+                    <div class="pop-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <h2>🔧 Need Help Finding the Right Part?</h2>
+        <p>Tell us your car make, model, and the part you're looking for. Our experts will help you find the perfect fit.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="cta-btn-primary"><i class="fas fa-paper-plane"></i> Enquire Now</a>
+            <a href="contact.html" class="cta-btn-secondary"><i class="fas fa-phone"></i> Contact Us</a>
         </div>
     </section>
 
@@ -1653,9 +1897,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-box">
-                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()">
-                    <i class="fas fa-car"></i> Cartron
-                </a>
+                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
                 <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
             </div>
             <div class="footer-box">
@@ -1698,7 +1940,6 @@
         const themeToggle = document.getElementById('themeToggle');
         const toggleIcon = document.getElementById('toggleIcon');
         let isDark = true;
-
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
             toggleIcon.className = 'fas fa-sun';
@@ -1706,7 +1947,6 @@
         } else {
             toggleIcon.className = 'fas fa-moon';
         }
-
         themeToggle.addEventListener('click', () => {
             if (isDark) {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -1728,18 +1968,15 @@
         const desktopRtlLabel = document.getElementById('desktopRtlLabel');
         const mobileRtlLabel = document.getElementById('mobileRtlLabel');
         let isRTL = false;
-
         if (localStorage.getItem('rtl') === 'true') {
             document.documentElement.setAttribute('dir', 'rtl');
             isRTL = true;
         }
-
         function updateRTLState() {
             const label = isRTL ? 'LTR' : 'RTL';
             if (desktopRtlLabel) desktopRtlLabel.textContent = label;
             if (mobileRtlLabel) mobileRtlLabel.textContent = label;
         }
-
         function toggleRTL() {
             if (isRTL) {
                 document.documentElement.removeAttribute('dir');
@@ -1752,7 +1989,6 @@
             }
             updateRTLState();
         }
-
         rtlToggle.addEventListener('click', toggleRTL);
         if (mobileRtlToggle) {
             mobileRtlToggle.addEventListener('click', toggleRTL);
@@ -1763,14 +1999,12 @@
         const homeDropdownLi = document.getElementById('homeDropdownLi');
         const homeDropdownLink = document.getElementById('homeDropdownLink');
         const homeDropdown = document.getElementById('homeDropdown');
-
         if (homeDropdownLink && homeDropdown) {
             homeDropdownLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 homeDropdown.classList.toggle('show');
             });
-
             document.addEventListener('click', function(e) {
                 if (!homeDropdownLi.contains(e.target)) {
                     homeDropdown.classList.remove('show');
@@ -1781,7 +2015,6 @@
         // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
         const navUl = document.querySelector('nav ul');
-
         function toggleMenu(open) {
             if (open) {
                 hamburger.classList.add('active');
@@ -1793,20 +2026,17 @@
                 document.body.classList.remove('menu-open');
             }
         }
-
         if (hamburger && navUl) {
             hamburger.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const isOpen = navUl.classList.contains('active');
                 toggleMenu(!isOpen);
             });
-
             document.addEventListener('click', function(e) {
                 if (!navUl.contains(e.target) && !hamburger.contains(e.target)) {
                     toggleMenu(false);
                 }
             });
-
             navUl.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 900) {
@@ -1818,7 +2048,6 @@
 
         // ===== MOBILE DARK MODE =====
         const mobileDarkBtn = document.getElementById('mobile-dark-light');
-
         function updateMobileDarkIcon() {
             if (mobileDarkBtn) {
                 const icon = mobileDarkBtn.querySelector('i');
@@ -1832,7 +2061,6 @@
                 }
             }
         }
-
         if (mobileDarkBtn) {
             mobileDarkBtn.addEventListener('click', function() {
                 themeToggle.click();

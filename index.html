@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartron - Auto Parts & Car Accessories</title>
-    <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+    <link rel="icon" type="image/x-icon" href="images/tyre service.jpg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ===== 1. RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -16,12 +15,10 @@
             font-family: 'Poppins', system-ui, sans-serif;
             scroll-behavior: smooth;
         }
-
         html {
             overflow-x: hidden;
             width: 100%;
         }
-
         body {
             background: var(--bg-gradient-1);
             min-height: 100vh;
@@ -33,7 +30,6 @@
             position: relative;
             padding-top: 90px;
         }
-
         body.menu-open {
             overflow: hidden !important;
             position: fixed !important;
@@ -43,15 +39,14 @@
             right: 0;
         }
 
+        /* ===== 2. CSS VARIABLES ===== */
         :root {
             --bg-gradient-1: #0a0a0a;
-            --bg-gradient-2: #0a0a0a;
-            --bg-gradient-3: #0a0a0a;
             --text-color: #f0f4fc;
             --card-bg: rgba(60, 60, 60, 0.6);
             --card-border: rgba(80, 80, 80, 0.3);
             --nav-bg: rgba(20, 20, 20, 0.95);
-            --footer-bg: rgba(10, 10, 10, 0.9);
+            --footer-bg: rgba(10, 10, 10, 0.95);
             --shadow: rgba(0, 0, 0, 0.5);
             --btn-hover: #ff6b35;
             --gold: #ff6b35;
@@ -59,45 +54,35 @@
             --badge-color: #ff6b35;
             --badge-bg: rgba(255, 107, 53, 0.15);
             --transition: 0.4s ease;
-            --stat-bg: rgba(60, 60, 60, 0.4);
-            --stat-border: rgba(80, 80, 80, 0.3);
-            --cta-bg: rgba(255, 107, 53, 0.08);
             --footer-text: #d0dfec;
             --footer-link-hover: var(--gold);
             --tag-bg: rgba(255, 107, 53, 0.15);
             --tag-border: rgba(255, 107, 53, 0.1);
             --tag-color: var(--gold);
             --rtl-direction: ltr;
-            --rtl-text-align: center;
             --dropdown-bg: rgba(20, 20, 20, 0.95);
             --nav-link-color: rgba(255, 255, 255, 0.8);
             --nav-link-hover: var(--gold);
             --mobile-nav-bg: rgba(10, 10, 10, 0.98);
             --mobile-nav-border: 2px solid var(--gold);
             --drawer-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-            --hero-text-color: #ffffff;
-            --hero-text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            --hero-overlay: rgba(0, 0, 0, 0.6);
+            --cta-bg: rgba(255, 107, 53, 0.08);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.12);
         }
-
         [data-theme="light"] {
-            --bg-gradient-1: #ffffff;
-            --bg-gradient-2: #ffffff;
-            --bg-gradient-3: #ffffff;
+            --bg-gradient-1: #f8f9fa;
             --text-color: #1a1a2e;
-            --card-bg: rgba(240, 240, 240, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.8);
             --card-border: rgba(200, 200, 200, 0.4);
             --nav-bg: rgba(255, 255, 255, 0.95);
-            --footer-bg: rgba(240, 240, 240, 0.9);
+            --footer-bg: rgba(240, 240, 240, 0.95);
             --shadow: rgba(0, 0, 0, 0.08);
             --gold: #d95c2b;
             --gold-rgb: 217, 92, 43;
             --badge-color: #d95c2b;
             --badge-bg: rgba(217, 92, 43, 0.15);
-            --stat-bg: rgba(240, 240, 240, 0.6);
-            --stat-border: rgba(200, 200, 200, 0.3);
-            --cta-bg: rgba(217, 92, 43, 0.06);
-            --footer-text: #2a2a3e;
-            --footer-link-hover: #d95c2b;
             --tag-bg: rgba(217, 92, 43, 0.12);
             --tag-border: rgba(217, 92, 43, 0.08);
             --tag-color: #d95c2b;
@@ -105,18 +90,17 @@
             --nav-link-color: rgba(0, 0, 0, 0.7);
             --nav-link-hover: #d95c2b;
             --mobile-nav-bg: rgba(255, 255, 255, 0.98);
-            --hero-text-color: #1a1a2e;
-            --hero-text-shadow: 0 2px 20px rgba(255,255,255,0.3);
+            --hero-overlay: rgba(255, 255, 255, 0.7);
+            --cta-bg: rgba(217, 92, 43, 0.06);
+            --input-bg: rgba(0, 0, 0, 0.04);
+            --input-border: rgba(0, 0, 0, 0.12);
+            --footer-text: #2a2a3e;
         }
-
         [dir="rtl"] {
             --rtl-direction: rtl;
-            --rtl-text-align: center;
         }
 
-        /* ============================================
-                   NAVIGATION
-           ============================================ */
+        /* ===== 3. NAVIGATION ===== */
         nav {
             width: 94%;
             max-width: 1400px;
@@ -137,7 +121,6 @@
             box-shadow: 0 15px 35px var(--shadow);
             transition: background var(--transition), border var(--transition), box-shadow var(--transition);
         }
-
         .logo {
             font-size: 26px;
             font-weight: 600;
@@ -152,7 +135,6 @@
         .logo i {
             color: var(--gold);
         }
-
         nav ul {
             display: flex;
             list-style: none;
@@ -188,7 +170,6 @@
         nav ul li a:hover .dropdown-arrow {
             transform: rotate(180deg);
         }
-
         nav ul li .nav-dropdown {
             position: absolute;
             top: 32px;
@@ -237,15 +218,12 @@
             color: var(--gold);
             opacity: 1;
         }
-
         .mobile-home-links {
             display: none !important;
         }
-
         .desktop-home-dropdown {
             display: flex !important;
         }
-
         .auth-buttons {
             display: flex;
             gap: 10px;
@@ -266,7 +244,6 @@
             white-space: nowrap;
         }
         .auth-buttons .login-btn:hover {
-            background: var(--btn-secondary-hover);
             border-color: var(--gold);
             opacity: 1;
         }
@@ -286,7 +263,6 @@
             background: var(--btn-hover);
             transform: scale(1.05);
         }
-
         .theme-toggle {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -305,7 +281,6 @@
             transform: scale(1.05);
             border-color: var(--gold);
         }
-
         .rtl-toggle {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -324,14 +299,12 @@
             border-color: var(--gold);
             color: var(--gold);
         }
-
         .nav-controls {
             display: flex;
             gap: 8px;
             align-items: center;
             flex-shrink: 0;
         }
-
         .hamburger {
             display: none;
             flex-direction: column;
@@ -360,7 +333,6 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(4px, -5px);
         }
-
         .mobile-only {
             display: none !important;
         }
@@ -389,7 +361,6 @@
                 font-size: 14px;
             }
         }
-
         @media screen and (max-width: 900px) {
             body {
                 padding-top: 80px;
@@ -409,19 +380,15 @@
             nav .nav-controls .rtl-toggle {
                 display: none;
             }
-
             .hamburger {
                 display: flex;
             }
-
             .mobile-only {
                 display: flex !important;
             }
-
             .desktop-home-dropdown {
                 display: none !important;
             }
-
             .mobile-home-links {
                 display: flex !important;
                 flex-direction: column;
@@ -450,7 +417,6 @@
                 width: 20px;
                 color: var(--gold);
             }
-
             nav ul {
                 position: fixed;
                 top: 0;
@@ -474,26 +440,21 @@
                 max-width: 300px;
                 z-index: 1000;
             }
-
             nav ul.active {
                 right: 0;
             }
-
             nav ul li {
                 width: 100%;
             }
-
             nav ul li a {
                 justify-content: space-between;
                 width: 100%;
                 padding: 10px 14px;
                 font-size: 14px;
             }
-
             nav ul li a .dropdown-arrow {
                 display: none;
             }
-
             .mobile-auth {
                 margin-top: 12px;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -502,7 +463,6 @@
                 flex-direction: column;
                 width: 100%;
             }
-
             .mobile-auth a {
                 width: 100%;
                 text-align: center;
@@ -516,7 +476,6 @@
                 align-items: center;
                 gap: 8px;
             }
-
             .mobile-auth .mobile-login {
                 color: var(--gold);
                 border: 2px solid var(--gold);
@@ -533,7 +492,6 @@
             .mobile-auth .mobile-signup:hover {
                 background: var(--btn-hover);
             }
-
             .mobile-actions {
                 margin-top: 8px;
                 gap: 8px;
@@ -541,7 +499,6 @@
                 display: flex;
                 flex-wrap: wrap;
             }
-
             .mobile-actions button {
                 border-radius: 25px;
                 padding: 8px 14px;
@@ -560,17 +517,14 @@
                 transition: 0.3s;
                 font-weight: 500;
             }
-
             .mobile-actions button:hover {
                 border-color: var(--gold);
                 background: var(--badge-bg);
             }
-
             .mobile-actions button i {
                 font-size: 14px;
             }
         }
-
         @media screen and (max-width: 600px) {
             body {
                 padding-top: 72px;
@@ -614,7 +568,6 @@
                 padding: 6px 12px;
             }
         }
-
         [dir="rtl"] nav ul {
             right: auto;
             left: -100%;
@@ -633,14 +586,39 @@
             flex-direction: row-reverse;
         }
 
-        /* ============================================
-                   HERO SECTION - FULL VIEWPORT HEIGHT
-           ============================================ */
+        /* ===== 4. SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .section-title p {
+            font-size: 16px;
+            opacity: 0.75;
+            margin-top: 6px;
+            color: var(--text-color);
+        }
+        .page-tag {
+            display: inline-block;
+            background: var(--tag-bg);
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: 12px;
+            color: var(--tag-color);
+            border: 1px solid var(--tag-border);
+            margin-bottom: 8px;
+        }
+
+        /* ===== 5. HERO SECTION ===== */
         .hero {
             width: 100%;
             max-width: 100%;
             margin: 0;
-            padding: 120px 60px;
+            padding: 80px 60px;
             border-radius: 0;
             position: relative;
             z-index: 2;
@@ -657,9 +635,20 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-     .hero::before {
-    display: none;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 0;
+            z-index: 0;
+        }
+        [data-theme="light"] .hero::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
         .hero .hero-content {
             position: relative;
             z-index: 1;
@@ -667,14 +656,25 @@
             text-align: center;
             margin: 0 auto;
         }
+        .hero .hero-content .hero-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: #fff;
+            padding: 6px 24px;
+            border-radius: 60px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
         .hero .hero-content h1 {
-            font-size: 60px;
+            font-size: 56px;
             line-height: 1.15;
             font-weight: 700;
             margin-bottom: 20px;
             color: #ffffff;
             text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
-            transition: color var(--transition), text-shadow var(--transition);
         }
         .hero .hero-content h1 span {
             color: var(--gold);
@@ -690,7 +690,6 @@
             margin-right: auto;
             color: #ffffff;
             text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
-            transition: color var(--transition), text-shadow var(--transition);
         }
         .hero .hero-content .hero-buttons {
             display: flex;
@@ -739,594 +738,472 @@
             transform: translateY(-3px);
         }
 
-        /* ===== LIGHT MODE ===== */
-       [data-theme="light"] .hero::before {
-    display: none;
-}
-        [data-theme="light"] .hero .hero-content h1 {
-            color: #1a1a2e !important;
-            text-shadow: 0 2px 30px rgba(255, 255, 255, 0.5);
-        }
-        [data-theme="light"] .hero .hero-content h1 span {
-            color: var(--gold);
-            text-shadow: 0 2px 30px rgba(217, 92, 43, 0.3);
-        }
-        [data-theme="light"] .hero .hero-content p {
-            color: #1a1a2e !important;
-            text-shadow: 0 2px 30px rgba(255, 255, 255, 0.5);
-        }
-        [data-theme="light"] .hero .hero-content .btn-secondary {
-            border: 2px solid rgba(0, 0, 0, 0.25);
-            background: rgba(255, 255, 255, 0.7);
-            color: #1a1a2e !important;
-        }
-        [data-theme="light"] .hero .hero-content .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: var(--gold);
-        }
-
-        /* ============================================
-                   STATS - NORMAL FLOW
-           ============================================ */
-        .stats {
+        /* ===== 6. FIND PARTS FOR YOUR CAR ===== */
+        .find-parts {
             width: 94%;
             max-width: 1400px;
-            margin: 50px auto;
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            z-index: 2;
-            position: relative;
-        }
-        .stat-card {
-            flex: 1 1 180px;
-            text-align: center;
-            padding: 25px 15px;
-            background: transparent;
-            border-radius: 16px;
-            border-bottom: 3px solid var(--gold);
-            transition: 0.3s;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        .stat-card h1 {
-            font-size: 46px;
-            font-weight: 700;
-            color: var(--gold);
-            font-family: 'Poppins', sans-serif;
-        }
-        .stat-card p {
-            opacity: 0.7;
-            font-size: 16px;
-            margin-top: 6px;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        /* ============================================
-                   CATEGORY SECTION
-           ============================================ */
-        .categories {
-            width: 94%;
-            max-width: 1400px;
-            margin: 30px auto;
-            padding: 30px 0 20px;
+            margin: 40px auto;
+            padding: 40px 0;
             position: relative;
             z-index: 2;
         }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .section-title h1 {
-            font-size: 36px;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-        .section-title p {
-            font-size: 16px;
-            opacity: 0.75;
-            margin-top: 6px;
-            color: var(--text-color);
-        }
-
-        .page-tag {
-            display: inline-block;
-            background: var(--tag-bg);
-            padding: 4px 16px;
-            border-radius: 60px;
-            font-size: 12px;
-            color: var(--tag-color);
-            border: 1px solid var(--tag-border);
-            margin-bottom: 8px;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
+        .find-parts .finder-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 50px;
+            box-shadow: 0 12px 30px var(--shadow);
+            max-width: 900px;
             margin: 0 auto;
         }
+        .finder-box .finder-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .finder-box .finder-title h2 {
+            font-size: 28px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .finder-box .finder-title p {
+            font-size: 14px;
+            opacity: 0.7;
+            color: var(--text-color);
+        }
+        .finder-box .finder-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 0.7fr;
+            gap: 15px;
+            align-items: end;
+        }
+        .finder-box .finder-row .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .finder-box .finder-row .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-color);
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .finder-box .finder-row .form-group select,
+        .finder-box .finder-row .form-group input {
+            padding: 12px 16px;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .finder-box .finder-row .form-group select:focus,
+        .finder-box .finder-row .form-group input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.08);
+        }
+        .finder-box .finder-row .form-group select option {
+            background: var(--bg-gradient-1);
+            color: var(--text-color);
+        }
+        .finder-box .finder-row .find-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .finder-box .finder-row .find-btn:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+        }
 
-        .category-card {
-            padding: 30px 20px 28px;
+        /* ===== 7. SHOP PARTS & ACCESSORIES ===== */
+        .shop-parts {
+            width: 94%;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .shop-parts .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .shop-parts .shop-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 25px;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+        .shop-parts .shop-category:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+        }
+        .shop-parts .shop-category .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+        .shop-parts .shop-category .cat-header i {
+            font-size: 28px;
+            color: var(--gold);
+        }
+        .shop-parts .shop-category .cat-header h3 {
+            font-size: 18px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .shop-parts .shop-category .cat-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .shop-parts .shop-category .cat-items a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.8;
+        }
+        .shop-parts .shop-category .cat-items a:hover {
+            background: var(--badge-bg);
+            color: var(--gold);
+            opacity: 1;
+        }
+        .shop-parts .shop-category .cat-items a i {
+            font-size: 10px;
+            color: var(--gold);
+        }
+
+        /* ===== 8. CAR TYPES ===== */
+        .car-types {
+            width: 94%;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .car-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .car-type-card {
+            padding: 25px 20px;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            border-bottom: 4px solid transparent;
             transition: 0.3s;
             text-align: center;
             box-shadow: 0 12px 30px var(--shadow);
             cursor: pointer;
         }
-        .category-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid var(--gold);
-            background: var(--card-bg);
+        .car-type-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
         }
-        .category-card .icon {
-            font-size: 48px;
+        .car-type-card .car-icon {
+            font-size: 42px;
             color: var(--gold);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: block;
-            background: var(--badge-bg);
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: auto;
         }
-        .category-card h2 {
-            font-size: 20px;
-            margin-bottom: 6px;
+        .car-type-card h3 {
+            font-size: 18px;
             color: var(--text-color);
+            font-weight: 600;
         }
-        .category-card p {
+        .car-type-card p {
+            font-size: 13px;
             opacity: 0.6;
-            font-size: 14px;
             color: var(--text-color);
         }
 
-        /* ============================================
-                   PRODUCT CARDS
-           ============================================ */
-        .products {
+        /* ===== 9. TRUSTED BRANDS ===== */
+        .trusted-brands {
             width: 94%;
             max-width: 1400px;
-            margin: 60px auto 30px;  /* Changed from 30px to 60px */
-            padding: 30px 0 20px;
+            margin: 40px auto;
+            padding: 20px 0;
             position: relative;
             z-index: 2;
         }
-
-        .product-container {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-
-        .product-card {
-            flex: 1 1 270px;
+        .brand-card {
+            padding: 20px 15px;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
+            border-radius: 16px;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 12px 30px var(--shadow);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 110px;
+        }
+        .brand-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+        .brand-card .brand-icon {
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .brand-card h4 {
+            font-size: 15px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .brand-card p {
+            font-size: 11px;
+            opacity: 0.5;
+            color: var(--text-color);
+        }
+
+        /* ===== 10. BEST SELLERS & SPECIAL OFFERS ===== */
+        .bestsellers-offers {
+            width: 94%;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .bestsellers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .bs-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
             overflow: hidden;
             transition: 0.3s;
             box-shadow: 0 12px 30px var(--shadow);
             position: relative;
         }
-        .product-card:hover {
-            transform: translateY(-10px);
+        .bs-card:hover {
+            transform: translateY(-8px);
             border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
         }
-        .product-card .product-image {
-            position: relative;
-            overflow: hidden;
+        .bs-card .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            z-index: 2;
         }
-        .product-card .product-image img {
+        .bs-card .bs-img {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
             transition: 0.4s;
         }
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+        .bs-card:hover .bs-img {
+            transform: scale(1.04);
         }
-        .product-card .product-tag {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: var(--gold);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
+        .bs-card .bs-body {
+            padding: 16px 18px 20px;
         }
-        .product-card .product-info {
-            padding: 20px 20px 24px;
-        }
-        .product-card .product-info h2 {
-            font-size: 18px;
-            font-weight: 600;
+        .bs-card .bs-body h3 {
+            font-size: 15px;
             color: var(--text-color);
-            margin-bottom: 4px;
+            font-weight: 600;
         }
-        .product-card .product-info .rating {
-            color: #fbbf24;
-            font-size: 14px;
-            margin: 4px 0 8px;
-        }
-        .product-card .product-info .price {
-            font-size: 22px;
+        .bs-card .bs-body .price {
+            font-size: 20px;
             font-weight: 700;
             color: var(--gold);
-            margin: 6px 0;
+            margin: 4px 0;
         }
-        .product-card .product-info .price .old-price {
-            font-size: 16px;
+        .bs-card .bs-body .price .old-price {
+            font-size: 14px;
             font-weight: 400;
             text-decoration: line-through;
-            opacity: 0.5;
-            margin-left: 10px;
+            opacity: 0.4;
+            margin-left: 8px;
             color: var(--text-color);
         }
-        .product-card .product-info p {
-            opacity: 0.7;
-            font-size: 14px;
-            margin-bottom: 12px;
-            color: var(--text-color);
+        .bs-card .bs-body .bs-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
         }
-        .product-card .product-info button {
-            padding: 10px 32px;
+        .bs-card .bs-body .bs-actions .btn-buy {
+            flex: 1;
+            padding: 8px;
             border: none;
             border-radius: 60px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            cursor: pointer;
-            transition: 0.25s;
-            width: 100%;
-        }
-        .product-card .product-info button:hover {
-            background: var(--btn-hover);
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.25);
-        }
-
-        /* ============================================
-                   LIMITED TIME OFFER BANNER
-           ============================================ */
-        .offer-banner {
-            width: 94%;
-            max-width: 1400px;
-            margin: 60px auto 30px;  /* Changed from 30px to 60px */
-            padding: 50px 60px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            border-radius: 24px;
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .offer-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-            animation: pulseGlow 4s ease-in-out infinite;
-        }
-
-        .offer-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -40%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-            animation: pulseGlow 5s ease-in-out infinite reverse;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.2) rotate(10deg); }
-        }
-
-        .offer-banner .offer-content {
-            position: relative;
-            z-index: 1;
-            flex: 1 1 55%;
-        }
-
-        .offer-banner .offer-tag {
-            display: inline-block;
-            background: #ff6b35;
-            color: #fff;
             font-size: 12px;
-            font-weight: 700;
-            padding: 4px 18px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 14px;
-        }
-
-        .offer-banner .offer-content h2 {
-            font-size: 42px;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.15;
-            margin-bottom: 12px;
-        }
-
-        .offer-banner .offer-content h2 span {
-            color: #ff6b35;
-        }
-
-        .offer-banner .offer-content p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 550px;
-            margin-bottom: 20px;
-        }
-
-        .offer-banner .offer-content .offer-code {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed rgba(255, 255, 255, 0.3);
-            padding: 6px 18px;
-            border-radius: 8px;
-            color: #ff6b35;
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .offer-banner .offer-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 40px;
-            background: #ff6b35;
-            color: #fff;
-            font-weight: 600;
-            font-size: 16px;
-            border: none;
-            border-radius: 60px;
             cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
-        }
-
-        .offer-banner .offer-btn:hover {
-            background: #e55a2b;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
-        }
-
-        .offer-banner .offer-btn:hover i {
-            transform: translateX(6px);
-        }
-
-        .offer-banner .offer-btn i {
             transition: 0.3s;
         }
-
-        .offer-banner .offer-image {
-            position: relative;
-            z-index: 1;
-            flex: 0 0 300px;
-            text-align: center;
+        .bs-card .bs-body .bs-actions .btn-buy:hover {
+            background: var(--btn-hover);
         }
-
-        .offer-banner .offer-image .offer-img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-            animation: floatImage 3s ease-in-out infinite;
+        .bs-card .bs-body .bs-actions .btn-enquire {
+            padding: 8px 14px;
+            border: 1px solid var(--gold);
+            border-radius: 60px;
+            background: transparent;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
             transition: 0.3s;
-            object-fit: cover;
+        }
+        .bs-card .bs-body .bs-actions .btn-enquire:hover {
+            background: var(--gold);
+            color: #fff;
         }
 
-        .offer-banner .offer-image .offer-img:hover {
-            transform: scale(1.03);
-        }
-
-        @keyframes floatImage {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* ============================================
-                   REVIEWS / TESTIMONIALS - PUSHED DOWN
-           ============================================ */
-        .reviews {
+        /* ===== 11. STORE LOCATIONS + CONTACT ===== */
+        .store-locations {
             width: 94%;
             max-width: 1400px;
-            margin: 60px auto 40px;
-            padding: 60px 0 50px;
+            margin: 40px auto;
+            padding: 20px 0;
             position: relative;
             z-index: 2;
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-
-        .review-container {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-
-        .review-card {
-            flex: 1 1 320px;
-            padding: 40px 30px 35px;
+        .location-card {
+            padding: 25px 20px;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
+            border-radius: 16px;
             transition: 0.3s;
+            text-align: center;
             box-shadow: 0 12px 30px var(--shadow);
-            position: relative;
         }
-        .review-card::before {
-            content: '\201C';
-            font-size: 65px;
-            color: var(--gold);
-            opacity: 0.2;
-            position: absolute;
-            top: 8px;
-            right: 20px;
-            font-family: Georgia, serif;
-        }
-        .review-card:hover {
-            transform: translateY(-10px);
+        .location-card:hover {
+            transform: translateY(-6px);
             border-color: var(--gold);
         }
-        .review-card .stars {
-            color: #fbbf24;
-            font-size: 22px;
-            margin-bottom: 14px;
-        }
-        .review-card p {
-            line-height: 1.9;
-            opacity: 0.9;
-            margin: 14px 0 18px;
-            color: var(--text-color);
-            font-style: italic;
-            font-size: 17px;
-        }
-        .review-card .author {
-            font-weight: 600;
+        .location-card .loc-icon {
+            font-size: 32px;
             color: var(--gold);
-            font-size: 17px;
+            margin-bottom: 10px;
         }
-        .review-card .author span {
-            font-weight: 400;
-            opacity: 0.6;
+        .location-card h3 {
+            font-size: 18px;
             color: var(--text-color);
+            font-weight: 600;
+        }
+        .location-card p {
             font-size: 13px;
-        }
-
-        /* ============================================
-                   CTA SECTION - PUSHED DOWN
-           ============================================ */
-        .cta-section {
-            width: 94%;
-            max-width: 1400px;
-            margin: 60px auto 40px;
-            padding: 60px 50px;
-            background: var(--cta-bg);
-            backdrop-filter: blur(14px);
-            border: 1px solid var(--card-border);
-            border-radius: 60px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            transition: background var(--transition), border var(--transition);
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .cta-section h2 {
-            font-size: 38px;
-            margin-bottom: 14px;
-            color: var(--text-color);
-        }
-        .cta-section p {
-            font-size: 17px;
             opacity: 0.7;
-            margin-bottom: 30px;
             color: var(--text-color);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.6;
         }
-        .cta-section .cta-buttons {
+        .location-card .loc-actions {
             display: flex;
-            gap: 20px;
+            gap: 10px;
             justify-content: center;
+            margin-top: 14px;
             flex-wrap: wrap;
         }
-        .cta-section .cta-btn-primary {
-            padding: 14px 44px;
+        .location-card .loc-actions .btn-loc {
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            border-radius: 60px;
+            background: transparent;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .location-card .loc-actions .btn-loc:hover {
+            background: var(--gold);
+            color: #fff;
+        }
+        .location-card .loc-actions .btn-loc-primary {
+            padding: 8px 20px;
             border: none;
             border-radius: 60px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 12px;
             cursor: pointer;
-            transition: 0.25s;
+            transition: 0.3s;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 6px;
         }
-        .cta-section .cta-btn-primary:hover {
+        .location-card .loc-actions .btn-loc-primary:hover {
             background: var(--btn-hover);
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
-        }
-        .cta-section .cta-btn-secondary {
-            padding: 14px 44px;
-            border: 1px solid var(--card-border);
-            border-radius: 60px;
-            background: transparent;
-            color: var(--text-color);
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.25s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .cta-section .cta-btn-secondary:hover {
-            background: var(--card-bg);
-            border-color: var(--gold);
             transform: scale(1.05);
         }
 
-        /* ============================================
-                   FOOTER
-           ============================================ */
+        /* ===== 12. FOOTER ===== */
         footer {
             margin-top: 60px;
             background: var(--footer-bg);
@@ -1355,7 +1232,7 @@
         .footer-box p,
         .footer-box a {
             line-height: 1.8;
-            opacity: 0.7;
+            opacity: 0.8;
             color: var(--footer-text);
             text-decoration: none;
             display: block;
@@ -1366,7 +1243,6 @@
             color: var(--footer-link-hover);
             opacity: 1;
         }
-
         .footer-logo-link {
             display: inline-flex !important;
             align-items: center;
@@ -1385,7 +1261,6 @@
             color: var(--gold) !important;
             opacity: 1 !important;
         }
-
         .social {
             display: flex;
             gap: 14px;
@@ -1396,6 +1271,7 @@
             color: var(--footer-text);
             opacity: 0.7;
             transition: 0.2s;
+            font-size: 22px;
         }
         .social a:hover {
             color: var(--footer-link-hover);
@@ -1414,20 +1290,7 @@
             color: var(--text-color);
         }
 
-        /* ============================================
-                   RESPONSIVE DESIGN
-           ============================================ */
-        @media (min-width: 1025px) {
-            .hero {
-                padding: 140px 80px;
-                min-height: 100vh;
-                height: 100vh;
-            }
-            .hero .hero-content h1 {
-                font-size: 64px;
-            }
-        }
-
+        /* ===== 13. RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero {
                 padding: 80px 40px;
@@ -1440,70 +1303,25 @@
             .section-title h1 {
                 font-size: 30px;
             }
-            .cta-section h2 {
-                font-size: 30px;
+            .finder-box .finder-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
-            .category-grid {
+            .shop-parts .shop-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .car-types-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
             }
-            .reviews {
-                min-height: 70vh;
-                margin: 50px auto 30px;
-                padding: 40px 0 30px;
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
-            .cta-section {
-                min-height: 40vh;
-                margin: 50px auto 30px;
-                padding: 40px 30px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                padding: 60px 30px;
-                min-height: 100vh;
-                height: 100vh;
-            }
-            .hero .hero-content {
-                max-width: 100%;
-            }
-            .hero .hero-content p {
-                max-width: 100%;
-            }
-            .hero .hero-content h1 {
-                font-size: 38px;
-            }
-            .section-title h1 {
-                font-size: 26px;
-            }
-            .category-grid {
+            .bestsellers-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
             }
-            .category-card {
-                padding: 24px 16px 22px;
-            }
-            .category-card .icon {
-                width: 60px;
-                height: 60px;
-                line-height: 60px;
-                font-size: 36px;
-            }
-            .product-card {
-                flex: 1 1 240px;
-            }
-            .product-card .product-image img {
-                height: 180px;
-            }
-            .cta-section {
-                padding: 35px 25px;
-                border-radius: 40px;
-                min-height: 35vh;
-                margin: 40px auto 25px;
-            }
-            .cta-section h2 {
-                font-size: 28px;
+            .locations-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .footer-container {
                 gap: 25px;
@@ -1511,140 +1329,7 @@
             .footer-box {
                 flex: 1 1 160px;
             }
-            .stats {
-                gap: 15px;
-            }
-            .stat-card {
-                flex: 1 1 140px;
-                padding: 20px 10px;
-            }
-            .stat-card h1 {
-                font-size: 32px;
-            }
-            .reviews {
-                min-height: 60vh;
-                margin: 40px auto 25px;
-                padding: 30px 0 25px;
-            }
-            .review-card {
-                flex: 1 1 260px;
-                padding: 28px 22px 26px;
-            }
-            .review-card p {
-                font-size: 15px;
-            }
-            .review-card .stars {
-                font-size: 18px;
-            }
         }
-
-        /* ===== IPAD MINI & IPAD AIR FIXES (768px - 900px) ===== */
-        @media (min-width: 768px) and (max-width: 900px) {
-            /* Products - 3 cards same size */
-            .product-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                max-width: 100%;
-            }
-            
-            .product-card {
-                flex: 1 1 auto;
-                width: 100%;
-                min-width: 0;
-            }
-            
-            .product-card .product-image img {
-                height: 200px;
-            }
-            
-            .product-card .product-info {
-                padding: 16px 16px 20px;
-            }
-            
-            .product-card .product-info h2 {
-                font-size: 16px;
-            }
-            
-            .product-card .product-info .price {
-                font-size: 18px;
-            }
-
-            /* Offer Banner - Image beside content */
-            .offer-banner {
-                flex-direction: row;
-                padding: 35px 40px;
-                gap: 25px;
-                align-items: center;
-            }
-            
-            .offer-banner .offer-content {
-                flex: 1 1 60%;
-            }
-            
-            .offer-banner .offer-content h2 {
-                font-size: 32px;
-            }
-            
-            .offer-banner .offer-image {
-                flex: 0 0 180px;
-            }
-            
-            .offer-banner .offer-image .offer-img {
-                max-width: 180px;
-                max-height: 180px;
-                object-fit: contain;
-            }
-
-            .offer-banner .offer-content .offer-code {
-                font-size: 16px;
-                padding: 4px 14px;
-            }
-            
-            .offer-banner .offer-btn {
-                padding: 10px 28px;
-                font-size: 14px;
-            }
-
-            /* ===== TESTIMONIALS - 3 CARDS SAME SIZE ===== */
-            .review-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                max-width: 100%;
-            }
-            
-            .review-card {
-                flex: 1 1 auto;
-                width: 100%;
-                min-width: 0;
-                padding: 28px 20px 26px;
-            }
-            
-            .review-card::before {
-                font-size: 50px;
-                top: 6px;
-                right: 16px;
-            }
-            
-            .review-card .stars {
-                font-size: 18px;
-            }
-            
-            .review-card p {
-                font-size: 14px;
-                line-height: 1.7;
-            }
-            
-            .review-card .author {
-                font-size: 15px;
-            }
-            
-            .review-card .author span {
-                font-size: 12px;
-            }
-        }
-
         @media (max-width: 600px) {
             .hero {
                 padding: 50px 20px;
@@ -1671,120 +1356,62 @@
                 width: 100%;
                 align-items: center;
             }
-
             .section-title h1 {
                 font-size: 22px;
             }
             .section-title p {
                 font-size: 14px;
             }
-
-            .category-grid {
+            .finder-box {
+                padding: 25px 20px;
+            }
+            .finder-box .finder-title h2 {
+                font-size: 22px;
+            }
+            .finder-box .finder-row {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 10px;
             }
-            .category-card {
-                padding: 18px 16px 22px;
+            .car-types-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
             }
-            .category-card .icon {
-                width: 56px;
-                height: 56px;
-                line-height: 56px;
+            .car-type-card {
+                padding: 18px 14px;
+            }
+            .car-type-card .car-icon {
                 font-size: 32px;
             }
-
-            .product-container {
-                flex-direction: column;
+            .car-type-card h3 {
+                font-size: 15px;
             }
-            .product-card {
-                flex: 1 1 100%;
-            }
-            .product-card .product-image img {
-                height: 170px;
-            }
-
-            .review-card {
-                flex: 1 1 100%;
-                padding: 24px 18px 22px;
-            }
-            .review-card::before {
-                font-size: 40px;
-            }
-            .review-card .stars {
-                font-size: 16px;
-            }
-            .review-card p {
-                font-size: 14px;
-            }
-
-            .reviews {
-                min-height: auto;
-                margin: 30px auto 20px;
-                padding: 25px 0 20px;
-            }
-
-            .stats {
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
                 gap: 12px;
-                margin: 30px auto;
             }
-            .stat-card {
-                flex: 1 1 100%;
-                max-width: 100%;
-                padding: 18px 10px;
+            .brand-card {
+                min-height: 80px;
+                padding: 14px 10px;
             }
-            .stat-card h1 {
-                font-size: 28px;
-            }
-            .stat-card p {
-                font-size: 14px;
-            }
-
-            .offer-banner {
-                padding: 28px 18px;
-                border-radius: 18px;
-                flex-direction: column;
-            }
-            .offer-banner .offer-content h2 {
+            .brand-card .brand-icon {
                 font-size: 24px;
             }
-            .offer-banner .offer-content p {
-                font-size: 14px;
+            .brand-card h4 {
+                font-size: 12px;
             }
-            .offer-banner .offer-content .offer-code {
-                font-size: 14px;
+            .bestsellers-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
             }
-            .offer-banner .offer-btn {
-                padding: 12px 28px;
-                font-size: 14px;
-                width: 100%;
-                justify-content: center;
+            .bs-card .bs-img {
+                height: 150px;
             }
-            .offer-banner .offer-image .offer-img {
-                max-width: 160px;
+            .locations-grid {
+                grid-template-columns: 1fr;
             }
-
-            .cta-section {
-                padding: 28px 18px;
-                border-radius: 32px;
-                margin: 30px auto 20px;
-                min-height: auto;
+            .location-card {
+                padding: 20px 16px;
             }
-            .cta-section h2 {
-                font-size: 24px;
-            }
-            .cta-section .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .cta-section .cta-btn-primary,
-            .cta-section .cta-btn-secondary {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-
             footer {
                 padding: 25px 16px 18px;
                 margin-top: 40px;
@@ -1802,6 +1429,7 @@
             .footer-box p,
             .footer-box a {
                 font-size: 13px;
+                opacity: 0.8;
             }
             .footer-logo-link {
                 font-size: 20px !important;
@@ -1810,14 +1438,16 @@
                 font-size: 20px;
                 gap: 12px;
             }
+            .social a {
+                font-size: 20px;
+            }
             .copy {
                 font-size: 12px;
             }
             hr {
-                margin: 25px auto 15px;
+                margin: 20px auto 10px;
             }
         }
-
         @media (max-width: 380px) {
             .hero .hero-content h1 {
                 font-size: 26px;
@@ -1825,18 +1455,14 @@
             .section-title h1 {
                 font-size: 20px;
             }
-            .category-grid {
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .car-types-grid {
                 grid-template-columns: 1fr;
             }
-            .offer-banner .offer-content h2 {
-                font-size: 20px;
-            }
-            .offer-banner .offer-image .offer-img {
-                max-width: 130px;
-            }
         }
-
-               @media (min-width: 1400px) {
+        @media (min-width: 1400px) {
             .hero {
                 padding: 160px 100px;
                 min-height: 100vh;
@@ -1845,60 +1471,33 @@
             .hero .hero-content h1 {
                 font-size: 72px;
             }
-            .cta-section {
-                padding: 60px 50px;
-                min-height: 50vh;
-            }
-            .cta-section h2 {
-                font-size: 40px;
-            }
-            .category-grid {
-                max-width: 1200px;
-            }
-            .reviews {
-                min-height: 85vh;
-                padding: 70px 0 60px;
-            }
-            .products {
-                margin: 60px auto 40px;  /* Added for large desktop screens */
-            }
         }
 
-        /* RTL Specific Adjustments */
+        /* ===== 14. RTL ===== */
         [dir="rtl"] .hero .hero-content {
             text-align: center;
-        }
-        [dir="rtl"] .product-card .product-tag {
-            left: auto;
-            right: 16px;
-        }
-        [dir="rtl"] .product-card .price .old-price {
-            margin-left: 0;
-            margin-right: 10px;
-        }
-        [dir="rtl"] .review-card::before {
-            right: auto;
-            left: 20px;
         }
         [dir="rtl"] nav ul li .nav-dropdown {
             left: auto;
             right: 0;
         }
-
-       
-        /* ===== DARK MODE SUPPORT ===== */
-        [data-theme="dark"] .offer-banner {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
+        [dir="rtl"] .bs-card .badge {
+            left: auto;
+            right: 12px;
+        }
+        [dir="rtl"] .bs-card .price .old-price {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+        [dir="rtl"] .shop-parts .shop-category .cat-header {
+            flex-direction: row-reverse;
         }
 
-        /* ============================================
-                   THEME COLOR SUPPORT
-           ============================================ */
+        /* ===== 15. THEME COLOR SUPPORT ===== */
         [data-theme-color="blue"] {
             --gold: #3b82f6;
             --gold-rgb: 59, 130, 246;
             --badge-color: #3b82f6;
-            --toggle-active: #3b82f6;
             --badge-bg: rgba(59, 130, 246, 0.15);
             --nav-link-hover: #3b82f6;
             --footer-link-hover: #3b82f6;
@@ -1908,7 +1507,6 @@
             --gold: #22c55e;
             --gold-rgb: 34, 197, 94;
             --badge-color: #22c55e;
-            --toggle-active: #22c55e;
             --badge-bg: rgba(34, 197, 94, 0.15);
             --nav-link-hover: #22c55e;
             --footer-link-hover: #22c55e;
@@ -1918,7 +1516,6 @@
             --gold: #8b5cf6;
             --gold-rgb: 139, 92, 246;
             --badge-color: #8b5cf6;
-            --toggle-active: #8b5cf6;
             --badge-bg: rgba(139, 92, 246, 0.15);
             --nav-link-hover: #8b5cf6;
             --footer-link-hover: #8b5cf6;
@@ -1931,23 +1528,17 @@
     <nav>
         <a href="index.html" class="logo"><i class="fas fa-car"></i> Cartron</a>
         <ul>
-            <!-- Desktop Home Dropdown - Visible only on desktop -->
             <li class="desktop-home-dropdown" id="homeDropdownLi">
-                <a href="#" id="homeDropdownLink">
-                    Home <span class="dropdown-arrow">▼</span>
-                </a>
+                <a href="#" id="homeDropdownLink">Home <span class="dropdown-arrow">▼</span></a>
                 <div class="nav-dropdown" id="homeDropdown">
                     <a href="index.html" class="active-dropdown">Home 1</a>
                     <a href="home2.html">Home 2</a>
                 </div>
             </li>
-
-            <!-- Mobile Home Links - Visible only on mobile/tablet -->
             <li class="mobile-home-links">
                 <a href="index.html" class="active">Home 1</a>
                 <a href="home2.html">Home 2</a>
             </li>
-
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="categories.html">Categories</a></li>
@@ -1956,7 +1547,6 @@
             <li><a href="booking.html">Booking</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
-             
             <li class="mobile-only mobile-auth">
                 <a href="login.html" class="mobile-login"><i class="fas fa-sign-in-alt"></i> Login</a>
                 <a href="signup.html" class="mobile-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
@@ -1966,170 +1556,281 @@
                 <button id="mobile-dark-light"><i class="fas fa-moon" id="mobileDarkIcon"></i> <span id="mobileDarkLabel">Dark</span></button>
             </li>
         </ul>
-
         <div class="nav-controls">
             <button class="rtl-toggle" id="rtlToggle"><span id="desktopRtlLabel">RTL</span></button>
             <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="toggleIcon"></i></button>
             <div class="auth-buttons">
-                <a href="login.html" class="login-btn"> Login</a>
+                <a href="login.html" class="login-btn">Login</a>
                 <a href="signup.html" class="signup-btn">Sign Up</a>
             </div>
         </div>
-
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== HERO SECTION - FULL VIEWPORT ===== -->
+    <!-- ===== 1️⃣ HERO ===== -->
     <section class="hero" id="top">
         <div class="hero-content">
-           <h1><span style="color: #ffffff !important;">Your One-Stop</span> <span>Auto Parts</span> <span style="color: #ffffff !important;">Store</span></h1>
-         <p style="color:#fff !important;">
-    Premium car accessories, genuine parts, and expert guidance for every vehicle. Drive with confidence.
-</p>
+            <span class="hero-tag"><i class="fas fa-trophy"></i> Premium Auto Parts</span>
+            <h1>Find the Right <span>Parts</span> for Your Car</h1>
+            <p>Quality auto parts and accessories for every vehicle. Shop genuine products with confidence.</p>
             <div class="hero-buttons">
-                <a href="categories.html" class="btn-primary"><i class="fas fa-search"></i> Browse Parts</a>
-                <a href="login.html" class="btn-secondary"><i class="fas fa-play-circle"></i> Explore More</a>
+                <a href="categories.html" class="btn-primary"><i class="fas fa-search"></i> Shop Parts</a>
+                <a href="contact.html" class="btn-secondary"><i class="fas fa-question-circle"></i> Enquire Now</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== STATISTICS ===== -->
-    <section class="stats">
-        <div class="stat-card"><h1>1000+</h1><p>Happy Customers</p></div>
-        <div class="stat-card"><h1>500+</h1><p>Products</p></div>
-        <div class="stat-card"><h1>50+</h1><p>Brands</p></div>
-        <div class="stat-card"><h1>24/7</h1><p>Support</p></div>
-    </section>
-
-    <!-- ===== CATEGORIES ===== -->
-    <section class="categories">
+    <!-- ===== 2️⃣ FIND PARTS FOR YOUR CAR ===== -->
+    <section class="find-parts">
         <div class="section-title">
-            <span class="page-tag"><i class="fas fa-th-large"></i> Categories</span>
-            <h1>Shop by Category</h1>
-            <p>Find exactly what you need for your vehicle</p>
+            <span class="page-tag"><i class="fas fa-car"></i> Find Parts</span>
+            <h1>Find Parts for Your Car</h1>
+            <p>Select your vehicle details to find compatible parts</p>
         </div>
-        <div class="category-grid">
-            <div class="category-card" onclick="alert('Explore Engine Parts')">
-                <span class="icon"><i class="fas fa-cogs"></i></span>
-                <h2>Engine Parts</h2>
-                <p>120+ Products</p>
+        <div class="finder-box">
+            <div class="finder-title">
+                <h2>🔧 Find Your Parts</h2>
+                <p>Enter your vehicle details to find the right parts</p>
             </div>
-            <div class="category-card" onclick="alert('Explore Brake Systems')">
-                <span class="icon"><i class="fas fa-circle-stop"></i></span>
-                <h2>Brake Systems</h2>
-                <p>85+ Products</p>
-            </div>
-            <div class="category-card" onclick="alert('Explore Lighting')">
-                <span class="icon"><i class="fas fa-lightbulb"></i></span>
-                <h2>Lighting</h2>
-                <p>95+ Products</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FEATURED PRODUCTS ===== -->
-    <section class="products">
-        <div class="section-title">
-            <span class="page-tag"><i class="fas fa-star"></i> Featured</span>
-            <h1>Best Selling Products</h1>
-            <p>Top-rated auto parts chosen by our customers</p>
-        </div>
-        <div class="product-container">
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">Best Seller</span>
-                    <img src="images/engine oil.jpg" alt="Engine Oil">
+            <form class="finder-row" onsubmit="return findParts(event)">
+                <div class="form-group">
+                    <label for="carMake">Make</label>
+                    <select id="carMake">
+                        <option value="">Select Make</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="honda">Honda</option>
+                        <option value="ford">Ford</option>
+                        <option value="bmw">BMW</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
                 </div>
-                <div class="product-info">
-                    <h2>Premium Engine Oil</h2>
-                    <div class="rating">⭐⭐⭐⭐⭐ (245)</div>
+                <div class="form-group">
+                    <label for="carModel">Model</label>
+                    <select id="carModel">
+                        <option value="">Select Model</option>
+                        <option value="camry">Camry</option>
+                        <option value="civic">Civic</option>
+                        <option value="mustang">Mustang</option>
+                        <option value="3series">3 Series</option>
+                        <option value="cclass">C-Class</option>
+                        <option value="a4">A4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="partCategory">Category</label>
+                    <select id="partCategory">
+                        <option value="">Select Category</option>
+                        <option value="engine">Engine Parts</option>
+                        <option value="brakes">Brake Systems</option>
+                        <option value="lighting">Lighting</option>
+                        <option value="suspension">Suspension</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+                <button type="submit" class="find-btn"><i class="fas fa-search"></i> Find Parts</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== 3️⃣ SHOP PARTS & ACCESSORIES ===== -->
+    <section class="shop-parts">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-tools"></i> Shop</span>
+            <h1>Shop Parts & Accessories</h1>
+            <p>Browse by category and find what you need</p>
+        </div>
+        <div class="shop-grid">
+            <div class="shop-category">
+                <div class="cat-header">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Engine & Performance</h3>
+                </div>
+                <div class="cat-items">
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Engine Oil</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Air Filters</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Spark Plugs</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Timing Belts</a>
+                </div>
+            </div>
+            <div class="shop-category">
+                <div class="cat-header">
+                    <i class="fas fa-circle-stop"></i>
+                    <h3>Brake & Suspension</h3>
+                </div>
+                <div class="cat-items">
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Brake Pads</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Brake Rotors</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Shocks & Struts</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Control Arms</a>
+                </div>
+            </div>
+            <div class="shop-category">
+                <div class="cat-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Lighting & Electrical</h3>
+                </div>
+                <div class="cat-items">
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> LED Headlights</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Car Batteries</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Alternators</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Fuses & Relays</a>
+                </div>
+            </div>
+            <div class="shop-category">
+                <div class="cat-header">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Interior & Exterior</h3>
+                </div>
+                <div class="cat-items">
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Seat Covers</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Floor Mats</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Body Kits</a>
+                    <a href="categories.html"><i class="fas fa-chevron-right"></i> Alloy Wheels</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4️⃣ TRUSTED BRANDS ===== -->
+    <section class="trusted-brands">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-crown"></i> Trusted Brands</span>
+            <h1>Trusted Brands</h1>
+            <p>We partner with the world's leading automotive brands</p>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-card" onclick="alert('Explore Bosch products')">
+                <span class="brand-icon"><i class="fas fa-bolt"></i></span>
+                <h4>Bosch</h4>
+                <p>Automotive Technology</p>
+            </div>
+            <div class="brand-card" onclick="alert('Explore Castrol products')">
+                <span class="brand-icon"><i class="fas fa-oil-can"></i></span>
+                <h4>Castrol</h4>
+                <p>Engine Oils</p>
+            </div>
+            <div class="brand-card" onclick="alert('Explore Exide products')">
+                <span class="brand-icon"><i class="fas fa-battery-full"></i></span>
+                <h4>Exide</h4>
+                <p>Batteries</p>
+            </div>
+            <div class="brand-card" onclick="alert('Explore MRF products')">
+                <span class="brand-icon"><i class="fas fa-circle"></i></span>
+                <h4>MRF</h4>
+                <p>Tires</p>
+            </div>
+            <div class="brand-card" onclick="alert('Explore NGK products')">
+                <span class="brand-icon"><i class="fas fa-fire"></i></span>
+                <h4>NGK</h4>
+                <p>Spark Plugs</p>
+            </div>
+            <div class="brand-card" onclick="alert('Explore Philips products')">
+                <span class="brand-icon"><i class="fas fa-lightbulb"></i></span>
+                <h4>Philips</h4>
+                <p>Lighting</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5️⃣ BEST SELLERS & SPECIAL OFFERS ===== -->
+    <section class="bestsellers-offers">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-star"></i> Best Sellers</span>
+            <h1>Best Sellers & Special Offers</h1>
+            <p>Top-rated products with exclusive discounts</p>
+        </div>
+        <div class="bestsellers-grid">
+            <div class="bs-card">
+                <span class="badge">#1 Best Seller</span>
+                <img src="images/engine oil.jpg" alt="Engine Oil" class="bs-img">
+                <div class="bs-body">
+                    <h3>Premium Engine Oil 5W-30</h3>
                     <div class="price">$29.99 <span class="old-price">$39.99</span></div>
-                    <p>Full synthetic, 5W-30</p>
-                    <button onclick="viewDetails('Premium Engine Oil')">View Details</button>
+                    <div class="bs-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">New</span>
-                    <img src="images/brake pads.jpg" alt="Brake Pads">
-                </div>
-                <div class="product-info">
-                    <h2>Ceramic Brake Pads</h2>
-                    <div class="rating">⭐⭐⭐⭐ (189)</div>
-                    <div class="price">$49.99</div>
-                    <p>Low dust, long lasting</p>
-                    <button onclick="viewDetails('Ceramic Brake Pads')">View Details</button>
+            <div class="bs-card">
+                <span class="badge">Hot</span>
+                <img src="images/brake pads.jpg" alt="Brake Pads" class="bs-img">
+                <div class="bs-body">
+                    <h3>Ceramic Brake Pads Set</h3>
+                    <div class="price">$49.99 <span class="old-price">$69.99</span></div>
+                    <div class="bs-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">Sale</span>
-                    <img src="images/led light.jpg" alt="LED Headlights">
-                </div>
-                <div class="product-info">
-                    <h2>LED Headlight Kit</h2>
-                    <div class="rating">⭐⭐⭐⭐⭐ (312)</div>
+            <div class="bs-card">
+                <span class="badge">Sale</span>
+                <img src="images/led light.jpg" alt="LED Lights" class="bs-img">
+                <div class="bs-body">
+                    <h3>LED Headlight Kit</h3>
                     <div class="price">$79.99 <span class="old-price">$109.99</span></div>
-                    <p>9000 lumens, plug & play</p>
-                    <button onclick="viewDetails('LED Headlight Kit')">View Details</button>
+                    <div class="bs-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-card">
+                <span class="badge">New</span>
+                <img src="images/battery.jpg" alt="Car Battery" class="bs-img">
+                <div class="bs-body">
+                    <h3>Premium Car Battery</h3>
+                    <div class="price">$149.99</div>
+                    <div class="bs-actions">
+                        <button class="btn-buy" onclick="window.location.href='booking.html'">Buy Now</button>
+                        <button class="btn-enquire" onclick="window.location.href='contact.html'">Enquire</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== LIMITED TIME OFFER BANNER ===== -->
-    <section class="offer-banner">
-        <div class="offer-content">
-            <span class="offer-tag"><i class="fas fa-clock"></i> Limited Time Offer</span>
-            <h2>Get <span>20% Off</span> Your First Order!</h2>
-            <p>Join the Cartron family today and get premium auto parts and car accessories at unbeatable prices. Use code at checkout.</p>
-            <div class="offer-code">CARRON20</div>
-            <br>
-            <a href="#" class="offer-btn">
-                Claim Your Discount <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-        <div class="offer-image">
-            <img src="images/offer.png" alt="Special Offer" class="offer-img">
-        </div>
-    </section>
-
-    <!-- ===== CUSTOMER REVIEWS / TESTIMONIALS ===== -->
-    <section class="reviews">
+    <!-- ===== 6️⃣ STORE LOCATIONS + CONTACT ===== -->
+    <section class="store-locations">
         <div class="section-title">
-            <span class="page-tag"><i class="fas fa-comment"></i> Testimonials</span>
-            <h1>What Our Customers Say</h1>
+            <span class="page-tag"><i class="fas fa-map-marker-alt"></i> Store Locations</span>
+            <h1>Store Locations + Contact</h1>
+            <p>Visit our stores or get in touch with us</p>
         </div>
-        <div class="review-container">
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Cartron has the best auto parts selection. Fast shipping and great quality products."</p>
-                <div class="author">Mike Johnson <span>- Regular Customer</span></div>
+        <div class="locations-grid">
+            <div class="location-card">
+                <div class="loc-icon"><i class="fas fa-store"></i></div>
+                <h3>Detroit Downtown</h3>
+                <p>123 Main Street, Detroit, MI 48201</p>
+                <p>📞 +1 (313) 555-0123</p>
+                <div class="loc-actions">
+                    <a href="contact.html" class="btn-loc"><i class="fas fa-directions"></i> Get Directions</a>
+                    <a href="contact.html" class="btn-loc-primary"><i class="fas fa-paper-plane"></i> Enquire Now</a>
+                </div>
             </div>
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Excellent customer service and genuine parts. Highly recommended for every car owner."</p>
-                <div class="author">Sarah Williams <span>- First Time Buyer</span></div>
+            <div class="location-card">
+                <div class="loc-icon"><i class="fas fa-store-alt"></i></div>
+                <h3>Dearborn Heights</h3>
+                <p>456 Ford Road, Dearborn, MI 48124</p>
+                <p>📞 +1 (313) 555-0456</p>
+                <div class="loc-actions">
+                    <a href="contact.html" class="btn-loc"><i class="fas fa-directions"></i> Get Directions</a>
+                    <a href="contact.html" class="btn-loc-primary"><i class="fas fa-paper-plane"></i> Enquire Now</a>
+                </div>
             </div>
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Affordable prices and amazing quality. I've been a loyal customer for years."</p>
-                <div class="author">David Brown <span>- Loyal Customer</span></div>
+            <div class="location-card">
+                <div class="loc-icon"><i class="fas fa-warehouse"></i></div>
+                <h3>Distribution Center</h3>
+                <p>789 Logistics Dr, Detroit, MI 48202</p>
+                <p>📞 +1 (313) 555-0789</p>
+                <div class="loc-actions">
+                    <a href="contact.html" class="btn-loc"><i class="fas fa-directions"></i> Get Directions</a>
+                    <a href="contact.html" class="btn-loc-primary"><i class="fas fa-paper-plane"></i> Enquire Now</a>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ===== CTA SECTION ===== -->
-    <section class="cta-section">
-        <h2>🚗 Get 15% Off Your First Order</h2>
-        <p>Subscribe to our newsletter and get exclusive discounts on auto parts and accessories.</p>
-        <div class="cta-buttons">
-            <a href="#" class="cta-btn-primary"><i class="fas fa-envelope"></i> Subscribe Now</a>
-            <a href="#" class="cta-btn-secondary"><i class="fas fa-store"></i> Visit Store</a>
         </div>
     </section>
 
@@ -2137,9 +1838,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-box">
-                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()">
-                    <i class="fas fa-car"></i> Cartron
-                </a>
+                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
                 <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
             </div>
             <div class="footer-box">
@@ -2160,10 +1859,10 @@
             <div class="footer-box">
                 <h2>Follow Us</h2>
                 <div class="social">
-                    <a href="#"><i class="fas fa-globe"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
@@ -2178,15 +1877,24 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function viewDetails(productName) {
-            window.location.href = 'services.html';
+        function findParts(event) {
+            event.preventDefault();
+            const make = document.getElementById('carMake').value;
+            const model = document.getElementById('carModel').value;
+            const category = document.getElementById('partCategory').value;
+            if (!make || !model || !category) {
+                alert('Please select Make, Model, and Category to find parts.');
+                return false;
+            }
+            alert(`🔧 Finding parts for:\nMake: ${make}\nModel: ${model}\nCategory: ${category}\n\nRedirecting to parts list...`);
+            window.location.href = 'categories.html';
+            return false;
         }
 
         // ===== DARK/LIGHT TOGGLE =====
         const themeToggle = document.getElementById('themeToggle');
         const toggleIcon = document.getElementById('toggleIcon');
         let isDark = true;
-
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
             toggleIcon.className = 'fas fa-sun';
@@ -2194,7 +1902,6 @@
         } else {
             toggleIcon.className = 'fas fa-moon';
         }
-
         themeToggle.addEventListener('click', () => {
             if (isDark) {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -2216,18 +1923,15 @@
         const desktopRtlLabel = document.getElementById('desktopRtlLabel');
         const mobileRtlLabel = document.getElementById('mobileRtlLabel');
         let isRTL = false;
-
         if (localStorage.getItem('rtl') === 'true') {
             document.documentElement.setAttribute('dir', 'rtl');
             isRTL = true;
         }
-
         function updateRTLState() {
             const label = isRTL ? 'LTR' : 'RTL';
             if (desktopRtlLabel) desktopRtlLabel.textContent = label;
             if (mobileRtlLabel) mobileRtlLabel.textContent = label;
         }
-
         function toggleRTL() {
             if (isRTL) {
                 document.documentElement.removeAttribute('dir');
@@ -2240,25 +1944,22 @@
             }
             updateRTLState();
         }
-
         rtlToggle.addEventListener('click', toggleRTL);
         if (mobileRtlToggle) {
             mobileRtlToggle.addEventListener('click', toggleRTL);
         }
         updateRTLState();
 
-        // ===== NAV DROPDOWN - Desktop only =====
+        // ===== NAV DROPDOWN =====
         const homeDropdownLi = document.getElementById('homeDropdownLi');
         const homeDropdownLink = document.getElementById('homeDropdownLink');
         const homeDropdown = document.getElementById('homeDropdown');
-
         if (homeDropdownLink && homeDropdown) {
             homeDropdownLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 homeDropdown.classList.toggle('show');
             });
-
             document.addEventListener('click', function(e) {
                 if (!homeDropdownLi.contains(e.target)) {
                     homeDropdown.classList.remove('show');
@@ -2269,7 +1970,6 @@
         // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
         const navUl = document.querySelector('nav ul');
-
         function toggleMenu(open) {
             if (open) {
                 hamburger.classList.add('active');
@@ -2281,20 +1981,17 @@
                 document.body.classList.remove('menu-open');
             }
         }
-
         if (hamburger && navUl) {
             hamburger.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const isOpen = navUl.classList.contains('active');
                 toggleMenu(!isOpen);
             });
-
             document.addEventListener('click', function(e) {
                 if (!navUl.contains(e.target) && !hamburger.contains(e.target)) {
                     toggleMenu(false);
                 }
             });
-
             navUl.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 900) {
@@ -2306,7 +2003,6 @@
 
         // ===== MOBILE DARK MODE =====
         const mobileDarkBtn = document.getElementById('mobile-dark-light');
-
         function updateMobileDarkIcon() {
             if (mobileDarkBtn) {
                 const icon = mobileDarkBtn.querySelector('i');
@@ -2320,7 +2016,6 @@
                 }
             }
         }
-
         if (mobileDarkBtn) {
             mobileDarkBtn.addEventListener('click', function() {
                 themeToggle.click();
@@ -2343,14 +2038,6 @@
                 if (homeDropdown) homeDropdown.classList.remove('show');
                 toggleMenu(false);
             }
-        });
-
-        // ===== CATEGORY CARD CLICK =====
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const title = this.querySelector('h2')?.textContent || 'Category';
-                alert(`🔧 Exploring ${title}\n\nBrowse our wide selection of products in this category.`);
-            });
         });
     </script>
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartron - FAQ</title>
-    <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+    <link rel="icon" type="image/x-icon" href="images/tyre service.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
@@ -51,7 +51,7 @@
             --card-bg: rgba(60, 60, 60, 0.6);
             --card-border: rgba(80, 80, 80, 0.3);
             --nav-bg: rgba(20, 20, 20, 0.95);
-            --footer-bg: rgba(10, 10, 10, 0.9);
+            --footer-bg: rgba(10, 10, 10, 0.95);
             --shadow: rgba(0, 0, 0, 0.5);
             --btn-hover: #ff6b35;
             --gold: #ff6b35;
@@ -73,20 +73,18 @@
             --mobile-nav-bg: rgba(10, 10, 10, 0.98);
             --mobile-nav-border: 2px solid var(--gold);
             --drawer-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-            --hero-text-color: #ffffff;
-            --hero-text-shadow: 0 2px 20px rgba(0,0,0,0.4);
             --hero-overlay: rgba(0, 0, 0, 0.55);
         }
 
         [data-theme="light"] {
-            --bg-gradient-1: #ffffff;
-            --bg-gradient-2: #ffffff;
-            --bg-gradient-3: #ffffff;
+            --bg-gradient-1: #f8f9fa;
+            --bg-gradient-2: #f8f9fa;
+            --bg-gradient-3: #f8f9fa;
             --text-color: #1a1a2e;
-            --card-bg: rgba(240, 240, 240, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.8);
             --card-border: rgba(200, 200, 200, 0.4);
             --nav-bg: rgba(255, 255, 255, 0.95);
-            --footer-bg: rgba(240, 240, 240, 0.9);
+            --footer-bg: rgba(240, 240, 240, 0.95);
             --shadow: rgba(0, 0, 0, 0.08);
             --gold: #d95c2b;
             --gold-rgb: 217, 92, 43;
@@ -102,9 +100,7 @@
             --nav-link-color: rgba(0, 0, 0, 0.7);
             --nav-link-hover: #d95c2b;
             --mobile-nav-bg: rgba(255, 255, 255, 0.98);
-            --hero-text-color: #1a1a2e;
-            --hero-text-shadow: 0 2px 20px rgba(255,255,255,0.3);
-            --hero-overlay: rgba(255, 255, 255, 0.65);
+            --hero-overlay: rgba(255, 255, 255, 0.7);
         }
 
         [dir="rtl"] {
@@ -629,90 +625,238 @@
             flex-direction: row-reverse;
         }
 
-        /* ============================================
-                   PAGE BANNER - FULL VIEWPORT
+       /* ============================================
+                   PAGE BANNER - FAQ HERO WITH BACKGROUND IMAGE & NO OVERLAY
            ============================================ */
         .page-banner {
             width: 100%;
-            padding: 140px 60px;
+            padding: 80px 60px;
             position: relative;
             z-index: 2;
-            min-height: 100vh;
-            height: 100vh;
+            min-height: 50vh;
+            height: auto;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
             overflow: hidden;
             background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            border-bottom: 1px solid var(--card-border);
         }
-        .page-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--hero-overlay);
-            border-radius: 0;
-            z-index: 0;
-            transition: background var(--transition);
-        }
+        /* NO OVERLAY - removed the ::before pseudo-element */
+
         .page-banner .banner-content {
             position: relative;
             z-index: 1;
-            max-width: 850px;
-            text-align: center;
-            margin: 0 auto;
+            flex: 1 1 55%;
+            max-width: 600px;
+        }
+        .page-banner .banner-content .hero-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
         }
         .page-banner .banner-content h1 {
-            font-size: 52px;
-            line-height: 1.15;
+            font-size: 44px;
+            line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--hero-text-color);
-            text-shadow: var(--hero-text-shadow);
-            transition: color var(--transition), text-shadow var(--transition);
+            margin-bottom: 14px;
+            color: #ffffff;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
         }
         .page-banner .banner-content h1 span {
             color: var(--gold);
-            text-shadow: 0 2px 20px rgba(255, 107, 53, 0.3);
+            text-shadow: 0 2px 30px rgba(255, 107, 53, 0.3);
         }
         .page-banner .banner-content p {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.8;
             opacity: 0.9;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--hero-text-color);
-            text-shadow: var(--hero-text-shadow);
-            transition: color var(--transition), text-shadow var(--transition);
+            max-width: 480px;
+            margin-bottom: 24px;
+            color: #ffffff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+        }
+        .page-banner .banner-content .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 480px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 60px;
+            padding: 4px 6px 4px 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+        .page-banner .banner-content .search-box:focus-within {
+            border-color: var(--gold);
+        }
+        .page-banner .banner-content .search-box input {
+            flex: 1;
+            padding: 12px 0;
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+        .page-banner .banner-content .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .page-banner .banner-content .search-box button {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 60px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .page-banner .banner-content .search-box button:hover {
+            background: var(--btn-hover);
+            transform: scale(1.02);
+        }
+        .page-banner .banner-content .popular-topics {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .page-banner .banner-content .popular-topics span {
+            font-size: 12px;
+            opacity: 0.7;
+            color: #ffffff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+        }
+        .page-banner .banner-content .popular-topics a {
+            padding: 4px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 60px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-size: 12px;
+            text-decoration: none;
+            transition: 0.3s;
+            opacity: 0.8;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        .page-banner .banner-content .popular-topics a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            opacity: 1;
         }
 
-        [data-theme="light"] .page-banner::before {
+        .page-banner .banner-image {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 40%;
+            max-width: 400px;
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .page-banner .banner-image .faq-illustration {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            text-align: center;
+        }
+        .page-banner .banner-image .faq-illustration .circle-bg {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .page-banner .banner-image .faq-illustration .circle-bg i {
+            font-size: 100px;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+        .page-banner .banner-image .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .page-banner .banner-image .floating-icons .icon-1 {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            font-size: 28px;
+            color: var(--gold);
+            opacity: 0.5;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+        .page-banner .banner-image .floating-icons .icon-2 {
+            position: absolute;
+            bottom: 20%;
+            left: 5%;
+            font-size: 22px;
+            color: var(--gold);
+            opacity: 0.4;
+            animation: floatIcon 4s ease-in-out infinite 0.5s;
+        }
+        .page-banner .banner-image .floating-icons .icon-3 {
+            position: absolute;
+            top: 30%;
+            left: 15%;
+            font-size: 18px;
+            color: var(--gold);
+            opacity: 0.4;
+            animation: floatIcon 3.5s ease-in-out infinite 1s;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        [data-theme="light"] .page-banner .page-banner .banner-content h1 {
+            color: #ffffff;
+        }
+        [data-theme="light"] .page-banner .page-banner .banner-content p {
+            color: #ffffff;
+        }
+        [data-theme="light"] .page-banner .banner-content .search-box {
             background: rgba(0, 0, 0, 0.4);
         }
-        [data-theme="light"] .page-banner .banner-content h1 {
-            color: #ffffff !important;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+        [data-theme="light"] .page-banner .banner-content .search-box input {
+            color: #ffffff;
         }
-        [data-theme="light"] .page-banner .banner-content h1 span {
-            color: var(--gold);
-            text-shadow: 0 2px 30px rgba(217, 92, 43, 0.3);
+        [data-theme="light"] .page-banner .banner-content .popular-topics span {
+            color: #ffffff;
         }
-        [data-theme="light"] .page-banner .banner-content p {
-            color: #ffffff !important;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+        [data-theme="light"] .page-banner .banner-content .popular-topics a {
+            color: #ffffff;
         }
 
-        /* ============================================
-                   SECTION TITLE
-           ============================================ */
+        /* ===== SECTION TITLE ===== */
         .section-title {
             text-align: center;
             margin-bottom: 30px;
@@ -755,7 +899,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 100px;
+            margin-top: 40px;
         }
 
         .faq-container {
@@ -1097,7 +1241,7 @@
         .footer-box p,
         .footer-box a {
             line-height: 1.8;
-            opacity: 0.7;
+            opacity: 0.8;
             color: var(--footer-text);
             text-decoration: none;
             display: block;
@@ -1142,6 +1286,7 @@
             color: var(--footer-text);
             opacity: 0.7;
             transition: 0.2s;
+            font-size: 22px;
         }
 
         .social a:hover {
@@ -1163,22 +1308,53 @@
             color: var(--text-color);
         }
 
-         /* ============================================
-                   RESPONSIVE - FIXED IPAD SPACING
+        /* ============================================
+                   RESPONSIVE
            ============================================ */
 
-        /* ===== IPAD PRO (1024px - 821px) ===== */
-        @media (max-width: 1024px) and (min-width: 821px) {
+        @media (max-width: 1024px) {
             .page-banner {
-                padding: 60px 30px;
-                min-height: 60vh;
-                height: 60vh;
+                padding: 50px 30px;
+                flex-direction: column;
+                text-align: center;
             }
-            .page-banner .banner-content h1 {
-                font-size: 38px;
+            .page-banner .banner-content {
+                max-width: 100%;
+                text-align: center;
             }
             .page-banner .banner-content p {
-                font-size: 15px;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .page-banner .banner-content .search-box {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .page-banner .banner-content .popular-topics {
+                justify-content: center;
+            }
+            .page-banner .banner-content h1 {
+                font-size: 36px;
+            }
+            .page-banner .banner-image {
+                max-width: 100%;
+                flex: 1 1 100%;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .page-banner .banner-image .faq-illustration .circle-bg {
+                width: 180px;
+                height: 180px;
+            }
+            .page-banner .banner-image .faq-illustration .circle-bg i {
+                font-size: 60px;
+            }
+            .page-banner .banner-image .floating-icons .icon-1,
+            .page-banner .banner-image .floating-icons .icon-2,
+            .page-banner .banner-image .floating-icons .icon-3 {
+                display: none;
             }
 
             .faq-section {
@@ -1308,160 +1484,40 @@
             }
         }
 
-        /* ===== IPAD MINI & IPAD AIR (820px - 768px) ===== */
-        @media (max-width: 820px) and (min-width: 768px) {
-            .page-banner {
-                padding: 50px 25px;
-                min-height: 50vh;
-                height: 50vh;
-            }
-            .page-banner .banner-content h1 {
-                font-size: 32px;
-            }
-            .page-banner .banner-content p {
-                font-size: 14px;
-            }
-
-            .faq-section {
-                margin-top: 15px;
-                padding: 25px 0 20px;
-            }
-            .faq-section .section-title {
-                margin-bottom: 18px;
-            }
-            .faq-section .section-title h1 {
-                font-size: 26px;
-            }
-            .faq-section .section-title p {
-                font-size: 14px;
-            }
-
-            .faq-container {
-                max-width: 700px;
-            }
-
-            .faq-section-1 {
-                margin-bottom: 30px;
-            }
-            .faq-section-1 .faq-section-title {
-                margin-bottom: 16px;
-                padding-bottom: 8px;
-            }
-            .faq-section-1 .faq-section-title h2 {
-                font-size: 18px;
-            }
-            .faq-section-1 .faq-section-title i {
-                font-size: 20px;
-                padding: 8px;
-            }
-            .faq-section-1 .faq-item {
-                margin-bottom: 10px;
-            }
-            .faq-section-1 .faq-question {
-                padding: 14px 16px;
-            }
-            .faq-section-1 .faq-question h3 {
-                font-size: 14px;
-            }
-            .faq-section-1 .faq-answer.open {
-                padding: 0 16px 14px 16px;
-            }
-            .faq-section-1 .faq-answer p {
-                font-size: 13px;
-            }
-
-            .faq-section-2 {
-                margin-top: 5px;
-            }
-            .faq-section-2 .faq-section-title {
-                margin-bottom: 16px;
-                padding-bottom: 8px;
-            }
-            .faq-section-2 .faq-section-title h2 {
-                font-size: 18px;
-            }
-            .faq-section-2 .faq-section-title i {
-                font-size: 20px;
-                padding: 8px;
-            }
-            .faq-section-2 .faq-item {
-                margin-bottom: 10px;
-            }
-            .faq-section-2 .faq-question {
-                padding: 14px 16px;
-                gap: 12px;
-            }
-            .faq-section-2 .faq-question h3 {
-                font-size: 14px;
-            }
-            .faq-section-2 .faq-answer.open {
-                padding: 0 16px 14px 60px;
-            }
-            .faq-section-2 .faq-answer p {
-                font-size: 13px;
-            }
-            .faq-section-2 .faq-question .faq-number {
-                width: 28px;
-                height: 28px;
-                font-size: 12px;
-            }
-
-            .cta-section {
-                padding: 24px 22px;
-                border-radius: 35px;
-                margin: 20px auto 25px;
-            }
-            .cta-section h2 {
-                font-size: 24px;
-            }
-            .cta-section p {
-                font-size: 14px;
-                margin-bottom: 16px;
-            }
-            .cta-section .cta-btn-primary,
-            .cta-section .cta-btn-secondary {
-                padding: 10px 24px;
-                font-size: 13px;
-            }
-
-            footer {
-                padding: 25px 20px 18px;
-                margin-top: 0;
-            }
-            .footer-container {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            .footer-box {
-                flex: 1 1 140px;
-            }
-            .footer-box h2 {
-                font-size: 16px;
-            }
-            .footer-box p,
-            .footer-box a {
-                font-size: 13px;
-            }
-            .footer-logo-link {
-                font-size: 20px !important;
-            }
-            hr {
-                margin: 20px auto 10px;
-            }
-        }
-
         @media (max-width: 600px) {
             .page-banner {
-                padding: 60px 20px;
-                min-height: 100vh;
-                height: 100vh;
-                background-attachment: scroll;
+                padding: 30px 20px;
             }
             .page-banner .banner-content h1 {
-                font-size: 30px;
+                font-size: 28px;
             }
             .page-banner .banner-content p {
-                font-size: 15px;
+                font-size: 14px;
+            }
+            .page-banner .banner-content .search-box {
+                flex-direction: column;
+                padding: 10px;
+                border-radius: 16px;
+            }
+            .page-banner .banner-content .search-box input {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+            .page-banner .banner-content .search-box button {
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+            }
+            .page-banner .banner-content .popular-topics a {
+                font-size: 11px;
+                padding: 3px 12px;
+            }
+            .page-banner .banner-image .faq-illustration .circle-bg {
+                width: 140px;
+                height: 140px;
+            }
+            .page-banner .banner-image .faq-illustration .circle-bg i {
+                font-size: 50px;
             }
 
             .section-title h1 {
@@ -1472,7 +1528,7 @@
             }
 
             .faq-section {
-                margin-top: 120px;
+                margin-top: 20px;
                 padding: 25px 0;
             }
 
@@ -1559,6 +1615,7 @@
             .footer-box p,
             .footer-box a {
                 font-size: 13px;
+                opacity: 0.8;
             }
             .footer-logo-link {
                 font-size: 20px !important;
@@ -1566,6 +1623,9 @@
             .social {
                 font-size: 20px;
                 gap: 12px;
+            }
+            .social a {
+                font-size: 20px;
             }
             .copy {
                 font-size: 12px;
@@ -1577,28 +1637,22 @@
 
         @media (max-width: 380px) {
             .page-banner .banner-content h1 {
-                font-size: 26px;
+                font-size: 24px;
             }
             .section-title h1 {
                 font-size: 20px;
             }
             .faq-section {
-                margin-top: 90px;
+                margin-top: 15px;
             }
         }
 
         @media (min-width: 1400px) {
             .page-banner {
-                padding: 160px 100px;
-                min-height: 100vh;
-                height: 100vh;
+                padding: 80px 100px;
             }
             .page-banner .banner-content h1 {
-                font-size: 60px;
-            }
-
-            .faq-section {
-                margin-top: 350px;
+                font-size: 52px;
             }
             .faq-container {
                 max-width: 1000px;
@@ -1614,7 +1668,14 @@
 
         /* ===== RTL ===== */
         [dir="rtl"] .page-banner .banner-content {
-            text-align: center;
+            text-align: right;
+        }
+        [dir="rtl"] .page-banner .banner-content .search-box {
+            flex-direction: row-reverse;
+            padding: 4px 20px 4px 6px;
+        }
+        [dir="rtl"] .page-banner .banner-content .popular-topics {
+            justify-content: flex-start;
         }
         [dir="rtl"] nav ul li .nav-dropdown {
             left: auto;
@@ -1644,6 +1705,18 @@
             flex-direction: row-reverse;
         }
 
+        @media (max-width: 1024px) {
+            [dir="rtl"] .page-banner .banner-content {
+                text-align: center;
+            }
+            [dir="rtl"] .page-banner .banner-content .popular-topics {
+                justify-content: center;
+            }
+            [dir="rtl"] .page-banner .banner-content .search-box {
+                flex-direction: column;
+                padding: 10px;
+            }
+        }
         @media (max-width: 600px) {
             [dir="rtl"] .faq-section-2 .faq-answer.open {
                 padding: 0 52px 12px 14px;
@@ -1743,16 +1816,28 @@
         </button>
     </nav>
 
-    <!-- ===== PAGE BANNER ===== -->
+    <!-- ===== PAGE BANNER - NEW FAQ HERO ===== -->
     <section class="page-banner" id="top">
         <div class="banner-content">
-            <h1><span style="color: white;">Frequently</span> <span>Asked Questions</span></h1>
-            <p style="color: #ffffff !important;">Find answers to the most common questions about our products and services</p>
+            <span class="hero-tag"><i class="fas fa-question-circle"></i> FAQ</span>
+            <h1>Got Questions? <span>We've Got Answers</span></h1>
+            <p>Find answers to the most common questions about our products and services.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search for answers..." id="faqSearch">
+                <button onclick="searchFaq()"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="popular-topics">
+                <span>Popular:</span>
+                <a href="#general">General</a>
+                <a href="#orders">Orders</a>
+                <a href="#shipping">Shipping</a>
+                <a href="#returns">Returns</a>
+            </div>
         </div>
     </section>
 
     <!-- ===== FAQ SECTION ===== -->
-    <section class="faq-section">
+    <section class="faq-section" id="general">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-question-circle"></i> FAQ</span>
             <h1>Got Questions? We've Got Answers</h1>
@@ -1839,7 +1924,7 @@
             </div>
 
             <!-- ===== FAQ SECTION 2 - STYLE 2 (Numbered Cards) ===== -->
-            <div class="faq-section-2">
+            <div class="faq-section-2" id="orders">
                 <div class="faq-section-title">
                     <i class="fas fa-shopping-cart"></i>
                     <h2>Orders & Shipping</h2>
@@ -1931,8 +2016,7 @@
         <p>Contact our expert team for personalized assistance with your auto parts needs.</p>
         <div class="cta-buttons">
            <a href="contact.html" class="cta-btn-secondary">
-                <img src="https://img.icons8.com/ios-filled/20/d95c2b/phone.png" alt="Phone" style="width:18px; height:18px; vertical-align:middle;" />
-                Contact us
+                <i class="fas fa-phone"></i> Contact us
             </a>
             <a href="services.html" class="cta-btn-secondary"><i class="fas fa-tools"></i> Our Services</a>
         </div>
@@ -1982,6 +2066,38 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // ===== FAQ SEARCH FUNCTION =====
+        function searchFaq() {
+            const input = document.getElementById('faqSearch');
+            const query = input.value.toLowerCase().trim();
+            const items = document.querySelectorAll('.faq-item');
+
+            if (query === '') {
+                items.forEach(item => {
+                    item.style.display = 'block';
+                });
+                return;
+            }
+
+            let found = false;
+            items.forEach(item => {
+                const question = item.querySelector('h3')?.textContent?.toLowerCase() || '';
+                const answer = item.querySelector('p')?.textContent?.toLowerCase() || '';
+                if (question.includes(query) || answer.includes(query)) {
+                    item.style.display = 'block';
+                    found = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('faqSearch').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                searchFaq();
+            }
+        });
 
         // ===== FAQ TOGGLE FUNCTION =====
         function toggleFaq(element) {
