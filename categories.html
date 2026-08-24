@@ -613,88 +613,92 @@
             margin-bottom: 8px;
         }
 
-        /* ===== 5. PAGE BANNER - UNIQUE LAYOUT WITH CAR IMAGE ===== */
+        /* ===== 5. PAGE BANNER - FIXED ALIGNMENT ===== */
         .page-banner {
             width: 100%;
-            padding: 80px 60px;
+            padding: 50px 60px;
             position: relative;
             z-index: 2;
-            min-height: 70vh;
-            height: 70vh;
+            min-height: auto;
+            height: auto;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             overflow: hidden;
             background: var(--bg-gradient-1);
             gap: 40px;
+            border-bottom: 1px solid var(--card-border);
         }
         .page-banner::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            right: 15%;
+            top: -100px;
+            filter: blur(10px);
             z-index: 0;
         }
         .page-banner .banner-content {
             position: relative;
             z-index: 1;
             flex: 1 1 50%;
-            max-width: 600px;
+            max-width: 520px;
         }
         .page-banner .banner-content .banner-tag {
             display: inline-block;
             background: var(--badge-bg);
-            padding: 6px 20px;
+            padding: 4px 16px;
             border-radius: 60px;
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gold);
             border: 1px solid var(--tag-border);
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
         .page-banner .banner-content h1 {
-            font-size: 48px;
-            line-height: 1.15;
+            font-size: 40px;
+            line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             color: var(--text-color);
         }
         .page-banner .banner-content h1 span {
             color: var(--gold);
         }
         .page-banner .banner-content p {
-            font-size: 17px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.7;
             opacity: 0.8;
-            margin-bottom: 28px;
-            max-width: 480px;
+            margin-bottom: 20px;
+            max-width: 450px;
             color: var(--text-color);
         }
         .page-banner .banner-content .banner-search-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 12px 16px;
-            max-width: 550px;
+            border-radius: 14px;
+            padding: 8px 12px;
+            max-width: 500px;
             box-shadow: 0 12px 30px var(--shadow);
         }
         .page-banner .banner-content .banner-search-row input,
         .page-banner .banner-content .banner-search-row select {
             flex: 1;
-            min-width: 120px;
-            padding: 10px 14px;
+            min-width: 100px;
+            padding: 8px 12px;
             border: 1px solid var(--input-border);
             border-radius: 10px;
             background: var(--input-bg);
             color: var(--text-color);
-            font-size: 14px;
+            font-size: 13px;
             outline: none;
             transition: 0.3s;
         }
@@ -708,13 +712,13 @@
             color: var(--text-color);
         }
         .page-banner .banner-content .banner-search-row .search-btn {
-            padding: 10px 28px;
+            padding: 8px 22px;
             border: none;
             border-radius: 10px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             transition: 0.3s;
             white-space: nowrap;
@@ -725,17 +729,17 @@
         }
         .page-banner .banner-content .banner-quick-links {
             display: flex;
-            gap: 12px;
-            margin-top: 18px;
+            gap: 10px;
+            margin-top: 14px;
             flex-wrap: wrap;
         }
         .page-banner .banner-content .banner-quick-links a {
-            padding: 6px 18px;
+            padding: 4px 14px;
             border: 1px solid var(--card-border);
             border-radius: 60px;
             background: transparent;
             color: var(--text-color);
-            font-size: 12px;
+            font-size: 11px;
             text-decoration: none;
             transition: 0.3s;
             opacity: 0.7;
@@ -749,37 +753,41 @@
         .page-banner .banner-image {
             position: relative;
             z-index: 1;
-            flex: 1 1 45%;
-            max-width: 520px;
+            flex: 1 1 40%;
+            max-width: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .page-banner .banner-image img {
             width: 100%;
             height: auto;
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px var(--shadow);
             object-fit: cover;
+            max-height: 280px;
         }
         .page-banner .banner-image .floating-badge {
             position: absolute;
-            bottom: -15px;
-            left: -15px;
+            bottom: -5px;
+            left: -5px;
             background: var(--gold);
             color: #fff;
-            padding: 12px 20px;
-            border-radius: 16px;
+            padding: 6px 14px;
+            border-radius: 12px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 11px;
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         .page-banner .banner-image .floating-badge i {
-            font-size: 20px;
+            font-size: 12px;
         }
 
         [data-theme="light"] .page-banner {
-            background: #f8f9fa;
+            background: #ffffff;
         }
         [data-theme="light"] .page-banner .banner-content .banner-search-row {
             background: rgba(255, 255, 255, 0.9);
@@ -1221,6 +1229,25 @@
             opacity: 1;
             transform: scale(1.1);
         }
+        .social .x-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-text);
+    opacity: 0.7;
+    transition: 0.2s;
+    font-size: 22px;
+    text-decoration: none;
+}
+.social .x-link:hover {
+    color: var(--footer-link-hover);
+    opacity: 1;
+    transform: scale(1.1);
+}
+.social .x-link svg {
+    width: 20px;
+    height: 20px;
+}
         hr {
             max-width: 1400px;
             margin: 30px auto 15px;
@@ -1236,11 +1263,10 @@
         /* ===== 11. RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .page-banner {
-                padding: 60px 35px;
-                min-height: 60vh;
-                height: 60vh;
+                padding: 40px 30px;
                 flex-direction: column;
                 text-align: center;
+                gap: 25px;
             }
             .page-banner .banner-content {
                 max-width: 100%;
@@ -1259,7 +1285,7 @@
                 justify-content: center;
             }
             .page-banner .banner-content h1 {
-                font-size: 38px;
+                font-size: 34px;
             }
             .page-banner .banner-image {
                 max-width: 100%;
@@ -1273,8 +1299,8 @@
             .page-banner .banner-image .floating-badge {
                 bottom: 5px;
                 left: 5px;
-                padding: 8px 14px;
-                font-size: 11px;
+                padding: 6px 12px;
+                font-size: 10px;
             }
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1296,9 +1322,8 @@
         }
         @media (max-width: 600px) {
             .page-banner {
-                padding: 40px 20px;
-                min-height: 50vh;
-                height: 50vh;
+                padding: 30px 20px;
+                gap: 20px;
             }
             .page-banner .banner-content h1 {
                 font-size: 28px;
@@ -1308,11 +1333,12 @@
             }
             .page-banner .banner-content .banner-search-row {
                 flex-direction: column;
-                padding: 12px;
+                padding: 10px;
             }
             .page-banner .banner-content .banner-search-row input,
             .page-banner .banner-content .banner-search-row select {
                 min-width: 100%;
+                font-size: 13px;
             }
             .page-banner .banner-content .banner-search-row .search-btn {
                 width: 100%;
@@ -1452,15 +1478,14 @@
         }
         @media (min-width: 1400px) {
             .page-banner {
-                padding: 100px 100px;
-                min-height: 75vh;
-                height: 75vh;
+                padding: 60px 100px;
+                gap: 60px;
             }
             .page-banner .banner-content h1 {
-                font-size: 56px;
+                font-size: 48px;
             }
             .page-banner .banner-image img {
-                max-height: 400px;
+                max-height: 350px;
             }
         }
 
@@ -1470,7 +1495,7 @@
         }
         [dir="rtl"] .page-banner .banner-image .floating-badge {
             left: auto;
-            right: -15px;
+            right: -5px;
         }
         [dir="rtl"] nav ul li .nav-dropdown {
             left: auto;
@@ -1560,7 +1585,7 @@
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== PAGE BANNER - UNIQUE LAYOUT WITH CAR IMAGE ===== -->
+    <!-- ===== PAGE BANNER - FIXED ALIGNMENT ===== -->
     <section class="page-banner" id="top">
         <div class="banner-content">
             <span class="banner-tag"><i class="fas fa-tag"></i> Shop by Category</span>
@@ -1892,43 +1917,46 @@
             <a href="contact.html" class="cta-btn-secondary"><i class="fas fa-phone"></i> Contact Us</a>
         </div>
     </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-box">
-                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
-                <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
-            </div>
-            <div class="footer-box">
-                <h2>Quick Links</h2>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-box">
-                <h2>Contact</h2>
-                <p>📍 Detroit, Michigan</p>
-                <p>📞 +1 (800) 555-CARS</p>
-                <p>📧 info@cartron.com</p>
-                <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
-            </div>
-            <div class="footer-box">
-                <h2>Follow Us</h2>
-                <div class="social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
+            <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
+        </div>
+        <div class="footer-box">
+            <h2>Quick Links</h2>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h2>Contact</h2>
+            <p>📍 Detroit, Michigan</p>
+            <p>📞 +1 (800) 555-CARS</p>
+            <p>📧 info@cartron.com</p>
+            <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
+        </div>
+        <div class="footer-box">
+            <h2>Follow Us</h2>
+            <div class="social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="x-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
+                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                    </svg>
+                </a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <hr>
-        <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
-    </footer>
+    </div>
+    <hr>
+    <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
+</footer>
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>

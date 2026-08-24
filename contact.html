@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartron - Contact Us</title>
-      <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
+    <link rel="icon" type="image/x-icon" href="images\tyre service.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
@@ -636,15 +636,15 @@
         }
 
         /* ============================================
-                   PAGE BANNER - FULL VIEWPORT
+                   PAGE BANNER - REDUCED HEIGHT
            ============================================ */
         .page-banner {
             width: 100%;
-            padding: 140px 60px;
+            padding: 80px 60px;
             position: relative;
             z-index: 2;
-            min-height: 100vh;
-            height: 100vh;
+            min-height: 50vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -655,6 +655,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            border-bottom: 1px solid var(--card-border);
         }
         .page-banner::before {
             content: '';
@@ -676,10 +677,10 @@
             margin: 0 auto;
         }
         .page-banner .banner-content h1 {
-            font-size: 52px;
+            font-size: 48px;
             line-height: 1.15;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             color: var(--hero-text-color);
             text-shadow: var(--hero-text-shadow);
             transition: color var(--transition), text-shadow var(--transition);
@@ -689,10 +690,10 @@
             text-shadow: 0 2px 20px rgba(255, 107, 53, 0.3);
         }
         .page-banner .banner-content p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.8;
             opacity: 0.9;
-            max-width: 650px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             color: var(--hero-text-color);
@@ -705,7 +706,7 @@
            ============================================ */
         .section-title {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         .section-title h1 {
             font-size: 32px;
@@ -731,22 +732,19 @@
         }
 
         /* ============================================
-                   CONTACT SECTION - FULL VIEWPORT
+                   CONTACT SECTION - REDUCED SPACING
            ============================================ */
         .contact-section {
             width: 94%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 0 20px;
+            padding: 40px 0 30px;
             position: relative;
             z-index: 2;
-            min-height: 100vh;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 150px;
         }
 
         .contact-grid {
@@ -834,11 +832,11 @@
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
         }
         .contact-info .info-card {
-            padding: 20px 24px;
+            padding: 18px 22px;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
@@ -878,22 +876,19 @@
         }
 
         /* ============================================
-                   MAP SECTION - FULL VIEWPORT (MOVED DOWN)
+                   MAP SECTION - REDUCED SPACING
            ============================================ */
         .map-section {
             width: 94%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 0 20px;
+            padding: 30px 0 40px;
             position: relative;
             z-index: 2;
-            min-height: 100vh;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 150px;
         }
 
         .map-container {
@@ -906,16 +901,16 @@
         }
         .map-container iframe {
             width: 100%;
-            height: 450px;
+            height: 400px;
             border: none;
             display: block;
         }
 
         /* ============================================
-                   FOOTER - NORMAL (NOT FULL VIEWPORT)
+                   FOOTER
            ============================================ */
         footer {
-            margin-top: 100px;
+            margin-top: 0;
             background: var(--footer-bg);
             backdrop-filter: blur(18px);
             padding: 40px 40px 25px;
@@ -989,6 +984,25 @@
             opacity: 1;
             transform: scale(1.1);
         }
+          .social .x-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-text);
+    opacity: 0.7;
+    transition: 0.2s;
+    font-size: 22px;
+    text-decoration: none;
+}
+.social .x-link:hover {
+    color: var(--footer-link-hover);
+    opacity: 1;
+    transform: scale(1.1);
+}
+.social .x-link svg {
+    width: 20px;
+    height: 20px;
+}
         hr {
             max-width: 1400px;
             margin: 30px auto 15px;
@@ -1002,15 +1016,14 @@
         }
 
         /* ============================================
-                   RESPONSIVE - FIXED IPAD SPACING
+                   RESPONSIVE
            ============================================ */
 
-        /* ===== IPAD PRO (1024px - 821px) ===== */
-        @media (max-width: 1024px) and (min-width: 821px) {
+        @media (max-width: 1024px) {
             .page-banner {
                 padding: 60px 30px;
-                min-height: 60vh;
-                height: 60vh;
+                min-height: 40vh;
+                height: 40vh;
             }
             .page-banner .banner-content h1 {
                 font-size: 38px;
@@ -1020,10 +1033,7 @@
             }
 
             .contact-section {
-                min-height: auto;
-                height: auto;
-                padding: 30px 5% 25px;
-                margin-top: 20px;
+                padding: 30px 0 25px;
             }
             .contact-section .section-title {
                 margin-bottom: 20px;
@@ -1061,25 +1071,16 @@
             }
 
             .contact-info .info-card {
-                padding: 16px 20px;
+                padding: 16px 18px;
             }
             .contact-info .info-card .info-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 18px;
-            }
-            .contact-info .info-card .info-text h3 {
-                font-size: 15px;
-            }
-            .contact-info .info-card .info-text p {
-                font-size: 13px;
+                width: 42px;
+                height: 42px;
+                font-size: 17px;
             }
 
             .map-section {
-                min-height: auto;
-                height: auto;
-                padding: 25px 5% 20px;
-                margin-top: 15px;
+                padding: 25px 0 30px;
             }
             .map-section .section-title {
                 margin-bottom: 20px;
@@ -1087,16 +1088,12 @@
             .map-section .section-title h1 {
                 font-size: 28px;
             }
-            .map-section .section-title p {
-                font-size: 14px;
-            }
             .map-container iframe {
-                height: 320px;
+                height: 300px;
             }
 
             footer {
                 padding: 30px 30px 20px;
-                margin-top: 20px;
             }
             .footer-container {
                 gap: 25px;
@@ -1119,133 +1116,18 @@
             }
         }
 
-        /* ===== IPAD MINI & IPAD AIR (820px - 768px) ===== */
-        @media (max-width: 820px) and (min-width: 768px) {
-            .page-banner {
-                padding: 50px 25px;
-                min-height: 50vh;
-                height: 50vh;
-            }
-            .page-banner .banner-content h1 {
-                font-size: 32px;
-            }
-            .page-banner .banner-content p {
-                font-size: 14px;
-            }
-
-            .contact-section {
-                min-height: auto;
-                height: auto;
-                padding: 25px 5% 20px;
-                margin-top: 15px;
-            }
-            .contact-section .section-title {
-                margin-bottom: 18px;
-            }
-            .contact-section .section-title h1 {
-                font-size: 26px;
-            }
-            .contact-section .section-title p {
-                font-size: 14px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 500px;
-            }
-
-            .contact-form {
-                padding: 22px 18px;
-            }
-            .contact-form h2 {
-                font-size: 20px;
-            }
-            .contact-form .form-group {
-                margin-bottom: 12px;
-            }
-            .contact-form .form-group input,
-            .contact-form .form-group textarea {
-                padding: 8px 12px;
-                font-size: 13px;
-            }
-            .contact-form .submit-btn {
-                padding: 10px 24px;
-                font-size: 13px;
-            }
-
-            .contact-info .info-card {
-                padding: 14px 16px;
-            }
-            .contact-info .info-card .info-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-            }
-            .contact-info .info-card .info-text h3 {
-                font-size: 14px;
-            }
-            .contact-info .info-card .info-text p {
-                font-size: 12px;
-            }
-
-            .map-section {
-                min-height: auto;
-                height: auto;
-                padding: 20px 5% 18px;
-                margin-top: 10px;
-            }
-            .map-section .section-title {
-                margin-bottom: 16px;
-            }
-            .map-section .section-title h1 {
-                font-size: 26px;
-            }
-            .map-section .section-title p {
-                font-size: 14px;
-            }
-            .map-container iframe {
-                height: 250px;
-            }
-
-            footer {
-                padding: 25px 20px 18px;
-                margin-top: 15px;
-            }
-            .footer-container {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            .footer-box {
-                flex: 1 1 140px;
-            }
-            .footer-box h2 {
-                font-size: 16px;
-            }
-            .footer-box p,
-            .footer-box a {
-                font-size: 13px;
-            }
-            .footer-logo-link {
-                font-size: 20px !important;
-            }
-            hr {
-                margin: 20px auto 10px;
-            }
-        }
-
         @media (max-width: 600px) {
             .page-banner {
-                padding: 60px 20px;
-                min-height: 100vh;
-                height: 100vh;
+                padding: 40px 20px;
+                min-height: 35vh;
+                height: 35vh;
                 background-attachment: scroll;
             }
             .page-banner .banner-content h1 {
-                font-size: 30px;
+                font-size: 28px;
             }
             .page-banner .banner-content p {
-                font-size: 15px;
+                font-size: 14px;
             }
 
             .section-title h1 {
@@ -1256,12 +1138,8 @@
             }
 
             .contact-section {
-                min-height: auto;
-                height: auto;
-                padding: 10px 0 10px;
-                margin-top: 30px;
+                padding: 20px 0 20px;
             }
-
             .contact-section .section-title {
                 margin-bottom: 16px;
             }
@@ -1275,17 +1153,14 @@
             .contact-form {
                 padding: 18px 14px;
             }
-
             .contact-form h2 {
                 font-size: 18px;
             }
-
             .contact-form .form-group input,
             .contact-form .form-group textarea {
                 padding: 8px 12px;
                 font-size: 13px;
             }
-
             .contact-form .submit-btn {
                 padding: 10px 20px;
                 font-size: 13px;
@@ -1296,155 +1171,109 @@
             .contact-info {
                 gap: 12px;
             }
-
             .contact-info .info-card {
                 padding: 12px 14px;
             }
-
             .contact-info .info-card .info-icon {
                 width: 36px;
                 height: 36px;
                 font-size: 14px;
             }
-
             .contact-info .info-card .info-text h3 {
                 font-size: 13px;
             }
-
             .contact-info .info-card .info-text p {
                 font-size: 12px;
             }
 
             .map-section {
-                min-height: auto;
-                height: auto;
-                padding: 10px 0 10px;
-                margin-top: 15px;
+                padding: 15px 0 20px;
             }
-
             .map-section .section-title {
                 margin-bottom: 14px;
             }
-
             .map-section .section-title h1 {
                 font-size: 22px;
             }
-
-            .map-section .section-title p {
-                font-size: 14px;
-            }
-
             .map-container {
                 border-radius: 14px;
             }
-
             .map-container iframe {
                 height: 200px;
             }
 
             footer {
                 padding: 20px 16px 15px;
-                margin-top: 20px;
             }
-
             .footer-container {
                 gap: 14px;
                 flex-direction: column;
             }
-
             .footer-box {
                 flex: 1 1 100%;
             }
-
             .footer-box h2 {
                 font-size: 16px;
             }
-
             .footer-box p,
             .footer-box a {
                 font-size: 13px;
             }
-
             .footer-logo-link {
                 font-size: 20px !important;
             }
-
             .social {
                 font-size: 20px;
                 gap: 12px;
             }
-
             .copy {
                 font-size: 12px;
             }
-
             hr {
                 margin: 16px auto 10px;
             }
         }
 
         @media (max-width: 380px) {
-            .contact-section {
-                margin-top: 20px;
+            .page-banner .banner-content h1 {
+                font-size: 24px;
             }
-
             .contact-form {
                 padding: 14px 12px;
             }
-
             .contact-form h2 {
                 font-size: 16px;
             }
-
             .contact-info .info-card {
                 padding: 10px 12px;
             }
-
             .contact-info .info-card .info-icon {
                 width: 32px;
                 height: 32px;
                 font-size: 12px;
             }
-
-            .map-section {
-                margin-top: 10px;
-            }
-
             .map-container iframe {
                 height: 170px;
             }
-
             footer {
-                margin-top: 15px;
                 padding: 16px 12px 12px;
             }
         }
 
         @media (min-width: 1400px) {
             .page-banner {
-                padding: 160px 100px;
-                min-height: 100vh;
-                height: 100vh;
+                padding: 100px 100px;
+                min-height: 50vh;
+                height: 50vh;
             }
             .page-banner .banner-content h1 {
-                font-size: 60px;
-            }
-            .contact-section,
-            .map-section {
-                min-height: 100vh;
-                height: 100vh;
+                font-size: 56px;
             }
             .contact-grid {
                 max-width: 1200px;
             }
-            .contact-section {
-                margin-top: 420px;
-            }
-            .map-section {
-                margin-top: 60px;
-            }
             .map-container iframe {
-                height: 500px;
+                height: 450px;
             }
         }
 
@@ -1550,7 +1379,7 @@
         </button>
     </nav>
 
-    <!-- ===== PAGE BANNER - FULL VIEWPORT ===== -->
+    <!-- ===== PAGE BANNER - REDUCED HEIGHT ===== -->
     <section class="page-banner" id="top">
         <div class="banner-content">
             <h1><span style="color: white;">Contact</span> <span>Us</span></h1>
@@ -1558,7 +1387,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT SECTION - FULL VIEWPORT ===== -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section class="contact-section">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-envelope"></i> Get In Touch</span>
@@ -1629,7 +1458,7 @@
         </div>
     </section>
 
-    <!-- ===== MAP SECTION - FULL VIEWPORT (MOVED DOWN) ===== -->
+    <!-- ===== MAP SECTION ===== -->
     <section class="map-section">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-map"></i> Find Us</span>
@@ -1646,44 +1475,46 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-box">
-                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()">
-                    <i class="fas fa-car"></i> Cartron
+  <!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
+            <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
+        </div>
+        <div class="footer-box">
+            <h2>Quick Links</h2>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h2>Contact</h2>
+            <p>📍 Detroit, Michigan</p>
+            <p>📞 +1 (800) 555-CARS</p>
+            <p>📧 info@cartron.com</p>
+            <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
+        </div>
+        <div class="footer-box">
+            <h2>Follow Us</h2>
+            <div class="social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="x-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
+                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                    </svg>
                 </a>
-                <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
-            </div>
-            <div class="footer-box">
-                <h2>Quick Links</h2>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-box">
-                <h2>Contact</h2>
-                <p>📍 Detroit, Michigan</p>
-                <p>📞 +1 (800) 555-CARS</p>
-                <p>📧 info@cartron.com</p>
-                <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
-            </div>
-            <div class="footer-box">
-                <h2>Follow Us</h2>
-                <div class="social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <hr>
-        <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
-    </footer>
+    </div>
+    <hr>
+    <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
+</footer>
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>

@@ -69,7 +69,7 @@
             --nav-link-color: rgba(0, 0, 0, 0.7);
             --nav-link-hover: #d95c2b;
             --mobile-nav-bg: rgba(255, 255, 255, 0.98);
-            --hero-overlay: rgba(255, 255, 255, 0.75);
+            --hero-overlay: rgba(255, 255, 255, 0.7);
             --cta-bg: rgba(255, 255, 255, 0.8);
             --footer-text: #2a2a3e;
         }
@@ -186,7 +186,7 @@
         [dir="rtl"] nav ul li .nav-dropdown { left: auto; right: 0; }
         [dir="rtl"] .mobile-actions button { flex-direction: row-reverse; }
 
-        /* ===== PAGE BANNER - FIXED OVERLAY ===== */
+        /* ===== PAGE BANNER ===== */
         .page-banner {
             width: 100%;
             padding: 100px 60px;
@@ -205,47 +205,11 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        /* OVERLAY - properly visible in both themes */
-        .page-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--hero-overlay);
-            z-index: 0;
-            transition: background 0.4s ease;
-        }
-        .page-banner .banner-content {
-            position: relative;
-            z-index: 1;
-            max-width: 850px;
-            text-align: center;
-            margin: 0 auto;
-        }
-        .page-banner .banner-content h1 {
-            font-size: 52px;
-            line-height: 1.15;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #ffffff;
-            text-shadow: 0 2px 30px rgba(0,0,0,0.5);
-        }
-        .page-banner .banner-content h1 span {
-            color: var(--gold);
-            text-shadow: 0 2px 30px rgba(255, 107, 53, 0.3);
-        }
-        .page-banner .banner-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            opacity: 0.9;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ffffff;
-            text-shadow: 0 2px 30px rgba(0,0,0,0.5);
-        }
+        .page-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--hero-overlay); z-index: 0; }
+        .page-banner .banner-content { position: relative; z-index: 1; max-width: 850px; text-align: center; margin: 0 auto; }
+        .page-banner .banner-content h1 { font-size: 52px; line-height: 1.15; font-weight: 700; margin-bottom: 16px; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.5); }
+        .page-banner .banner-content h1 span { color: var(--gold); text-shadow: 0 2px 30px rgba(255, 107, 53, 0.3); }
+        .page-banner .banner-content p { font-size: 18px; line-height: 1.8; opacity: 0.9; max-width: 650px; margin-left: auto; margin-right: auto; color: #ffffff; text-shadow: 0 2px 30px rgba(0,0,0,0.5); }
 
         /* ===== SECTION TITLE ===== */
         .section-title { text-align: center; margin-bottom: 40px; }
@@ -268,7 +232,7 @@
         .about-text .about-features .feature-item i { color: var(--gold); font-size: 16px; width: 26px; }
         .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); object-fit: cover; }
 
-        /* ===== MISSION & VISION ===== */
+        /* ===== MISSION & VISION - TICKED POINTS CENTERED ===== */
         .mission-vision {
             width: 94%; max-width: 1400px; margin: 0 auto; padding: 40px 0; position: relative; z-index: 2;
             display: flex; flex-direction: column; align-items: center;
@@ -282,9 +246,31 @@
         .mv-card .mv-icon { font-size: 32px; color: var(--gold); margin-bottom: 10px; display: block; }
         .mv-card h2 { font-size: 20px; font-weight: 600; color: var(--gold); margin-bottom: 6px; }
         .mv-card p { opacity: 0.8; line-height: 1.6; font-size: 14px; color: var(--text-color); margin-bottom: 6px; }
-        .mv-card .mv-list { text-align: left; margin-top: 6px; padding-left: 0; }
-        .mv-card .mv-list li { opacity: 0.8; line-height: 1.6; font-size: 14px; color: var(--text-color); list-style: none; }
-        .mv-card .mv-list li i { color: var(--gold); margin-right: 6px; width: 14px; font-size: 10px; }
+        .mv-card .mv-list {
+            text-align: center;
+            margin-top: 6px;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mv-card .mv-list li {
+            opacity: 0.8;
+            line-height: 1.6;
+            font-size: 14px;
+            color: var(--text-color);
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mv-card .mv-list li i {
+            color: var(--gold);
+            font-size: 14px;
+            width: 18px;
+            display: inline-block;
+        }
 
         /* ===== TEAM ===== */
         .team-section {
@@ -302,7 +288,7 @@
         .team-card h3 { font-size: 17px; color: var(--text-color); font-weight: 600; }
         .team-card p { opacity: 0.6; font-size: 12px; color: var(--text-color); }
 
-        /* ===== CTA SECTION ===== */
+        /* ===== CTA ===== */
         .cta-section {
             width: 94%; max-width: 1400px; margin: 30px auto 40px; padding: 40px 35px;
             background: var(--cta-bg); backdrop-filter: blur(14px); border: 1px solid var(--card-border);
@@ -330,6 +316,25 @@
         .social { display: flex; gap: 14px; font-size: 22px; margin-top: 10px; }
         .social a { color: var(--footer-text); opacity: 0.7; transition: 0.2s; font-size: 22px; }
         .social a:hover { color: var(--footer-link-hover); opacity: 1; transform: scale(1.1); }
+        .social .x-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-text);
+    opacity: 0.7;
+    transition: 0.2s;
+    font-size: 22px;
+    text-decoration: none;
+}
+.social .x-link:hover {
+    color: var(--footer-link-hover);
+    opacity: 1;
+    transform: scale(1.1);
+}
+.social .x-link svg {
+    width: 20px;
+    height: 20px;
+}
         hr { max-width: 1400px; margin: 30px auto 15px; border: 0.5px solid var(--card-border); }
         .copy { text-align: center; opacity: 0.5; font-size: 13px; color: var(--text-color); }
 
@@ -446,6 +451,7 @@
         </div>
     </section>
 
+    <!-- ===== MISSION & VISION - TICKED POINTS CENTERED ===== -->
     <section class="mission-vision">
         <div class="section-title">
             <span class="page-tag"><i class="fas fa-bullseye"></i> Mission & Vision</span>
@@ -515,41 +521,46 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-box">
-                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
-                <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
-            </div>
-            <div class="footer-box">
-                <h2>Quick Links</h2>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-box">
-                <h2>Contact</h2>
-                <p>📍 Detroit, Michigan</p>
-                <p>📞 +1 (800) 555-CARS</p>
-                <p>📧 info@cartron.com</p>
-                <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
-            </div>
-            <div class="footer-box">
-                <h2>Follow Us</h2>
-                <div class="social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
+   <!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
+            <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
+        </div>
+        <div class="footer-box">
+            <h2>Quick Links</h2>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h2>Contact</h2>
+            <p>📍 Detroit, Michigan</p>
+            <p>📞 +1 (800) 555-CARS</p>
+            <p>📧 info@cartron.com</p>
+            <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
+        </div>
+        <div class="footer-box">
+            <h2>Follow Us</h2>
+            <div class="social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="x-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
+                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                    </svg>
+                </a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <hr>
-        <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
-    </footer>
+    </div>
+    <hr>
+    <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
+</footer>
 
     <script>
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }

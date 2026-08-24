@@ -1203,7 +1203,233 @@
             transform: scale(1.05);
         }
 
-        /* ===== 12. FOOTER ===== */
+        /* ===== 12. OFFER BANNER - NEW ===== */
+        .offer-banner {
+            width: 94%;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 50px 60px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .offer-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+        .offer-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulseGlow 5s ease-in-out infinite reverse;
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(10deg);
+            }
+        }
+        .offer-banner .offer-content {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 55%;
+        }
+        .offer-banner .offer-tag {
+            display: inline-block;
+            background: #ff6b35;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 18px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+        }
+        .offer-banner .offer-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .offer-banner .offer-content h2 span {
+            color: #ff6b35;
+        }
+        .offer-banner .offer-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 550px;
+            margin-bottom: 20px;
+        }
+        .offer-banner .offer-content .offer-code {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            padding: 6px 18px;
+            border-radius: 8px;
+            color: #ff6b35;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .offer-banner .offer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 40px;
+            background: #ff6b35;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+        }
+        .offer-banner .offer-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
+        }
+        .offer-banner .offer-btn:hover i {
+            transform: translateX(6px);
+        }
+        .offer-banner .offer-btn i {
+            transition: 0.3s;
+        }
+        .offer-banner .offer-image {
+            position: relative;
+            z-index: 1;
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        .offer-banner .offer-image .offer-img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            animation: floatImage 3s ease-in-out infinite;
+            transition: 0.3s;
+            object-fit: cover;
+        }
+        @keyframes floatImage {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ===== 13. CTA SECTION - NEW ===== */
+        .cta-section {
+            width: 94%;
+            max-width: 1400px;
+            margin: 30px auto 40px;
+            padding: 50px 40px;
+            background: var(--cta-bg);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: background var(--transition), border var(--transition);
+        }
+        .cta-section h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.7;
+            margin-bottom: 28px;
+            color: var(--text-color);
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-section .cta-btn-primary {
+            padding: 14px 40px;
+            border: none;
+            border-radius: 60px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cta-section .cta-btn-primary:hover {
+            background: var(--btn-hover);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        .cta-section .cta-btn-secondary {
+            padding: 14px 40px;
+            border: 1px solid var(--card-border);
+            border-radius: 60px;
+            background: transparent;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cta-section .cta-btn-secondary:hover {
+            background: var(--card-bg);
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        /* ===== 14. FOOTER ===== */
         footer {
             margin-top: 60px;
             background: var(--footer-bg);
@@ -1278,6 +1504,27 @@
             opacity: 1;
             transform: scale(1.1);
         }
+        /* ===== X (Twitter) Icon Fix - SVG version ===== */
+        .social .x-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--footer-text);
+            opacity: 0.7;
+            transition: 0.2s;
+            font-size: 22px;
+        }
+        .social .x-link:hover {
+            color: var(--footer-link-hover);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .social .x-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
         hr {
             max-width: 1400px;
             margin: 30px auto 15px;
@@ -1290,7 +1537,7 @@
             color: var(--text-color);
         }
 
-        /* ===== 13. RESPONSIVE ===== */
+        /* ===== 15. RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero {
                 padding: 80px 40px;
@@ -1322,6 +1569,27 @@
             }
             .locations-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .offer-banner {
+                padding: 35px 40px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .offer-banner .offer-content h2 {
+                font-size: 32px;
+            }
+            .offer-banner .offer-image {
+                flex: 0 0 auto;
+            }
+            .offer-banner .offer-image .offer-img {
+                max-width: 200px;
+            }
+            .cta-section {
+                padding: 35px 30px;
+                min-height: auto;
+            }
+            .cta-section h2 {
+                font-size: 28px;
             }
             .footer-container {
                 gap: 25px;
@@ -1412,6 +1680,49 @@
             .location-card {
                 padding: 20px 16px;
             }
+            .offer-banner {
+                padding: 28px 18px;
+                border-radius: 18px;
+                flex-direction: column;
+            }
+            .offer-banner .offer-content h2 {
+                font-size: 24px;
+            }
+            .offer-banner .offer-content p {
+                font-size: 14px;
+            }
+            .offer-banner .offer-content .offer-code {
+                font-size: 14px;
+            }
+            .offer-banner .offer-btn {
+                padding: 12px 28px;
+                font-size: 14px;
+                width: 100%;
+                justify-content: center;
+            }
+            .offer-banner .offer-image .offer-img {
+                max-width: 160px;
+            }
+            .cta-section {
+                padding: 30px 18px;
+                border-radius: 30px;
+                margin: 20px auto 30px;
+            }
+            .cta-section h2 {
+                font-size: 24px;
+            }
+            .cta-section .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-section .cta-btn-primary,
+            .cta-section .cta-btn-secondary {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
             footer {
                 padding: 25px 16px 18px;
                 margin-top: 40px;
@@ -1441,6 +1752,10 @@
             .social a {
                 font-size: 20px;
             }
+            .social .x-link svg {
+                width: 18px;
+                height: 18px;
+            }
             .copy {
                 font-size: 12px;
             }
@@ -1461,6 +1776,12 @@
             .car-types-grid {
                 grid-template-columns: 1fr;
             }
+            .offer-banner .offer-content h2 {
+                font-size: 20px;
+            }
+            .offer-banner .offer-image .offer-img {
+                max-width: 130px;
+            }
         }
         @media (min-width: 1400px) {
             .hero {
@@ -1471,9 +1792,21 @@
             .hero .hero-content h1 {
                 font-size: 72px;
             }
+            .offer-banner {
+                padding: 60px 80px;
+            }
+            .offer-banner .offer-content h2 {
+                font-size: 48px;
+            }
+            .cta-section {
+                padding: 60px 50px;
+            }
+            .cta-section h2 {
+                font-size: 40px;
+            }
         }
 
-        /* ===== 14. RTL ===== */
+        /* ===== 16. RTL ===== */
         [dir="rtl"] .hero .hero-content {
             text-align: center;
         }
@@ -1492,8 +1825,11 @@
         [dir="rtl"] .shop-parts .shop-category .cat-header {
             flex-direction: row-reverse;
         }
+        [dir="rtl"] .offer-banner .offer-btn:hover i {
+            transform: translateX(-6px);
+        }
 
-        /* ===== 15. THEME COLOR SUPPORT ===== */
+        /* ===== 17. THEME COLOR SUPPORT ===== */
         [data-theme-color="blue"] {
             --gold: #3b82f6;
             --gold-rgb: 59, 130, 246;
@@ -1834,6 +2170,32 @@
         </div>
     </section>
 
+    <!-- ===== 7️⃣ OFFER BANNER - NEW ===== -->
+    <section class="offer-banner">
+        <div class="offer-content">
+            <span class="offer-tag"><i class="fas fa-clock"></i> Limited Time Offer</span>
+            <h2>Get <span>20% Off</span> Your First Order!</h2>
+            <p>Join the Cartron family today and get premium auto parts and car accessories at unbeatable prices. Use code at checkout.</p>
+            <div class="offer-code">CARRON20</div>
+            <a href="categories.html" class="offer-btn">
+                Shop Now <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="offer-image">
+            <img src="images/offer.png" alt="Special Offer" class="offer-img">
+        </div>
+    </section>
+
+    <!-- ===== 8️⃣ CTA SECTION - NEW ===== -->
+    <section class="cta-section">
+        <h2>🚗 Get 15% Off Your First Order</h2>
+        <p>Subscribe to our newsletter and get exclusive discounts on auto parts and accessories.</p>
+        <div class="cta-buttons">
+            <a href="signup.html" class="cta-btn-primary"><i class="fas fa-envelope"></i> Subscribe Now</a>
+            <a href="categories.html" class="cta-btn-secondary"><i class="fas fa-store"></i> Visit Store</a>
+        </div>
+    </section>
+
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-container">
@@ -1860,7 +2222,11 @@
                 <h2>Follow Us</h2>
                 <div class="social">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="x-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                        </svg>
+                    </a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>

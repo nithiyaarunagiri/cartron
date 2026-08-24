@@ -32,7 +32,6 @@
             transition: background var(--transition), color var(--transition);
             direction: var(--rtl-direction);
             position: relative;
-            padding-top: 90px;
         }
 
         body.menu-open {
@@ -49,7 +48,6 @@
             --text-color: #f0f4fc;
             --card-bg: rgba(60, 60, 60, 0.6);
             --card-border: rgba(80, 80, 80, 0.3);
-            --nav-bg: rgba(20, 20, 20, 0.95);
             --shadow: rgba(0, 0, 0, 0.5);
             --btn-hover: #ff6b35;
             --gold: #ff6b35;
@@ -61,9 +59,6 @@
             --tag-border: rgba(255, 107, 53, 0.1);
             --tag-color: var(--gold);
             --rtl-direction: ltr;
-            --dropdown-bg: rgba(20, 20, 20, 0.95);
-            --nav-link-color: rgba(255, 255, 255, 0.8);
-            --nav-link-hover: var(--gold);
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.12);
             --input-bg: rgba(255, 255, 255, 0.08);
@@ -75,7 +70,6 @@
             --text-color: #1a1a2e;
             --card-bg: rgba(255, 255, 255, 0.7);
             --card-border: rgba(200, 200, 200, 0.3);
-            --nav-bg: rgba(255, 255, 255, 0.95);
             --shadow: rgba(0, 0, 0, 0.08);
             --gold: #d95c2b;
             --gold-rgb: 217, 92, 43;
@@ -84,9 +78,6 @@
             --tag-bg: rgba(217, 92, 43, 0.12);
             --tag-border: rgba(217, 92, 43, 0.08);
             --tag-color: #d95c2b;
-            --dropdown-bg: rgba(255, 255, 255, 0.95);
-            --nav-link-color: rgba(0, 0, 0, 0.7);
-            --nav-link-hover: #d95c2b;
             --glass-bg: rgba(255, 255, 255, 0.7);
             --glass-border: rgba(200, 200, 200, 0.25);
             --input-bg: rgba(0, 0, 0, 0.04);
@@ -97,29 +88,27 @@
             --rtl-direction: rtl;
         }
 
-        /* ===== NAVIGATION - SIMPLIFIED ===== */
-        nav {
-            width: 94%;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* ===== TOP BAR - MINIMAL (NO HEADER BACKGROUND) ===== */
+        .top-bar {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 999;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 35px;
-            background: var(--nav-bg);
-            backdrop-filter: blur(18px);
-            border: 1px solid var(--card-border);
-            border-radius: 60px;
-            position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 999;
-            box-shadow: 0 15px 35px var(--shadow);
-            transition: background var(--transition), border var(--transition), box-shadow var(--transition);
+            padding: 0 35px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            pointer-events: none;
+        }
+        .top-bar > * {
+            pointer-events: auto;
         }
 
-        .logo {
+        .top-bar .logo {
             font-size: 26px;
             font-weight: 600;
             color: var(--text-color);
@@ -129,23 +118,24 @@
             text-decoration: none;
             white-space: nowrap;
             flex-shrink: 0;
+            transition: color var(--transition);
         }
-        .logo i {
+        .top-bar .logo i {
             color: var(--gold);
         }
 
-        .nav-controls {
+        .top-bar .top-controls {
             display: flex;
             gap: 8px;
             align-items: center;
             flex-shrink: 0;
         }
 
-        .theme-toggle {
+        .top-bar .theme-toggle {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 40px;
-            padding: 6px 12px;
+            padding: 8px 14px;
             color: var(--text-color);
             cursor: pointer;
             font-size: 16px;
@@ -154,17 +144,18 @@
             align-items: center;
             gap: 6px;
             flex-shrink: 0;
+            backdrop-filter: blur(10px);
         }
-        .theme-toggle:hover {
+        .top-bar .theme-toggle:hover {
             transform: scale(1.05);
             border-color: var(--gold);
         }
 
-        .rtl-toggle {
+        .top-bar .rtl-toggle {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 40px;
-            padding: 6px 14px;
+            padding: 8px 16px;
             color: var(--text-color);
             cursor: pointer;
             font-size: 13px;
@@ -172,29 +163,30 @@
             transition: 0.3s;
             white-space: nowrap;
             flex-shrink: 0;
+            backdrop-filter: blur(10px);
         }
-        .rtl-toggle:hover {
+        .top-bar .rtl-toggle:hover {
             transform: scale(1.05);
             border-color: var(--gold);
             color: var(--gold);
         }
 
         /* ============================================
-                   SIGN UP SECTION - COMPACT
+                   SIGN UP SECTION
            ============================================ */
         .signup-section {
             width: 100%;
-            min-height: calc(100vh - 90px);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
+            padding: 80px 20px 30px;
             background: var(--bg-gradient-1);
         }
 
         .signup-wrapper {
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
         }
 
         /* ===== GLASS MORPHISM SIGN UP CARD ===== */
@@ -203,8 +195,8 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 18px 20px 16px;
+            border-radius: 24px;
+            padding: 28px 28px 24px;
             box-shadow: 0 20px 60px var(--shadow);
             transition: 0.3s;
             width: 100%;
@@ -217,32 +209,32 @@
 
         .signup-card .signup-header {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 18px;
         }
 
         .signup-card .signup-header h1 {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 1px;
+            margin-bottom: 2px;
         }
 
         .signup-card .signup-header p {
-            font-size: 12px;
+            font-size: 13px;
             opacity: 0.6;
             color: var(--text-color);
         }
 
         .signup-card .form-group {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .signup-card .form-group label {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             color: var(--text-color);
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .signup-card .form-group label .required {
@@ -253,29 +245,30 @@
             position: relative;
             display: flex;
             align-items: center;
+            width: 100%;
         }
 
         .signup-card .form-group .input-wrapper .input-icon {
             position: absolute;
-            left: 10px;
+            left: 12px;
             color: var(--text-color);
             opacity: 0.4;
-            font-size: 12px;
+            font-size: 13px;
             transition: 0.3s;
             z-index: 1;
         }
 
         [dir="rtl"] .signup-card .form-group .input-wrapper .input-icon {
             left: auto;
-            right: 10px;
+            right: 12px;
         }
 
         .signup-card .form-group .input-wrapper .toggle-password {
             position: absolute;
-            right: 10px;
+            right: 12px;
             color: var(--text-color);
             opacity: 0.4;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             transition: 0.3s;
             background: none;
@@ -286,7 +279,7 @@
 
         [dir="rtl"] .signup-card .form-group .input-wrapper .toggle-password {
             right: auto;
-            left: 10px;
+            left: 12px;
         }
 
         .signup-card .form-group .input-wrapper .toggle-password:hover {
@@ -294,20 +287,22 @@
             color: var(--gold);
         }
 
+        /* ===== FIX: ALL INPUTS SAME WIDTH ===== */
         .signup-card .form-group input {
             width: 100%;
-            padding: 6px 32px 6px 30px;
+            padding: 10px 40px 10px 38px;
             border: 1px solid var(--input-border);
-            border-radius: 8px;
+            border-radius: 10px;
             background: var(--input-bg);
             color: var(--text-color);
-            font-size: 12px;
+            font-size: 13px;
             transition: 0.3s;
             outline: none;
+            box-sizing: border-box;
         }
 
         [dir="rtl"] .signup-card .form-group input {
-            padding: 6px 30px 6px 32px;
+            padding: 10px 38px 10px 40px;
         }
 
         .signup-card .form-group input:focus {
@@ -324,7 +319,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             flex-wrap: wrap;
             gap: 4px;
         }
@@ -332,16 +327,16 @@
         .signup-card .form-options .agree-terms {
             display: flex;
             align-items: center;
-            gap: 4px;
-            font-size: 10px;
+            gap: 6px;
+            font-size: 11px;
             color: var(--text-color);
             opacity: 0.7;
             cursor: pointer;
         }
 
         .signup-card .form-options .agree-terms input[type="checkbox"] {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             accent-color: var(--gold);
             cursor: pointer;
         }
@@ -357,19 +352,19 @@
 
         .signup-card .signup-btn {
             width: 100%;
-            padding: 8px;
+            padding: 11px;
             border: none;
             border-radius: 60px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             letter-spacing: 0.5px;
         }
 
@@ -393,8 +388,8 @@
 
         .signup-card .login-link {
             text-align: center;
-            margin-top: 10px;
-            font-size: 12px;
+            margin-top: 14px;
+            font-size: 13px;
             color: var(--text-color);
             opacity: 0.7;
         }
@@ -414,15 +409,15 @@
 
         /* ===== SOCIAL LOGIN - ROW LAYOUT ===== */
         .signup-card .social-signup {
-            margin-top: 12px;
+            margin-top: 16px;
             text-align: center;
         }
 
         .signup-card .social-signup p {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-color);
             opacity: 0.5;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             position: relative;
         }
 
@@ -457,22 +452,22 @@
         .signup-card .social-signup .social-icons {
             display: flex;
             flex-direction: row;
-            gap: 6px;
+            gap: 8px;
             justify-content: center;
             width: 100%;
         }
 
         .signup-card .social-signup .social-icons a {
             flex: 1;
-            padding: 6px 4px;
+            padding: 8px 6px;
             border-radius: 60px;
             border: 1px solid var(--input-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 6px;
             color: var(--text-color);
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             transition: 0.3s;
             text-decoration: none;
@@ -481,7 +476,7 @@
         }
 
         .signup-card .social-signup .social-icons a i {
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .signup-card .social-signup .social-icons a:hover {
@@ -523,55 +518,187 @@
                    RESPONSIVE
            ============================================ */
         @media (max-width: 1024px) {
-            .signup-section {
-                min-height: calc(100vh - 80px);
-                padding: 15px 15px;
+            .top-bar {
+                padding: 0 30px;
+                top: 25px;
+            }
+            .top-bar .logo {
+                font-size: 28px;
+            }
+            .signup-wrapper {
+                max-width: 380px;
+            }
+            .signup-card {
+                padding: 24px 24px 20px;
+            }
+            .signup-card .signup-header h1 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .top-bar {
+                padding: 0 25px;
+                top: 20px;
+            }
+            .top-bar .logo {
+                font-size: 24px;
             }
             .signup-wrapper {
                 max-width: 360px;
             }
             .signup-card {
-                padding: 16px 18px 14px;
+                padding: 20px 20px 18px;
+                border-radius: 22px;
+            }
+            .signup-card .signup-header h1 {
+                font-size: 22px;
+            }
+            .signup-card .signup-header p {
+                font-size: 13px;
+            }
+            .signup-card .form-group {
+                margin-bottom: 10px;
+            }
+            .signup-card .form-group input {
+                padding: 9px 36px 9px 34px;
+                font-size: 13px;
+            }
+            [dir="rtl"] .signup-card .form-group input {
+                padding: 9px 34px 9px 36px;
+            }
+            .signup-card .signup-btn {
+                padding: 10px;
+                font-size: 14px;
             }
         }
 
         @media (max-width: 600px) {
-            body {
-                padding-top: 72px;
+            .top-bar {
+                padding: 0 16px;
+                top: 14px;
             }
+            .top-bar .logo {
+                font-size: 20px;
+            }
+            .top-bar .theme-toggle {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            .top-bar .rtl-toggle {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
             .signup-section {
-                min-height: calc(100vh - 72px);
-                padding: 10px 12px;
+                padding: 70px 14px 20px;
             }
             .signup-wrapper {
                 max-width: 100%;
             }
             .signup-card {
-                padding: 14px 14px 12px;
-                border-radius: 18px;
+                padding: 18px 16px 16px;
+                border-radius: 20px;
             }
             .signup-card .signup-header {
+                margin-bottom: 14px;
+            }
+            .signup-card .signup-header h1 {
+                font-size: 20px;
+            }
+            .signup-card .signup-header p {
+                font-size: 12px;
+            }
+            .signup-card .form-group {
                 margin-bottom: 8px;
+            }
+            .signup-card .form-group label {
+                font-size: 11px;
+            }
+            .signup-card .form-group input {
+                padding: 8px 34px 8px 32px;
+                font-size: 12px;
+                border-radius: 8px;
+            }
+            [dir="rtl"] .signup-card .form-group input {
+                padding: 8px 32px 8px 34px;
+            }
+            .signup-card .form-group .input-wrapper .input-icon {
+                font-size: 12px;
+                left: 10px;
+            }
+            [dir="rtl"] .signup-card .form-group .input-wrapper .input-icon {
+                left: auto;
+                right: 10px;
+            }
+            .signup-card .form-group .input-wrapper .toggle-password {
+                font-size: 12px;
+                right: 10px;
+            }
+            [dir="rtl"] .signup-card .form-group .input-wrapper .toggle-password {
+                right: auto;
+                left: 10px;
+            }
+            .signup-card .form-options {
+                margin-bottom: 10px;
+            }
+            .signup-card .form-options .agree-terms {
+                font-size: 10px;
+            }
+            .signup-card .form-options .agree-terms input[type="checkbox"] {
+                width: 12px;
+                height: 12px;
+            }
+            .signup-card .signup-btn {
+                padding: 9px;
+                font-size: 13px;
+            }
+            .signup-card .login-link {
+                font-size: 12px;
+                margin-top: 10px;
+            }
+            .signup-card .social-signup {
+                margin-top: 12px;
+            }
+            .signup-card .social-signup p {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+            .signup-card .social-signup .social-icons a {
+                padding: 6px 4px;
+                font-size: 11px;
+            }
+            .signup-card .social-signup .social-icons a i {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .top-bar .logo {
+                font-size: 17px;
+            }
+            .top-bar .theme-toggle {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+            .top-bar .rtl-toggle {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+
+            .signup-card {
+                padding: 14px 12px 12px;
+                border-radius: 16px;
             }
             .signup-card .signup-header h1 {
                 font-size: 18px;
             }
-            .signup-card .signup-header p {
-                font-size: 11px;
-            }
-            .signup-card .form-group {
-                margin-bottom: 6px;
-            }
-            .signup-card .form-group label {
-                font-size: 10px;
-            }
             .signup-card .form-group input {
-                padding: 5px 28px 5px 26px;
                 font-size: 11px;
-                border-radius: 6px;
+                padding: 6px 30px 6px 28px;
             }
             [dir="rtl"] .signup-card .form-group input {
-                padding: 5px 26px 5px 28px;
+                padding: 6px 28px 6px 30px;
             }
             .signup-card .form-group .input-wrapper .input-icon {
                 font-size: 11px;
@@ -589,30 +716,12 @@
                 right: auto;
                 left: 8px;
             }
-            .signup-card .form-options {
-                margin-bottom: 8px;
-            }
-            .signup-card .form-options .agree-terms {
-                font-size: 9px;
-            }
-            .signup-card .form-options .agree-terms input[type="checkbox"] {
-                width: 11px;
-                height: 11px;
-            }
             .signup-card .signup-btn {
-                padding: 7px;
                 font-size: 12px;
+                padding: 8px;
             }
-            .signup-card .login-link {
-                font-size: 11px;
-                margin-top: 8px;
-            }
-            .signup-card .social-signup {
-                margin-top: 10px;
-            }
-            .signup-card .social-signup p {
-                font-size: 10px;
-                margin-bottom: 6px;
+            .signup-card .social-signup .social-icons {
+                gap: 4px;
             }
             .signup-card .social-signup .social-icons a {
                 padding: 5px 3px;
@@ -623,60 +732,12 @@
             }
         }
 
-        @media (max-width: 380px) {
-            .signup-card {
-                padding: 12px 10px 10px;
-                border-radius: 16px;
-            }
-            .signup-card .signup-header h1 {
-                font-size: 16px;
-            }
-            .signup-card .form-group input {
-                font-size: 10px;
-                padding: 4px 24px 4px 22px;
-            }
-            [dir="rtl"] .signup-card .form-group input {
-                padding: 4px 22px 4px 24px;
-            }
-            .signup-card .form-group .input-wrapper .input-icon {
-                font-size: 10px;
-                left: 6px;
-            }
-            [dir="rtl"] .signup-card .form-group .input-wrapper .input-icon {
-                left: auto;
-                right: 6px;
-            }
-            .signup-card .form-group .input-wrapper .toggle-password {
-                font-size: 10px;
-                right: 6px;
-            }
-            [dir="rtl"] .signup-card .form-group .input-wrapper .toggle-password {
-                right: auto;
-                left: 6px;
-            }
-            .signup-card .signup-btn {
-                font-size: 11px;
-                padding: 6px;
-            }
-            .signup-card .social-signup .social-icons {
-                gap: 4px;
-            }
-            .signup-card .social-signup .social-icons a {
-                padding: 4px 2px;
-                font-size: 9px;
-            }
-            .signup-card .social-signup .social-icons a i {
-                font-size: 10px;
-            }
-        }
-
         /* ===== Theme Color Support ===== */
         [data-theme-color="blue"] {
             --gold: #3b82f6;
             --gold-rgb: 59, 130, 246;
             --badge-color: #3b82f6;
             --badge-bg: rgba(59, 130, 246, 0.15);
-            --nav-link-hover: #3b82f6;
             --btn-hover: #60a5fa;
         }
         [data-theme-color="green"] {
@@ -684,7 +745,6 @@
             --gold-rgb: 34, 197, 94;
             --badge-color: #22c55e;
             --badge-bg: rgba(34, 197, 94, 0.15);
-            --nav-link-hover: #22c55e;
             --btn-hover: #4ade80;
         }
         [data-theme-color="purple"] {
@@ -692,21 +752,19 @@
             --gold-rgb: 139, 92, 246;
             --badge-color: #8b5cf6;
             --badge-bg: rgba(139, 92, 246, 0.15);
-            --nav-link-hover: #8b5cf6;
             --btn-hover: #a78bfa;
         }
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav>
+    <!-- ===== TOP BAR - MINIMAL (NO HEADER BACKGROUND) ===== -->
+    <div class="top-bar">
         <a href="index.html" class="logo"><i class="fas fa-car"></i> Cartron</a>
-
-        <div class="nav-controls">
+        <div class="top-controls">
             <button class="rtl-toggle" id="rtlToggle"><span id="desktopRtlLabel">RTL</span></button>
             <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="toggleIcon"></i></button>
         </div>
-    </nav>
+    </div>
 
     <!-- ===== SIGN UP SECTION ===== -->
     <section class="signup-section">
