@@ -613,10 +613,10 @@
             margin-bottom: 8px;
         }
 
-        /* ===== 5. PAGE BANNER - FIXED ALIGNMENT ===== */
+        /* ===== 5. PAGE BANNER - FIXED ALIGNMENT (REDUCED SPACING) ===== */
         .page-banner {
             width: 100%;
-            padding: 50px 60px;
+            padding: 35px 60px;
             position: relative;
             z-index: 2;
             min-height: auto;
@@ -626,14 +626,14 @@
             justify-content: space-between;
             overflow: hidden;
             background: var(--bg-gradient-1);
-            gap: 40px;
             border-bottom: 1px solid var(--card-border);
+            gap: 30px;
         }
         .page-banner::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(ellipse at 70% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             right: 15%;
@@ -645,7 +645,7 @@
             position: relative;
             z-index: 1;
             flex: 1 1 50%;
-            max-width: 520px;
+            max-width: 500px;
         }
         .page-banner .banner-content .banner-tag {
             display: inline-block;
@@ -655,50 +655,50 @@
             font-size: 11px;
             color: var(--gold);
             border: 1px solid var(--tag-border);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
         .page-banner .banner-content h1 {
-            font-size: 40px;
+            font-size: 34px;
             line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--text-color);
         }
         .page-banner .banner-content h1 span {
             color: var(--gold);
         }
         .page-banner .banner-content p {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.7;
             opacity: 0.8;
-            margin-bottom: 20px;
-            max-width: 450px;
+            margin-bottom: 16px;
+            max-width: 420px;
             color: var(--text-color);
         }
         .page-banner .banner-content .banner-search-row {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 14px;
-            padding: 8px 12px;
-            max-width: 500px;
+            padding: 6px 10px;
+            max-width: 480px;
             box-shadow: 0 12px 30px var(--shadow);
         }
         .page-banner .banner-content .banner-search-row input,
         .page-banner .banner-content .banner-search-row select {
             flex: 1;
-            min-width: 100px;
+            min-width: 80px;
             padding: 8px 12px;
             border: 1px solid var(--input-border);
             border-radius: 10px;
             background: var(--input-bg);
             color: var(--text-color);
-            font-size: 13px;
+            font-size: 12px;
             outline: none;
             transition: 0.3s;
         }
@@ -712,13 +712,13 @@
             color: var(--text-color);
         }
         .page-banner .banner-content .banner-search-row .search-btn {
-            padding: 8px 22px;
+            padding: 8px 18px;
             border: none;
             border-radius: 10px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             transition: 0.3s;
             white-space: nowrap;
@@ -729,12 +729,12 @@
         }
         .page-banner .banner-content .banner-quick-links {
             display: flex;
-            gap: 10px;
-            margin-top: 14px;
+            gap: 8px;
+            margin-top: 12px;
             flex-wrap: wrap;
         }
         .page-banner .banner-content .banner-quick-links a {
-            padding: 4px 14px;
+            padding: 4px 12px;
             border: 1px solid var(--card-border);
             border-radius: 60px;
             background: transparent;
@@ -753,8 +753,8 @@
         .page-banner .banner-image {
             position: relative;
             z-index: 1;
-            flex: 1 1 40%;
-            max-width: 420px;
+            flex: 1 1 45%;
+            max-width: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -765,7 +765,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px var(--shadow);
             object-fit: cover;
-            max-height: 280px;
+            max-height: 220px;
         }
         .page-banner .banner-image .floating-badge {
             position: absolute;
@@ -773,17 +773,17 @@
             left: -5px;
             background: var(--gold);
             color: #fff;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 10px;
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .page-banner .banner-image .floating-badge i {
-            font-size: 12px;
+            font-size: 11px;
         }
 
         [data-theme="light"] .page-banner {
@@ -1230,24 +1230,24 @@
             transform: scale(1.1);
         }
         .social .x-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--footer-text);
-    opacity: 0.7;
-    transition: 0.2s;
-    font-size: 22px;
-    text-decoration: none;
-}
-.social .x-link:hover {
-    color: var(--footer-link-hover);
-    opacity: 1;
-    transform: scale(1.1);
-}
-.social .x-link svg {
-    width: 20px;
-    height: 20px;
-}
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--footer-text);
+            opacity: 0.7;
+            transition: 0.2s;
+            font-size: 22px;
+            text-decoration: none;
+        }
+        .social .x-link:hover {
+            color: var(--footer-link-hover);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .social .x-link svg {
+            width: 20px;
+            height: 20px;
+        }
         hr {
             max-width: 1400px;
             margin: 30px auto 15px;
@@ -1263,10 +1263,10 @@
         /* ===== 11. RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .page-banner {
-                padding: 40px 30px;
+                padding: 30px 30px;
                 flex-direction: column;
                 text-align: center;
-                gap: 25px;
+                gap: 20px;
             }
             .page-banner .banner-content {
                 max-width: 100%;
@@ -1285,22 +1285,22 @@
                 justify-content: center;
             }
             .page-banner .banner-content h1 {
-                font-size: 34px;
+                font-size: 30px;
             }
             .page-banner .banner-image {
                 max-width: 100%;
                 flex: 1 1 100%;
             }
             .page-banner .banner-image img {
-                max-height: 220px;
+                max-height: 180px;
                 width: 100%;
                 object-fit: cover;
             }
             .page-banner .banner-image .floating-badge {
                 bottom: 5px;
                 left: 5px;
-                padding: 6px 12px;
-                font-size: 10px;
+                padding: 5px 10px;
+                font-size: 9px;
             }
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1322,14 +1322,14 @@
         }
         @media (max-width: 600px) {
             .page-banner {
-                padding: 30px 20px;
-                gap: 20px;
+                padding: 25px 20px;
+                gap: 15px;
             }
             .page-banner .banner-content h1 {
-                font-size: 28px;
+                font-size: 26px;
             }
             .page-banner .banner-content p {
-                font-size: 14px;
+                font-size: 13px;
             }
             .page-banner .banner-content .banner-search-row {
                 flex-direction: column;
@@ -1338,14 +1338,14 @@
             .page-banner .banner-content .banner-search-row input,
             .page-banner .banner-content .banner-search-row select {
                 min-width: 100%;
-                font-size: 13px;
+                font-size: 12px;
             }
             .page-banner .banner-content .banner-search-row .search-btn {
                 width: 100%;
                 justify-content: center;
             }
             .page-banner .banner-image img {
-                max-height: 150px;
+                max-height: 140px;
             }
             .page-banner .banner-image .floating-badge {
                 display: none;
@@ -1464,7 +1464,7 @@
         }
         @media (max-width: 380px) {
             .page-banner .banner-content h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
             .section-title h1 {
                 font-size: 20px;
@@ -1475,17 +1475,20 @@
             .car-types-grid {
                 grid-template-columns: 1fr;
             }
+            .popular-grid {
+                max-width: 260px;
+            }
         }
         @media (min-width: 1400px) {
             .page-banner {
-                padding: 60px 100px;
-                gap: 60px;
+                padding: 45px 100px;
+                gap: 40px;
             }
             .page-banner .banner-content h1 {
-                font-size: 48px;
+                font-size: 42px;
             }
             .page-banner .banner-image img {
-                max-height: 350px;
+                max-height: 280px;
             }
         }
 
@@ -1917,48 +1920,48 @@
             <a href="contact.html" class="cta-btn-secondary"><i class="fas fa-phone"></i> Contact Us</a>
         </div>
     </section>
-<!-- ===== FOOTER ===== -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-box">
-            <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
-            <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
-        </div>
-        <div class="footer-box">
-            <h2>Quick Links</h2>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-box">
-            <h2>Contact</h2>
-            <p>📍 Detroit, Michigan</p>
-            <p>📞 +1 (800) 555-CARS</p>
-            <p>📧 info@cartron.com</p>
-            <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
-        </div>
-        <div class="footer-box">
-            <h2>Follow Us</h2>
-            <div class="social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="x-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
-                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
-                    </svg>
-                </a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-box">
+                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
+                <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
+            </div>
+            <div class="footer-box">
+                <h2>Quick Links</h2>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-box">
+                <h2>Contact</h2>
+                <p>📍 Detroit, Michigan</p>
+                <p>📞 +1 (800) 555-CARS</p>
+                <p>📧 info@cartron.com</p>
+                <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
+            </div>
+            <div class="footer-box">
+                <h2>Follow Us</h2>
+                <div class="social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="x-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                        </svg>
+                    </a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-    <hr>
-    <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
-</footer>
+        <hr>
+        <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
+    </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script>
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });

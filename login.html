@@ -97,7 +97,7 @@
             right: 0;
             z-index: 999;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             padding: 0 35px;
             width: 100%;
@@ -107,22 +107,6 @@
         }
         .top-bar > * {
             pointer-events: auto;
-        }
-
-        .top-bar .logo {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            white-space: nowrap;
-            flex-shrink: 0;
-            transition: color var(--transition);
-        }
-        .top-bar .logo i {
-            color: var(--gold);
         }
 
         .top-bar .top-controls {
@@ -207,6 +191,29 @@
         .login-card:hover {
             border-color: var(--gold);
             box-shadow: 0 25px 70px rgba(255, 107, 53, 0.12);
+        }
+
+        /* ===== BRAND LOGO INSIDE CARD ===== */
+        .login-card .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .login-card .brand-header .brand-logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .login-card .brand-header .brand-logo i {
+            color: var(--gold);
         }
 
         .login-card .login-header {
@@ -525,15 +532,19 @@
                 padding: 0 30px;
                 top: 25px;
             }
-            .top-bar .logo {
-                font-size: 28px;
-            }
             .login-wrapper {
                 max-width: 520px;
             }
             .login-card {
                 padding: 45px 45px 38px;
                 border-radius: 32px;
+            }
+            .login-card .brand-header {
+                margin-bottom: 24px;
+                padding-bottom: 18px;
+            }
+            .login-card .brand-header .brand-logo {
+                font-size: 30px;
             }
             .login-card .login-header {
                 margin-bottom: 28px;
@@ -615,15 +626,19 @@
                 padding: 0 25px;
                 top: 20px;
             }
-            .top-bar .logo {
-                font-size: 24px;
-            }
             .login-wrapper {
                 max-width: 460px;
             }
             .login-card {
                 padding: 38px 36px 32px;
                 border-radius: 28px;
+            }
+            .login-card .brand-header {
+                margin-bottom: 20px;
+                padding-bottom: 14px;
+            }
+            .login-card .brand-header .brand-logo {
+                font-size: 28px;
             }
             .login-card .login-header {
                 margin-bottom: 24px;
@@ -705,15 +720,19 @@
                 padding: 0 20px;
                 top: 18px;
             }
-            .top-bar .logo {
-                font-size: 22px;
-            }
             .login-wrapper {
                 max-width: 420px;
             }
             .login-card {
                 padding: 32px 28px 26px;
                 border-radius: 24px;
+            }
+            .login-card .brand-header {
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+            .login-card .brand-header .brand-logo {
+                font-size: 24px;
             }
             .login-card .login-header {
                 margin-bottom: 20px;
@@ -794,9 +813,6 @@
                 padding: 0 16px;
                 top: 14px;
             }
-            .top-bar .logo {
-                font-size: 20px;
-            }
             .top-bar .theme-toggle {
                 padding: 6px 12px;
                 font-size: 14px;
@@ -815,6 +831,13 @@
             .login-card {
                 padding: 22px 18px 18px;
                 border-radius: 20px;
+            }
+            .login-card .brand-header {
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+            }
+            .login-card .brand-header .brand-logo {
+                font-size: 20px;
             }
             .login-card .login-header {
                 margin-bottom: 16px;
@@ -886,9 +909,6 @@
         }
 
         @media (max-width: 380px) {
-            .top-bar .logo {
-                font-size: 17px;
-            }
             .top-bar .theme-toggle {
                 padding: 5px 10px;
                 font-size: 12px;
@@ -897,8 +917,16 @@
                 padding: 5px 10px;
                 font-size: 11px;
             }
+
             .login-card {
                 padding: 18px 14px 14px;
+            }
+            .login-card .brand-header {
+                margin-bottom: 10px;
+                padding-bottom: 8px;
+            }
+            .login-card .brand-header .brand-logo {
+                font-size: 18px;
             }
             .login-card .login-header h1 {
                 font-size: 20px;
@@ -969,7 +997,6 @@
 <body>
     <!-- ===== TOP BAR - MINIMAL (NO HEADER BACKGROUND) ===== -->
     <div class="top-bar">
-        <a href="index.html" class="logo"><i class="fas fa-car"></i> Cartron</a>
         <div class="top-controls">
             <button class="rtl-toggle" id="rtlToggle"><span id="desktopRtlLabel">RTL</span></button>
             <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="toggleIcon"></i></button>
@@ -981,6 +1008,11 @@
         <div class="login-wrapper">
             <!-- Glass Morphism Login Card -->
             <div class="login-card">
+                <!-- ===== BRAND LOGO INSIDE CARD ===== -->
+                <div class="brand-header">
+                    <a href="index.html" class="brand-logo"><i class="fas fa-car"></i> Cartron</a>
+                </div>
+
                 <div class="login-header">
                     <h1>Welcome Back</h1>
                     <p>Sign in to your Cartron account</p>

@@ -588,23 +588,23 @@
             flex-direction: row-reverse;
         }
 
-        /* ===== 4. HERO - FIXED ALIGNMENT ===== */
+        /* ===== 4. HERO - FIXED ALIGNMENT (REDUCED SPACING) ===== */
         .hero {
             width: 100%;
             max-width: 100%;
             margin: 0;
-            padding: 60px 80px;
+            padding: 40px 60px;
             border-radius: 0;
             position: relative;
             z-index: 2;
-            min-height: 80vh;
-            height: 80vh;
+            min-height: 70vh;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
             overflow: hidden;
             background: var(--bg-gradient-1);
-            gap: 40px;
+            gap: 30px;
         }
         .hero .hero-content {
             flex: 1 1 50%;
@@ -623,20 +623,20 @@
             letter-spacing: 0.5px;
         }
         .hero .hero-content h1 {
-            font-size: 44px;
+            font-size: 40px;
             line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--text-color);
         }
         .hero .hero-content h1 span {
             color: var(--gold);
         }
         .hero .hero-content p {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.7;
             opacity: 0.8;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             max-width: 450px;
             color: var(--text-color);
         }
@@ -646,7 +646,7 @@
             flex-wrap: wrap;
         }
         .hero .hero-content .btn-primary {
-            padding: 12px 30px;
+            padding: 10px 28px;
             border: none;
             border-radius: 60px;
             background: var(--gold);
@@ -666,7 +666,7 @@
             box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
         }
         .hero .hero-content .btn-secondary {
-            padding: 12px 30px;
+            padding: 10px 28px;
             border: 1px solid var(--card-border);
             border-radius: 60px;
             background: transparent;
@@ -694,7 +694,7 @@
         .hero .hero-image img {
             width: 100%;
             height: auto;
-            max-height: 380px;
+            max-height: 320px;
             border-radius: 20px;
             box-shadow: 0 20px 60px var(--shadow);
             object-fit: cover;
@@ -1342,24 +1342,24 @@
             transform: scale(1.1);
         }
         .social .x-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--footer-text);
-    opacity: 0.7;
-    transition: 0.2s;
-    font-size: 22px;
-    text-decoration: none;
-}
-.social .x-link:hover {
-    color: var(--footer-link-hover);
-    opacity: 1;
-    transform: scale(1.1);
-}
-.social .x-link svg {
-    width: 20px;
-    height: 20px;
-}
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--footer-text);
+            opacity: 0.7;
+            transition: 0.2s;
+            font-size: 22px;
+            text-decoration: none;
+        }
+        .social .x-link:hover {
+            color: var(--footer-link-hover);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .social .x-link svg {
+            width: 20px;
+            height: 20px;
+        }
         hr {
             max-width: 1400px;
             margin: 30px auto 15px;
@@ -1375,12 +1375,11 @@
         /* ===== 13. RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero {
-                padding: 50px 40px;
-                min-height: 70vh;
-                height: 70vh;
+                padding: 40px 40px;
+                min-height: 60vh;
                 flex-direction: column;
                 text-align: center;
-                gap: 30px;
+                gap: 20px;
             }
             .hero .hero-content {
                 max-width: 100%;
@@ -1395,14 +1394,14 @@
                 justify-content: center;
             }
             .hero .hero-content h1 {
-                font-size: 36px;
+                font-size: 34px;
             }
             .hero .hero-image {
                 max-width: 100%;
                 flex: 1 1 100%;
             }
             .hero .hero-image img {
-                max-height: 250px;
+                max-height: 220px;
                 width: 100%;
                 object-fit: cover;
             }
@@ -1441,12 +1440,13 @@
         }
         @media (max-width: 600px) {
             .hero {
-                padding: 30px 20px;
+                padding: 25px 20px;
                 min-height: auto;
                 height: auto;
+                gap: 15px;
             }
             .hero .hero-content h1 {
-                font-size: 28px;
+                font-size: 26px;
             }
             .hero .hero-content p {
                 font-size: 14px;
@@ -1465,7 +1465,7 @@
                 align-items: center;
             }
             .hero .hero-image img {
-                max-height: 180px;
+                max-height: 160px;
             }
             .section-title h1 {
                 font-size: 22px;
@@ -1560,7 +1560,7 @@
         }
         @media (max-width: 380px) {
             .hero .hero-content h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
             .section-title h1 {
                 font-size: 20px;
@@ -1648,149 +1648,6 @@
             --footer-link-hover: #8b5cf6;
             --btn-hover: #a78bfa;
         }
-
-        /* =========================================
-   HOME 2 - FEATURED BRANDS
-   ========================================= */
-
-.featured-brands .brands-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 25px !important;
-}
-
-.featured-brands .brand-card {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 30px 20px !important;
-    cursor: pointer;
-    transition: all 0.3s ease !important;
-}
-
-.featured-brands .brand-card:hover {
-    transform: translateY(-8px) !important;
-}
-
-.featured-brands .brand-icon {
-    width: 110px !important;
-    height: 110px !important;
-    margin: 0 auto 20px !important;
-    padding: 15px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    background: #fff !important;
-    border-radius: 15px !important;
-    overflow: hidden !important;
-
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10) !important;
-}
-
-.featured-brands .brand-icon img {
-    width: 100% !important;
-    height: 100% !important;
-
-    max-width: 100% !important;
-    max-height: 100% !important;
-
-    object-fit: contain !important;
-    display: block !important;
-}
-
-
-/* =========================================
-   HOME 2 - CUSTOMER PROFILE IMAGES
-   ========================================= */
-
-.testimonials-section .testimonials-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 25px !important;
-}
-
-.testimonials-section .testimonial-author {
-    display: flex !important;
-    align-items: center !important;
-    gap: 15px !important;
-}
-
-.testimonials-section .author-avatar {
-    width: 60px !important;
-    height: 60px !important;
-    min-width: 60px !important;
-    min-height: 60px !important;
-
-    border-radius: 50% !important;
-    overflow: hidden !important;
-
-    display: block !important;
-
-    border: 3px solid #fff !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
-}
-
-.testimonials-section .author-avatar img {
-    width: 100% !important;
-    height: 100% !important;
-
-    max-width: none !important;
-    max-height: none !important;
-
-    object-fit: cover !important;
-    border-radius: 50% !important;
-
-    display: block !important;
-}
-
-
-/* =========================================
-   CUSTOMER NAME / ROLE
-   ========================================= */
-
-.testimonials-section .author-info h4 {
-    margin: 0 0 5px 0 !important;
-}
-
-.testimonials-section .author-info span {
-    font-size: 14px !important;
-    color: #777 !important;
-}
-
-
-/* =========================================
-   MOBILE RESPONSIVE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .featured-brands .brands-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-
-    .testimonials-section .testimonials-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-}
-
-@media (max-width: 500px) {
-
-    .featured-brands .brands-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .featured-brands .brand-icon {
-        width: 90px !important;
-        height: 90px !important;
-    }
-
-}
-
     </style>
 </head>
 <body>
@@ -1951,181 +1808,98 @@
         </div>
     </section>
 
- <!-- ===== FEATURED BRANDS ===== -->
-<section class="featured-brands">
-    <div class="section-title">
-        <span class="page-tag">
-            <i class="fas fa-crown"></i> Trusted Brands
-        </span>
-
-        <h1>Featured Brands</h1>
-        <p>We partner with the world's leading automotive brands</p>
-    </div>
-
-    <div class="brands-grid">
-
-        <!-- Bosch -->
-        <div class="brand-card" onclick="alert('Explore Bosch products')">
-            <div class="brand-icon">
-                <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bosch-logo.svg"
-                    alt="Bosch Logo"
-                >
-            </div>
-            <h3>Bosch</h3>
-            <p>Automotive Technology</p>
-            <span class="brand-count">150+ Products</span>
+    <!-- ===== FEATURED BRANDS ===== -->
+    <section class="featured-brands">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-crown"></i> Trusted Brands</span>
+            <h1>Featured Brands</h1>
+            <p>We partner with the world's leading automotive brands</p>
         </div>
-
-        <!-- NGK -->
-        <div class="brand-card" onclick="alert('Explore NGK products')">
-            <div class="brand-icon">
-                <img 
-                    src=https://images.seeklogo.com/logo-png/48/1/ngk-logo-png_seeklogo-484863.png
-                    alt="NGK Logo"
-                >
+        <div class="brands-grid">
+            <div class="brand-card" onclick="alert('Explore Bosch products')">
+                <div class="brand-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bosch-logo.svg" alt="Bosch Logo">
+                </div>
+                <h3>Bosch</h3>
+                <p>Automotive Technology</p>
+                <span class="brand-count">150+ Products</span>
             </div>
-            <h3>NGK</h3>
-            <p>Spark Plugs & Sensors</p>
-            <span class="brand-count">80+ Products</span>
-        </div>
-
-        <!-- Brembo -->
-        <div class="brand-card" onclick="alert('Explore Brembo products')">
-            <div class="brand-icon">
-                <img 
-                    src=https://1000logos.net/wp-content/uploads/2020/09/Brembo-emblem.png
-                    alt="Brembo Logo"
-                >
+            <div class="brand-card" onclick="alert('Explore NGK products')">
+                <div class="brand-icon">
+                    <img src="https://images.seeklogo.com/logo-png/48/1/ngk-logo-png_seeklogo-484863.png" alt="NGK Logo">
+                </div>
+                <h3>NGK</h3>
+                <p>Spark Plugs & Sensors</p>
+                <span class="brand-count">80+ Products</span>
             </div>
-            <h3>Brembo</h3>
-            <p>Brake Systems</p>
-            <span class="brand-count">60+ Products</span>
-        </div>
-
-        <!-- Philips -->
-        <div class="brand-card" onclick="alert('Explore Philips products')">
-            <div class="brand-icon">
-                <img 
-                    src=https://1000logos.net/wp-content/uploads/2017/05/Phillips-Logo.png
-                    alt="Philips Logo"
-                >
+            <div class="brand-card" onclick="alert('Explore Brembo products')">
+                <div class="brand-icon">
+                    <img src="https://1000logos.net/wp-content/uploads/2020/09/Brembo-emblem.png" alt="Brembo Logo">
+                </div>
+                <h3>Brembo</h3>
+                <p>Brake Systems</p>
+                <span class="brand-count">60+ Products</span>
             </div>
-            <h3>Philips</h3>
-            <p>Lighting Solutions</p>
-            <span class="brand-count">45+ Products</span>
+            <div class="brand-card" onclick="alert('Explore Philips products')">
+                <div class="brand-icon">
+                    <img src="https://1000logos.net/wp-content/uploads/2017/05/Phillips-Logo.png" alt="Philips Logo">
+                </div>
+                <h3>Philips</h3>
+                <p>Lighting Solutions</p>
+                <span class="brand-count">45+ Products</span>
+            </div>
         </div>
-
-    </div>
-</section>
-
+    </section>
 
     <!-- ===== TESTIMONIALS - WITH PROFILE IMAGES ===== -->
-<section class="testimonials-section">
-
-    <div class="section-title">
-        <span class="page-tag">
-            <i class="fas fa-quote-left"></i> Testimonials
-        </span>
-
-        <h1>What Our Customers Say</h1>
-        <p>Real reviews from real customers who trust Cartron</p>
-    </div>
-
-    <div class="testimonials-grid">
-
-        <!-- Customer 1 -->
-        <div class="testimonial-card">
-
-            <div class="testimonial-stars">
-                ★★★★★
+    <section class="testimonials-section">
+        <div class="section-title">
+            <span class="page-tag"><i class="fas fa-quote-left"></i> Testimonials</span>
+            <h1>What Our Customers Say</h1>
+            <p>Real reviews from real customers who trust Cartron</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Cartron has the best auto parts selection I've ever seen. Fast shipping and the quality is unmatched. Highly recommended!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Michael Johnson">
+                    </div>
+                    <div class="author-info">
+                        <h4>Michael Johnson</h4>
+                        <span>Regular Customer</span>
+                    </div>
+                </div>
             </div>
-
-            <p class="testimonial-text">
-                "Cartron has the best auto parts selection I've ever seen.
-                Fast shipping and the quality is unmatched. Highly recommended!"
-            </p>
-
-            <div class="testimonial-author">
-
-                <div class="author-avatar">
-                    <img 
-                        src="https://i.pravatar.cc/150?img=12"
-                        alt="Michael Johnson"
-                    >
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I've been buying parts from Cartron for over 3 years now. Their customer service is excellent and the parts are always genuine."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Sarah Williams">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Williams</h4>
+                        <span>Loyal Customer</span>
+                    </div>
                 </div>
-
-                <div class="author-info">
-                    <h4>Michael Johnson</h4>
-                    <span>Regular Customer</span>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The installation service at Cartron is top-notch. My car runs better than ever. I'll never go anywhere else for auto parts."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="David Brown">
+                    </div>
+                    <div class="author-info">
+                        <h4>David Brown</h4>
+                        <span>First Time Buyer</span>
+                    </div>
                 </div>
-
             </div>
         </div>
-
-
-        <!-- Customer 2 -->
-        <div class="testimonial-card">
-
-            <div class="testimonial-stars">
-                ★★★★★
-            </div>
-
-            <p class="testimonial-text">
-                "I've been buying parts from Cartron for over 3 years now.
-                Their customer service is excellent and the parts are always genuine."
-            </p>
-
-            <div class="testimonial-author">
-
-                <div class="author-avatar">
-                    <img 
-                        src="https://i.pravatar.cc/150?img=47"
-                        alt="Sarah Williams"
-                    >
-                </div>
-
-                <div class="author-info">
-                    <h4>Sarah Williams</h4>
-                    <span>Loyal Customer</span>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Customer 3 -->
-        <div class="testimonial-card">
-
-            <div class="testimonial-stars">
-                ★★★★★
-            </div>
-
-            <p class="testimonial-text">
-                "The installation service at Cartron is top-notch.
-                My car runs better than ever. I'll never go anywhere else
-                for auto parts."
-            </p>
-
-            <div class="testimonial-author">
-
-                <div class="author-avatar">
-                    <img 
-                        src="https://i.pravatar.cc/150?img=11"
-                        alt="David Brown"
-                    >
-                </div>
-
-                <div class="author-info">
-                    <h4>David Brown</h4>
-                    <span>First Time Buyer</span>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <!-- ===== CTA ===== -->
     <section class="cta-section">
@@ -2137,46 +1911,46 @@
         </div>
     </section>
 
-   <!-- ===== FOOTER ===== -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-box">
-            <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
-            <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
-        </div>
-        <div class="footer-box">
-            <h2>Quick Links</h2>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-box">
-            <h2>Contact</h2>
-            <p>📍 Detroit, Michigan</p>
-            <p>📞 +1 (800) 555-CARS</p>
-            <p>📧 info@cartron.com</p>
-            <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
-        </div>
-        <div class="footer-box">
-            <h2>Follow Us</h2>
-            <div class="social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="x-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
-                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
-                    </svg>
-                </a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-box">
+                <a href="index.html" class="footer-logo-link" onclick="scrollToTop()"><i class="fas fa-car"></i> Cartron</a>
+                <p style="margin-top: 10px;">Your trusted partner for quality auto parts and car accessories since 2015.</p>
+            </div>
+            <div class="footer-box">
+                <h2>Quick Links</h2>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-box">
+                <h2>Contact</h2>
+                <p>📍 Detroit, Michigan</p>
+                <p>📞 +1 (800) 555-CARS</p>
+                <p>📧 info@cartron.com</p>
+                <p>🕒 Mon - Sat : 8AM - 8PM EST</p>
+            </div>
+            <div class="footer-box">
+                <h2>Follow Us</h2>
+                <div class="social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="x-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" fill="currentColor">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                        </svg>
+                    </a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-    <hr>
-    <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
-</footer>
+        <hr>
+        <p class="copy">© 2026 Cartron. All Rights Reserved.</p>
+    </footer>
 
     <script>
         function scrollToTop() {

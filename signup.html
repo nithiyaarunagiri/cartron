@@ -96,7 +96,7 @@
             right: 0;
             z-index: 999;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             padding: 0 35px;
             width: 100%;
@@ -106,22 +106,6 @@
         }
         .top-bar > * {
             pointer-events: auto;
-        }
-
-        .top-bar .logo {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            white-space: nowrap;
-            flex-shrink: 0;
-            transition: color var(--transition);
-        }
-        .top-bar .logo i {
-            color: var(--gold);
         }
 
         .top-bar .top-controls {
@@ -205,6 +189,29 @@
         .signup-card:hover {
             border-color: var(--gold);
             box-shadow: 0 25px 70px rgba(255, 107, 53, 0.12);
+        }
+
+        /* ===== BRAND LOGO INSIDE CARD ===== */
+        .signup-card .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .signup-card .brand-header .brand-logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .signup-card .brand-header .brand-logo i {
+            color: var(--gold);
         }
 
         .signup-card .signup-header {
@@ -522,14 +529,18 @@
                 padding: 0 30px;
                 top: 25px;
             }
-            .top-bar .logo {
-                font-size: 28px;
-            }
             .signup-wrapper {
                 max-width: 380px;
             }
             .signup-card {
                 padding: 24px 24px 20px;
+            }
+            .signup-card .brand-header {
+                margin-bottom: 14px;
+                padding-bottom: 12px;
+            }
+            .signup-card .brand-header .brand-logo {
+                font-size: 24px;
             }
             .signup-card .signup-header h1 {
                 font-size: 26px;
@@ -541,15 +552,19 @@
                 padding: 0 25px;
                 top: 20px;
             }
-            .top-bar .logo {
-                font-size: 24px;
-            }
             .signup-wrapper {
                 max-width: 360px;
             }
             .signup-card {
                 padding: 20px 20px 18px;
                 border-radius: 22px;
+            }
+            .signup-card .brand-header {
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+            }
+            .signup-card .brand-header .brand-logo {
+                font-size: 22px;
             }
             .signup-card .signup-header h1 {
                 font-size: 22px;
@@ -578,9 +593,6 @@
                 padding: 0 16px;
                 top: 14px;
             }
-            .top-bar .logo {
-                font-size: 20px;
-            }
             .top-bar .theme-toggle {
                 padding: 6px 12px;
                 font-size: 14px;
@@ -599,6 +611,13 @@
             .signup-card {
                 padding: 18px 16px 16px;
                 border-radius: 20px;
+            }
+            .signup-card .brand-header {
+                margin-bottom: 10px;
+                padding-bottom: 8px;
+            }
+            .signup-card .brand-header .brand-logo {
+                font-size: 20px;
             }
             .signup-card .signup-header {
                 margin-bottom: 14px;
@@ -674,9 +693,6 @@
         }
 
         @media (max-width: 380px) {
-            .top-bar .logo {
-                font-size: 17px;
-            }
             .top-bar .theme-toggle {
                 padding: 5px 10px;
                 font-size: 12px;
@@ -689,6 +705,13 @@
             .signup-card {
                 padding: 14px 12px 12px;
                 border-radius: 16px;
+            }
+            .signup-card .brand-header {
+                margin-bottom: 8px;
+                padding-bottom: 6px;
+            }
+            .signup-card .brand-header .brand-logo {
+                font-size: 18px;
             }
             .signup-card .signup-header h1 {
                 font-size: 18px;
@@ -759,7 +782,6 @@
 <body>
     <!-- ===== TOP BAR - MINIMAL (NO HEADER BACKGROUND) ===== -->
     <div class="top-bar">
-        <a href="index.html" class="logo"><i class="fas fa-car"></i> Cartron</a>
         <div class="top-controls">
             <button class="rtl-toggle" id="rtlToggle"><span id="desktopRtlLabel">RTL</span></button>
             <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="toggleIcon"></i></button>
@@ -771,6 +793,11 @@
         <div class="signup-wrapper">
             <!-- Glass Morphism Sign Up Card -->
             <div class="signup-card">
+                <!-- ===== BRAND LOGO INSIDE CARD ===== -->
+                <div class="brand-header">
+                    <a href="index.html" class="brand-logo"><i class="fas fa-car"></i> Cartron</a>
+                </div>
+
                 <div class="signup-header">
                     <h1>Create Account</h1>
                     <p>Join the Cartron family today</p>
