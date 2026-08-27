@@ -588,7 +588,7 @@
             flex-direction: row-reverse;
         }
 
-        /* ===== 4. HERO - CINEMATIC WITH DIAGONAL OVERLAY & ANIMATED STATS ===== */
+        /* ===== 4. HERO - CINEMATIC WITH DIAGONAL OVERLAY ===== */
         .hero-cinematic {
             width: 94%;
             max-width: 1400px;
@@ -596,18 +596,16 @@
             border-radius: 50px;
             position: relative;
             z-index: 2;
-            min-height: 520px;
+            min-height: 480px;
             overflow: hidden;
             border: 1px solid var(--card-border);
             box-shadow: 0 20px 60px var(--shadow);
             transition: border var(--transition);
-            /* Background image */
-            background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1400&q=80');
+            background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&q=80');
             background-size: cover;
             background-position: center 30%;
             background-repeat: no-repeat;
         }
-        /* Diagonal overlay */
         .hero-cinematic .diagonal-overlay {
             position: absolute;
             inset: 0;
@@ -617,54 +615,34 @@
         [data-theme="light"] .hero-cinematic .diagonal-overlay {
             background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
         }
-        /* Diagonal accent line */
-        .hero-cinematic::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 25%;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-            opacity: 0.3;
-            z-index: 2;
-            transform: skewX(-15deg);
-        }
         .hero-cinematic .hero-inner {
             position: relative;
             z-index: 3;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 65px;
-            min-height: 520px;
+            padding: 55px 65px;
+            min-height: 480px;
             gap: 40px;
         }
         .hero-cinematic .hero-text {
             flex: 1.3;
-            max-width: 600px;
+            max-width: 580px;
         }
-        .hero-cinematic .hero-text .badge-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-        .hero-cinematic .hero-text .badge-wrap .badge-line {
-            width: 30px;
-            height: 3px;
-            background: var(--gold);
-            border-radius: 3px;
-        }
-        .hero-cinematic .hero-text .badge-wrap span {
-            font-size: 12px;
-            font-weight: 600;
+        .hero-cinematic .hero-text .hero-badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            padding: 5px 22px;
+            border-radius: 40px;
+            font-size: 11px;
             color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            border: 1px solid var(--tag-border);
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 12px;
         }
         .hero-cinematic .hero-text h1 {
-            font-size: 48px;
+            font-size: 44px;
             line-height: 1.05;
             font-weight: 700;
             color: var(--text-color);
@@ -672,28 +650,16 @@
         }
         .hero-cinematic .hero-text h1 span {
             color: var(--gold);
-            position: relative;
-        }
-        .hero-cinematic .hero-text h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 4px;
-            opacity: 0.3;
         }
         .hero-cinematic .hero-text p {
             font-size: 16px;
             line-height: 1.7;
             opacity: 0.75;
-            max-width: 420px;
+            max-width: 440px;
             color: var(--text-color);
             margin-bottom: 22px;
         }
-        .hero-cinematic .hero-text .btn-group {
+        .hero-cinematic .hero-text .hero-buttons {
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
@@ -718,7 +684,7 @@
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 12px 40px rgba(var(--gold-rgb), 0.4);
         }
-        .hero-cinematic .hero-text .btn-outline {
+        .hero-cinematic .hero-text .btn-secondary {
             padding: 13px 38px;
             border: 1px solid var(--card-border);
             border-radius: 60px;
@@ -733,16 +699,14 @@
             align-items: center;
             gap: 10px;
         }
-        [data-theme="light"] .hero-cinematic .hero-text .btn-outline {
+        [data-theme="light"] .hero-cinematic .hero-text .btn-secondary {
             background: rgba(255,255,255,0.4);
         }
-        .hero-cinematic .hero-text .btn-outline:hover {
+        .hero-cinematic .hero-text .btn-secondary:hover {
             background: var(--card-bg);
             border-color: var(--gold);
             transform: translateY(-3px);
         }
-
-        /* Right side - animated stats */
         .hero-cinematic .hero-stats-wrap {
             flex: 1;
             display: grid;
@@ -755,7 +719,7 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
             border-radius: 24px;
-            padding: 24px 18px;
+            padding: 22px 16px;
             text-align: center;
             transition: 0.4s;
             cursor: default;
@@ -764,10 +728,9 @@
         .hero-cinematic .hero-stats-wrap .stat-card:hover {
             transform: translateY(-8px);
             border-color: var(--gold);
-            background: rgba(var(--gold-rgb), 0.06);
         }
         .hero-cinematic .hero-stats-wrap .stat-card .stat-number {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 700;
             color: var(--gold);
             display: block;
@@ -780,7 +743,7 @@
             color: var(--text-color);
         }
         .hero-cinematic .hero-stats-wrap .stat-card .stat-icon {
-            font-size: 28px;
+            font-size: 26px;
             color: var(--gold);
             opacity: 0.2;
             display: block;
@@ -790,22 +753,6 @@
             background: var(--badge-bg);
             border-color: var(--gold);
         }
-        .hero-cinematic .hero-stats-wrap .stat-card.highlight-stat .stat-number {
-            font-size: 42px;
-        }
-
-        /* Counter animation */
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-cinematic .hero-stats-wrap .stat-card .stat-number {
-            animation: countUp 0.8s ease forwards;
-        }
-        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(1) .stat-number { animation-delay: 0.1s; }
-        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(2) .stat-number { animation-delay: 0.2s; }
-        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(3) .stat-number { animation-delay: 0.3s; }
-        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(4) .stat-number { animation-delay: 0.4s; }
 
         @media (max-width: 1024px) {
             .hero-cinematic .hero-inner {
@@ -817,15 +764,12 @@
             .hero-cinematic .hero-text {
                 max-width: 100%;
             }
-            .hero-cinematic .hero-text .badge-wrap {
-                justify-content: center;
-            }
             .hero-cinematic .hero-text p {
                 max-width: 100%;
                 margin-left: auto;
                 margin-right: auto;
             }
-            .hero-cinematic .hero-text .btn-group {
+            .hero-cinematic .hero-text .hero-buttons {
                 justify-content: center;
             }
             .hero-cinematic .hero-stats-wrap {
@@ -834,10 +778,7 @@
                 width: 100%;
             }
             .hero-cinematic .hero-text h1 {
-                font-size: 38px;
-            }
-            .hero-cinematic::after {
-                display: none;
+                font-size: 36px;
             }
         }
         @media (max-width: 600px) {
@@ -850,19 +791,19 @@
                 gap: 24px;
             }
             .hero-cinematic .hero-text h1 {
-                font-size: 28px;
+                font-size: 26px;
             }
             .hero-cinematic .hero-text p {
                 font-size: 14px;
             }
             .hero-cinematic .hero-text .btn-primary,
-            .hero-cinematic .hero-text .btn-outline {
+            .hero-cinematic .hero-text .btn-secondary {
                 padding: 11px 24px;
                 font-size: 13px;
                 width: 100%;
                 justify-content: center;
             }
-            .hero-cinematic .hero-text .btn-group {
+            .hero-cinematic .hero-text .hero-buttons {
                 flex-direction: column;
                 width: 100%;
                 align-items: center;
@@ -876,10 +817,7 @@
                 padding: 16px 12px;
             }
             .hero-cinematic .hero-stats-wrap .stat-card .stat-number {
-                font-size: 28px;
-            }
-            .hero-cinematic .hero-stats-wrap .stat-card.highlight-stat .stat-number {
-                font-size: 32px;
+                font-size: 26px;
             }
             .hero-cinematic .hero-stats-wrap .stat-card .stat-icon {
                 font-size: 20px;
@@ -1173,106 +1111,113 @@
             transform: translateY(-12px);
         }
 
-        /* ===== 9. FEATURED BRANDS ===== */
-        .featured-brands {
-            width: 94%;
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 40px 0;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .brand-card {
-            padding: 30px 20px;
-            background: var(--brand-card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--brand-card-border);
-            border-radius: 18px;
-            text-align: center;
-            transition: 0.4s;
-            box-shadow: 0 8px 25px var(--shadow);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 160px;
-        }
-        .brand-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--gold), transparent);
-            opacity: 0;
-            transition: 0.4s;
-            border-radius: 18px;
-        }
-        .brand-card:hover::before {
-            opacity: 0.08;
-        }
-        .brand-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--gold);
-            box-shadow: 0 16px 40px rgba(255, 107, 53, 0.12);
-        }
-        .brand-card .brand-icon {
-            font-size: 48px;
-            color: var(--gold);
-            margin-bottom: 12px;
-            display: block;
-            background: var(--badge-bg);
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-            transition: 0.4s;
-        }
-        .brand-card:hover .brand-icon {
-            transform: scale(1.1) rotate(-5deg);
-        }
-        .brand-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 4px;
-        }
-        .brand-card p {
-            font-size: 13px;
-            opacity: 0.6;
-            color: var(--text-color);
-        }
-        .brand-card .brand-count {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--gold);
-            padding: 4px 16px;
-            border: 1px solid var(--gold);
-            border-radius: 30px;
-            background: transparent;
-            transition: 0.3s;
-        }
-        .brand-card:hover .brand-count {
-            background: var(--gold);
-            color: #fff;
-        }
+  /* ===== 9. FEATURED BRANDS ===== */
+.featured-brands {
+    width: 94%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 40px 0;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+.brand-card {
+    padding: 30px 20px;
+    background: var(--brand-card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--brand-card-border);
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0 8px 25px var(--shadow);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+}
+.brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--gold), transparent);
+    opacity: 0;
+    transition: 0.4s;
+    border-radius: 18px;
+}
+.brand-card:hover::before {
+    opacity: 0.08;
+}
+.brand-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--gold);
+    box-shadow: 0 16px 40px rgba(255, 107, 53, 0.12);
+}
+.brand-card .brand-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--badge-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: 0.4s;
+    overflow: hidden;
+    padding: 8px;
+}
+.brand-card .brand-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.brand-card:hover .brand-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+.brand-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+.brand-card p {
+    font-size: 13px;
+    opacity: 0.6;
+    color: var(--text-color);
+}
+.brand-card .brand-count {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    padding: 4px 16px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    background: transparent;
+    transition: 0.3s;
+}
+.brand-card:hover .brand-count {
+    background: var(--gold);
+    color: #fff;
+}
 
         /* ===== 10. TESTIMONIALS ===== */
         .testimonials-section {
@@ -1711,10 +1656,7 @@
         [dir="rtl"] .hero-cinematic .hero-text {
             text-align: right;
         }
-        [dir="rtl"] .hero-cinematic .hero-text .badge-wrap {
-            justify-content: flex-end;
-        }
-        [dir="rtl"] .hero-cinematic .hero-text .btn-group {
+        [dir="rtl"] .hero-cinematic .hero-text .hero-buttons {
             justify-content: flex-end;
         }
         [dir="rtl"] .why-item .why-number {
@@ -1739,10 +1681,7 @@
             [dir="rtl"] .hero-cinematic .hero-text {
                 text-align: center;
             }
-            [dir="rtl"] .hero-cinematic .hero-text .badge-wrap {
-                justify-content: center;
-            }
-            [dir="rtl"] .hero-cinematic .hero-text .btn-group {
+            [dir="rtl"] .hero-cinematic .hero-text .hero-buttons {
                 justify-content: center;
             }
         }
@@ -1820,41 +1759,38 @@
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== HERO - CINEMATIC WITH DIAGONAL OVERLAY & ANIMATED STATS ===== -->
+    <!-- ===== HERO - CINEMATIC WITH DIAGONAL OVERLAY ===== -->
     <section class="hero-cinematic" id="top">
         <div class="diagonal-overlay"></div>
         <div class="hero-inner">
             <div class="hero-text">
-                <div class="badge-wrap">
-                    <span class="badge-line"></span>
-                    <span>Premium Auto Parts</span>
-                </div>
-                <h1>Drive with <span>confidence</span> &amp; style</h1>
-                <p>Genuine car parts, accessories, and expert guidance for every vehicle. Quality you can trust.</p>
-                <div class="btn-group">
-                    <a href="categories.html" class="btn-primary"><i class="fas fa-arrow-right"></i> Shop Now</a>
-                    <a href="about.html" class="btn-outline"><i class="fas fa-play-circle"></i> Explore</a>
+                <span class="hero-badge"><i class="fas fa-trophy"></i> Premium Quality</span>
+                <h1>Genuine <span>Auto Parts</span> &amp; Accessories</h1>
+                <p>Premium car parts, accessories, and expert guidance for every vehicle. Drive with confidence and style.</p>
+                <div class="hero-buttons">
+                    <a href="categories.html" class="btn-primary"><i class="fas fa-search"></i> Shop Now</a>
+                    <a href="about.html" class="btn-secondary"><i class="fas fa-info-circle"></i> Learn More</a>
                 </div>
             </div>
             <div class="hero-stats-wrap">
                 <div class="stat-card highlight-stat">
                     <span class="stat-icon"><i class="fas fa-car"></i></span>
-                    <span class="stat-number" data-count="12">12K+</span>
+                    <span class="stat-number">12K+</span>
                     <span class="stat-label">Happy Customers</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon"><i class="fas fa-star"></i></span>
-                    <span class="stat-number" data-count="98">98%</span>
-                    <span class="stat-label">Satisfaction Rate</span>
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfaction</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon"><i class="fas fa-truck"></i></span>
-                    <span class="stat-number" data-count="24">24/7</span>
+                    <span class="stat-number">24/7</span>
                     <span class="stat-label">Expert Support</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon"><i class="fas fa-shield-alt"></i></span>
-                    <span class="stat-number" data-count="100">100%</span>
+                    <span class="stat-number">100%</span>
                     <span class="stat-label">Genuine Parts</span>
                 </div>
             </div>
@@ -1960,48 +1896,48 @@
         </div>
     </section>
 
-    <!-- ===== FEATURED BRANDS ===== -->
-    <section class="featured-brands">
-        <div class="section-title">
-            <span class="page-tag"><i class="fas fa-crown"></i> Trusted Brands</span>
-            <h1>Featured Brands</h1>
-            <p>We partner with the world's leading automotive brands</p>
+  <!-- ===== FEATURED BRANDS ===== -->
+<section class="featured-brands">
+    <div class="section-title">
+        <span class="page-tag"><i class="fas fa-crown"></i> Trusted Brands</span>
+        <h1>Featured Brands</h1>
+        <p>We partner with the world's leading automotive brands</p>
+    </div>
+    <div class="brands-grid">
+        <div class="brand-card" onclick="alert('Explore Bosch products')">
+            <div class="brand-icon">
+                <img src="images/bosch.jpg" alt="Bosch Logo">
+            </div>
+            <h3>Bosch</h3>
+            <p>Automotive Technology</p>
+            <span class="brand-count">150+ Products</span>
         </div>
-        <div class="brands-grid">
-            <div class="brand-card" onclick="alert('Explore Bosch products')">
-                <div class="brand-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bosch-logo.svg" alt="Bosch Logo">
-                </div>
-                <h3>Bosch</h3>
-                <p>Automotive Technology</p>
-                <span class="brand-count">150+ Products</span>
+        <div class="brand-card" onclick="alert('Explore NGK products')">
+            <div class="brand-icon">
+                <img src="images/ngk.jpg" alt="NGK Logo">
             </div>
-            <div class="brand-card" onclick="alert('Explore NGK products')">
-                <div class="brand-icon">
-                    <img src="https://images.seeklogo.com/logo-png/48/1/ngk-logo-png_seeklogo-484863.png" alt="NGK Logo">
-                </div>
-                <h3>NGK</h3>
-                <p>Spark Plugs & Sensors</p>
-                <span class="brand-count">80+ Products</span>
-            </div>
-            <div class="brand-card" onclick="alert('Explore Brembo products')">
-                <div class="brand-icon">
-                    <img src="https://1000logos.net/wp-content/uploads/2020/09/Brembo-emblem.png" alt="Brembo Logo">
-                </div>
-                <h3>Brembo</h3>
-                <p>Brake Systems</p>
-                <span class="brand-count">60+ Products</span>
-            </div>
-            <div class="brand-card" onclick="alert('Explore Philips products')">
-                <div class="brand-icon">
-                    <img src="https://1000logos.net/wp-content/uploads/2017/05/Phillips-Logo.png" alt="Philips Logo">
-                </div>
-                <h3>Philips</h3>
-                <p>Lighting Solutions</p>
-                <span class="brand-count">45+ Products</span>
-            </div>
+            <h3>NGK</h3>
+            <p>Spark Plugs & Sensors</p>
+            <span class="brand-count">80+ Products</span>
         </div>
-    </section>
+        <div class="brand-card" onclick="alert('Explore Brembo products')">
+            <div class="brand-icon">
+                <img src="images/brembo.jpg" alt="Brembo Logo">
+            </div>
+            <h3>Brembo</h3>
+            <p>Brake Systems</p>
+            <span class="brand-count">60+ Products</span>
+        </div>
+        <div class="brand-card" onclick="alert('Explore Philips products')">
+            <div class="brand-icon">
+                <img src="images/philips.jpg" alt="Philips Logo">
+            </div>
+            <h3>Philips</h3>
+            <p>Lighting Solutions</p>
+            <span class="brand-count">45+ Products</span>
+        </div>
+    </div>
+</section>
 
     <!-- ===== TESTIMONIALS ===== -->
     <section class="testimonials-section">
