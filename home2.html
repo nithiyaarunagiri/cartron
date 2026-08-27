@@ -102,7 +102,7 @@
             --rtl-direction: rtl;
         }
 
-        /* ===== 3. NAVIGATION ===== */
+        /* ===== 3. NAVIGATION (ORIGINAL - UNCHANGED) ===== */
         nav {
             width: 94%;
             max-width: 1400px;
@@ -588,116 +588,302 @@
             flex-direction: row-reverse;
         }
 
-        /* ===== 4. HERO - FIXED ALIGNMENT (REDUCED SPACING) ===== */
-        .hero {
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 35px 60px;
-            border-radius: 0;
+        /* ===== 4. HERO - CINEMATIC WITH DIAGONAL OVERLAY & ANIMATED STATS ===== */
+        .hero-cinematic {
+            width: 94%;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 50px;
             position: relative;
             z-index: 2;
-            min-height: auto;
-            height: auto;
+            min-height: 520px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 60px var(--shadow);
+            transition: border var(--transition);
+            /* Background image */
+            background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1400&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+        /* Diagonal overlay */
+        .hero-cinematic .diagonal-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+        [data-theme="light"] .hero-cinematic .diagonal-overlay {
+            background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
+        }
+        /* Diagonal accent line */
+        .hero-cinematic::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 25%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            z-index: 2;
+            transform: skewX(-15deg);
+        }
+        .hero-cinematic .hero-inner {
+            position: relative;
+            z-index: 3;
             display: flex;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: var(--bg-gradient-1);
-            gap: 20px;
+            justify-content: space-between;
+            padding: 60px 65px;
+            min-height: 520px;
+            gap: 40px;
         }
-        .hero .hero-content {
-            flex: 1 1 50%;
-            max-width: 500px;
-            text-align: var(--rtl-direction);
+        .hero-cinematic .hero-text {
+            flex: 1.3;
+            max-width: 600px;
         }
-        .hero .hero-content .hero-badge {
-            display: inline-block;
-            background: var(--badge-bg);
-            padding: 4px 16px;
-            border-radius: 40px;
-            font-size: 11px;
-            color: var(--gold);
-            border: 1px solid var(--tag-border);
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        .hero .hero-content h1 {
-            font-size: 34px;
-            line-height: 1.1;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-color);
-        }
-        .hero .hero-content h1 span {
-            color: var(--gold);
-        }
-        .hero .hero-content p {
-            font-size: 14px;
-            line-height: 1.7;
-            opacity: 0.8;
-            margin-bottom: 16px;
-            max-width: 400px;
-            color: var(--text-color);
-        }
-        .hero .hero-content .hero-buttons {
+        .hero-cinematic .hero-text .badge-wrap {
             display: flex;
+            align-items: center;
             gap: 10px;
+            margin-bottom: 14px;
+        }
+        .hero-cinematic .hero-text .badge-wrap .badge-line {
+            width: 30px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+        .hero-cinematic .hero-text .badge-wrap span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero-cinematic .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.05;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        .hero-cinematic .hero-text h1 span {
+            color: var(--gold);
+            position: relative;
+        }
+        .hero-cinematic .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 4px;
+            opacity: 0.3;
+        }
+        .hero-cinematic .hero-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.75;
+            max-width: 420px;
+            color: var(--text-color);
+            margin-bottom: 22px;
+        }
+        .hero-cinematic .hero-text .btn-group {
+            display: flex;
+            gap: 14px;
             flex-wrap: wrap;
         }
-        .hero .hero-content .btn-primary {
-            padding: 9px 24px;
+        .hero-cinematic .hero-text .btn-primary {
+            padding: 13px 38px;
             border: none;
             border-radius: 60px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             text-decoration: none;
-            transition: 0.25s;
+            transition: 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+            gap: 10px;
+            box-shadow: 0 8px 30px rgba(var(--gold-rgb), 0.3);
         }
-        .hero .hero-content .btn-primary:hover {
+        .hero-cinematic .hero-text .btn-primary:hover {
             background: var(--btn-hover);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 12px 40px rgba(var(--gold-rgb), 0.4);
         }
-        .hero .hero-content .btn-secondary {
-            padding: 9px 24px;
+        .hero-cinematic .hero-text .btn-outline {
+            padding: 13px 38px;
             border: 1px solid var(--card-border);
             border-radius: 60px;
-            background: transparent;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(10px);
             color: var(--text-color);
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             text-decoration: none;
-            transition: 0.25s;
+            transition: 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
         }
-        .hero .hero-content .btn-secondary:hover {
+        [data-theme="light"] .hero-cinematic .hero-text .btn-outline {
+            background: rgba(255,255,255,0.4);
+        }
+        .hero-cinematic .hero-text .btn-outline:hover {
             background: var(--card-bg);
             border-color: var(--gold);
             transform: translateY(-3px);
         }
-        .hero .hero-image {
-            flex: 1 1 45%;
-            max-width: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        /* Right side - animated stats */
+        .hero-cinematic .hero-stats-wrap {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            max-width: 380px;
         }
-        .hero .hero-image img {
-            width: 100%;
-            height: auto;
-            max-height: 280px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px var(--shadow);
-            object-fit: cover;
+        .hero-cinematic .hero-stats-wrap .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 24px 18px;
+            text-align: center;
+            transition: 0.4s;
+            cursor: default;
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            background: rgba(var(--gold-rgb), 0.06);
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card .stat-label {
+            font-size: 13px;
+            opacity: 0.6;
+            color: var(--text-color);
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card .stat-icon {
+            font-size: 28px;
+            color: var(--gold);
+            opacity: 0.2;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card.highlight-stat {
+            background: var(--badge-bg);
+            border-color: var(--gold);
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card.highlight-stat .stat-number {
+            font-size: 42px;
+        }
+
+        /* Counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card .stat-number {
+            animation: countUp 0.8s ease forwards;
+        }
+        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(1) .stat-number { animation-delay: 0.1s; }
+        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(2) .stat-number { animation-delay: 0.2s; }
+        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(3) .stat-number { animation-delay: 0.3s; }
+        .hero-cinematic .hero-stats-wrap .stat-card:nth-child(4) .stat-number { animation-delay: 0.4s; }
+
+        @media (max-width: 1024px) {
+            .hero-cinematic .hero-inner {
+                flex-direction: column;
+                padding: 40px 35px;
+                text-align: center;
+                min-height: auto;
+            }
+            .hero-cinematic .hero-text {
+                max-width: 100%;
+            }
+            .hero-cinematic .hero-text .badge-wrap {
+                justify-content: center;
+            }
+            .hero-cinematic .hero-text p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cinematic .hero-text .btn-group {
+                justify-content: center;
+            }
+            .hero-cinematic .hero-stats-wrap {
+                max-width: 420px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .hero-cinematic .hero-text h1 {
+                font-size: 38px;
+            }
+            .hero-cinematic::after {
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-cinematic {
+                border-radius: 30px;
+                min-height: auto;
+            }
+            .hero-cinematic .hero-inner {
+                padding: 28px 16px;
+                gap: 24px;
+            }
+            .hero-cinematic .hero-text h1 {
+                font-size: 28px;
+            }
+            .hero-cinematic .hero-text p {
+                font-size: 14px;
+            }
+            .hero-cinematic .hero-text .btn-primary,
+            .hero-cinematic .hero-text .btn-outline {
+                padding: 11px 24px;
+                font-size: 13px;
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-cinematic .hero-text .btn-group {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            .hero-cinematic .hero-stats-wrap {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            .hero-cinematic .hero-stats-wrap .stat-card {
+                padding: 16px 12px;
+            }
+            .hero-cinematic .hero-stats-wrap .stat-card .stat-number {
+                font-size: 28px;
+            }
+            .hero-cinematic .hero-stats-wrap .stat-card.highlight-stat .stat-number {
+                font-size: 32px;
+            }
+            .hero-cinematic .hero-stats-wrap .stat-card .stat-icon {
+                font-size: 20px;
+            }
         }
 
         /* ===== 5. SECTION TITLE ===== */
@@ -1374,37 +1560,6 @@
 
         /* ===== 13. RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .hero {
-                padding: 30px 40px;
-                min-height: 55vh;
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            .hero .hero-content {
-                max-width: 100%;
-                text-align: center;
-            }
-            .hero .hero-content p {
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero .hero-content .hero-buttons {
-                justify-content: center;
-            }
-            .hero .hero-content h1 {
-                font-size: 30px;
-            }
-            .hero .hero-image {
-                max-width: 100%;
-                flex: 1 1 100%;
-            }
-            .hero .hero-image img {
-                max-height: 200px;
-                width: 100%;
-                object-fit: cover;
-            }
             .section-title h1 {
                 font-size: 30px;
             }
@@ -1434,39 +1589,8 @@
             .glass-title h2 {
                 font-size: 34px;
             }
-            [dir="rtl"] .hero .hero-content {
-                text-align: center;
-            }
         }
         @media (max-width: 600px) {
-            .hero {
-                padding: 20px 16px;
-                min-height: auto;
-                height: auto;
-                gap: 15px;
-            }
-            .hero .hero-content h1 {
-                font-size: 24px;
-            }
-            .hero .hero-content p {
-                font-size: 13px;
-                margin-bottom: 14px;
-            }
-            .hero .hero-content .btn-primary,
-            .hero .hero-content .btn-secondary {
-                padding: 8px 20px;
-                font-size: 12px;
-                width: 100%;
-                justify-content: center;
-            }
-            .hero .hero-content .hero-buttons {
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-            }
-            .hero .hero-image img {
-                max-height: 140px;
-            }
             .section-title h1 {
                 font-size: 22px;
             }
@@ -1559,9 +1683,6 @@
             }
         }
         @media (max-width: 380px) {
-            .hero .hero-content h1 {
-                font-size: 20px;
-            }
             .section-title h1 {
                 font-size: 20px;
             }
@@ -1587,11 +1708,14 @@
         }
 
         /* ===== 14. RTL ===== */
-        [dir="rtl"] .hero .hero-content {
+        [dir="rtl"] .hero-cinematic .hero-text {
             text-align: right;
         }
-        [dir="rtl"] .hero .hero-content .hero-buttons {
-            justify-content: flex-start;
+        [dir="rtl"] .hero-cinematic .hero-text .badge-wrap {
+            justify-content: flex-end;
+        }
+        [dir="rtl"] .hero-cinematic .hero-text .btn-group {
+            justify-content: flex-end;
         }
         [dir="rtl"] .why-item .why-number {
             right: auto;
@@ -1612,10 +1736,13 @@
             right: 20px;
         }
         @media (max-width: 1024px) {
-            [dir="rtl"] .hero .hero-content {
+            [dir="rtl"] .hero-cinematic .hero-text {
                 text-align: center;
             }
-            [dir="rtl"] .hero .hero-content .hero-buttons {
+            [dir="rtl"] .hero-cinematic .hero-text .badge-wrap {
+                justify-content: center;
+            }
+            [dir="rtl"] .hero-cinematic .hero-text .btn-group {
                 justify-content: center;
             }
         }
@@ -1693,19 +1820,44 @@
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== HERO - FIXED ALIGNMENT ===== -->
-    <section class="hero" id="top">
-        <div class="hero-content">
-            <span class="hero-badge"><i class="fas fa-trophy"></i> Premium Quality</span>
-            <h1>Genuine <span>Auto Parts</span> & Accessories</h1>
-            <p>Premium car parts, accessories, and expert guidance for every vehicle. Drive with confidence and style.</p>
-            <div class="hero-buttons">
-                <a href="categories.html" class="btn-primary"><i class="fas fa-search"></i> Shop Now</a>
-                <a href="about.html" class="btn-secondary"><i class="fas fa-info-circle"></i> Learn More</a>
+    <!-- ===== HERO - CINEMATIC WITH DIAGONAL OVERLAY & ANIMATED STATS ===== -->
+    <section class="hero-cinematic" id="top">
+        <div class="diagonal-overlay"></div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="badge-wrap">
+                    <span class="badge-line"></span>
+                    <span>Premium Auto Parts</span>
+                </div>
+                <h1>Drive with <span>confidence</span> &amp; style</h1>
+                <p>Genuine car parts, accessories, and expert guidance for every vehicle. Quality you can trust.</p>
+                <div class="btn-group">
+                    <a href="categories.html" class="btn-primary"><i class="fas fa-arrow-right"></i> Shop Now</a>
+                    <a href="about.html" class="btn-outline"><i class="fas fa-play-circle"></i> Explore</a>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/hero car.jpg" alt="Car">
+            <div class="hero-stats-wrap">
+                <div class="stat-card highlight-stat">
+                    <span class="stat-icon"><i class="fas fa-car"></i></span>
+                    <span class="stat-number" data-count="12">12K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-star"></i></span>
+                    <span class="stat-number" data-count="98">98%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-truck"></i></span>
+                    <span class="stat-number" data-count="24">24/7</span>
+                    <span class="stat-label">Expert Support</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fas fa-shield-alt"></i></span>
+                    <span class="stat-number" data-count="100">100%</span>
+                    <span class="stat-label">Genuine Parts</span>
+                </div>
+            </div>
         </div>
     </section>
 

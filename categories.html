@@ -66,7 +66,6 @@
             --mobile-nav-bg: rgba(10, 10, 10, 0.98);
             --mobile-nav-border: 2px solid var(--gold);
             --drawer-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-            --hero-overlay: rgba(0, 0, 0, 0.55);
             --cta-bg: rgba(255, 107, 53, 0.08);
             --input-bg: rgba(255, 255, 255, 0.06);
             --input-border: rgba(255, 255, 255, 0.12);
@@ -90,7 +89,6 @@
             --nav-link-color: rgba(0, 0, 0, 0.7);
             --nav-link-hover: #d95c2b;
             --mobile-nav-bg: rgba(255, 255, 255, 0.98);
-            --hero-overlay: rgba(255, 255, 255, 0.65);
             --cta-bg: rgba(217, 92, 43, 0.06);
             --input-bg: rgba(0, 0, 0, 0.04);
             --input-border: rgba(0, 0, 0, 0.12);
@@ -613,10 +611,10 @@
             margin-bottom: 8px;
         }
 
-        /* ===== 5. PAGE BANNER - FIXED ALIGNMENT (REDUCED SPACING) ===== */
-        .page-banner {
+        /* ===== 5. NEW HERO BANNER - CENTERED GRADIENT LAYOUT ===== */
+        .hero-banner {
             width: 100%;
-            padding: 25px 60px;
+            padding: 50px 60px 60px;
             position: relative;
             z-index: 2;
             min-height: auto;
@@ -624,173 +622,220 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             overflow: hidden;
-            background: var(--bg-gradient-1);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
             border-bottom: 1px solid var(--card-border);
-            gap: 20px;
         }
-        .page-banner::before {
+        .hero-banner::before {
             content: '';
             position: absolute;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(ellipse at 70% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
             border-radius: 50%;
-            right: 15%;
-            top: -80px;
-            filter: blur(10px);
+            top: -200px;
+            right: -200px;
             z-index: 0;
+            animation: pulseGlow 6s ease-in-out infinite;
         }
-        .page-banner .banner-content {
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            z-index: 0;
+            animation: pulseGlow 8s ease-in-out infinite reverse;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(10deg); }
+        }
+
+        .hero-banner .hero-content {
             position: relative;
             z-index: 1;
-            flex: 1 1 50%;
-            max-width: 460px;
+            max-width: 750px;
         }
-        .page-banner .banner-content .banner-tag {
-            display: inline-block;
-            background: var(--badge-bg);
-            padding: 4px 14px;
+        .hero-banner .hero-content .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 107, 53, 0.2);
+            padding: 5px 18px;
             border-radius: 60px;
-            font-size: 10px;
+            font-size: 11px;
             color: var(--gold);
-            border: 1px solid var(--tag-border);
-            margin-bottom: 6px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
-        .page-banner .banner-content h1 {
-            font-size: 30px;
+        .hero-banner .hero-content .hero-badge i {
+            font-size: 11px;
+        }
+        .hero-banner .hero-content h1 {
+            font-size: 44px;
             line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 6px;
-            color: var(--text-color);
+            margin-bottom: 10px;
+            color: #ffffff;
         }
-        .page-banner .banner-content h1 span {
+        .hero-banner .hero-content h1 span {
             color: var(--gold);
+            position: relative;
         }
-        .page-banner .banner-content p {
-            font-size: 13px;
-            line-height: 1.7;
-            opacity: 0.8;
-            margin-bottom: 14px;
-            max-width: 380px;
-            color: var(--text-color);
+        .hero-banner .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+            opacity: 0.3;
+            border-radius: 4px;
         }
-        .page-banner .banner-content .banner-search-row {
+        .hero-banner .hero-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 20px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .hero-banner .hero-content .hero-search {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 5px 8px;
-            max-width: 440px;
-            box-shadow: 0 12px 30px var(--shadow);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 6px 8px;
+            max-width: 520px;
+            margin: 0 auto 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
-        .page-banner .banner-content .banner-search-row input,
-        .page-banner .banner-content .banner-search-row select {
+        .hero-banner .hero-content .hero-search input,
+        .hero-banner .hero-content .hero-search select {
             flex: 1;
-            min-width: 70px;
-            padding: 7px 10px;
-            border: 1px solid var(--input-border);
+            min-width: 80px;
+            padding: 10px 14px;
+            border: none;
             border-radius: 8px;
-            background: var(--input-bg);
-            color: var(--text-color);
-            font-size: 11px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 13px;
             outline: none;
             transition: 0.3s;
         }
-        .page-banner .banner-content .banner-search-row input:focus,
-        .page-banner .banner-content .banner-search-row select:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.08);
+        .hero-banner .hero-content .hero-search input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
         }
-        .page-banner .banner-content .banner-search-row select option {
-            background: var(--bg-gradient-1);
-            color: var(--text-color);
+        .hero-banner .hero-content .hero-search select option {
+            background: #1a1a2e;
+            color: #fff;
         }
-        .page-banner .banner-content .banner-search-row .search-btn {
-            padding: 7px 14px;
+        .hero-banner .hero-content .hero-search input:focus,
+        .hero-banner .hero-content .hero-search select:focus {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .hero-banner .hero-content .hero-search .search-btn {
+            padding: 10px 24px;
             border: none;
             border-radius: 8px;
             background: var(--gold);
             color: #fff;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 13px;
             cursor: pointer;
             transition: 0.3s;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .page-banner .banner-content .banner-search-row .search-btn:hover {
+        .hero-banner .hero-content .hero-search .search-btn:hover {
             background: var(--btn-hover);
             transform: scale(1.02);
-        }
-        .page-banner .banner-content .banner-quick-links {
-            display: flex;
-            gap: 6px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-        .page-banner .banner-content .banner-quick-links a {
-            padding: 3px 10px;
-            border: 1px solid var(--card-border);
-            border-radius: 60px;
-            background: transparent;
-            color: var(--text-color);
-            font-size: 10px;
-            text-decoration: none;
-            transition: 0.3s;
-            opacity: 0.7;
-        }
-        .page-banner .banner-content .banner-quick-links a:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-            opacity: 1;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
         }
 
-        .page-banner .banner-image {
-            position: relative;
-            z-index: 1;
-            flex: 1 1 45%;
-            max-width: 360px;
+        /* Category Icons Row */
+        .hero-banner .hero-categories {
             display: flex;
-            align-items: center;
+            gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
         }
-        .page-banner .banner-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px var(--shadow);
-            object-fit: cover;
-            max-height: 200px;
-        }
-        .page-banner .banner-image .floating-badge {
-            position: absolute;
-            bottom: -5px;
-            left: -5px;
-            background: var(--gold);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 9px;
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        .hero-banner .hero-categories .cat-icon-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 4px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            min-width: 70px;
         }
-        .page-banner .banner-image .floating-badge i {
+        .hero-banner .hero-categories .cat-icon-item:hover {
+            background: rgba(255, 107, 53, 0.15);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+        .hero-banner .hero-categories .cat-icon-item i {
+            font-size: 22px;
+            color: var(--gold);
+        }
+        .hero-banner .hero-categories .cat-icon-item span {
             font-size: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
         }
 
-        [data-theme="light"] .page-banner {
-            background: #ffffff;
+        [data-theme="light"] .hero-banner {
+            background: linear-gradient(135deg, #f0f2f5 0%, #ffffff 50%, #f8f9fa 100%);
         }
-        [data-theme="light"] .page-banner .banner-content .banner-search-row {
-            background: rgba(255, 255, 255, 0.9);
+        [data-theme="light"] .hero-banner .hero-content h1 {
+            color: #1a1a2e;
+        }
+        [data-theme="light"] .hero-banner .hero-content p {
+            color: rgba(0, 0, 0, 0.7);
+        }
+        [data-theme="light"] .hero-banner .hero-content .hero-search {
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        [data-theme="light"] .hero-banner .hero-content .hero-search input,
+        [data-theme="light"] .hero-banner .hero-content .hero-search select {
+            color: #1a1a2e;
+            background: rgba(0, 0, 0, 0.02);
+        }
+        [data-theme="light"] .hero-banner .hero-content .hero-search input::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+        }
+        [data-theme="light"] .hero-banner .hero-categories .cat-icon-item {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        [data-theme="light"] .hero-banner .hero-categories .cat-icon-item:hover {
+            background: rgba(217, 92, 43, 0.1);
+        }
+        [data-theme="light"] .hero-banner .hero-categories .cat-icon-item span {
+            color: rgba(0, 0, 0, 0.6);
         }
 
         /* ===== 6. CATEGORY CARDS WITH PRICES ===== */
@@ -1262,45 +1307,24 @@
 
         /* ===== 11. RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .page-banner {
-                padding: 20px 30px;
-                flex-direction: column;
-                text-align: center;
-                gap: 18px;
+            .hero-banner {
+                padding: 40px 30px 50px;
             }
-            .page-banner .banner-content {
+            .hero-banner .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-banner .hero-content p {
+                font-size: 14px;
+            }
+            .hero-banner .hero-content .hero-search {
                 max-width: 100%;
-                text-align: center;
             }
-            .page-banner .banner-content p {
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
+            .hero-banner .hero-categories {
+                gap: 12px;
             }
-            .page-banner .banner-content .banner-search-row {
-                max-width: 100%;
-                justify-content: center;
-            }
-            .page-banner .banner-content .banner-quick-links {
-                justify-content: center;
-            }
-            .page-banner .banner-content h1 {
-                font-size: 28px;
-            }
-            .page-banner .banner-image {
-                max-width: 100%;
-                flex: 1 1 100%;
-            }
-            .page-banner .banner-image img {
-                max-height: 160px;
-                width: 100%;
-                object-fit: cover;
-            }
-            .page-banner .banner-image .floating-badge {
-                bottom: 5px;
-                left: 5px;
-                padding: 4px 8px;
-                font-size: 8px;
+            .hero-banner .hero-categories .cat-icon-item {
+                padding: 8px 14px;
+                min-width: 60px;
             }
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1321,37 +1345,43 @@
             }
         }
         @media (max-width: 600px) {
-            .page-banner {
-                padding: 18px 16px;
-                gap: 14px;
+            .hero-banner {
+                padding: 30px 16px 40px;
             }
-            .page-banner .banner-content h1 {
-                font-size: 22px;
+            .hero-banner .hero-content h1 {
+                font-size: 28px;
             }
-            .page-banner .banner-content p {
-                font-size: 12px;
+            .hero-banner .hero-content p {
+                font-size: 13px;
             }
-            .page-banner .banner-content .banner-search-row {
+            .hero-banner .hero-content .hero-search {
                 flex-direction: column;
                 padding: 8px;
             }
-            .page-banner .banner-content .banner-search-row input,
-            .page-banner .banner-content .banner-search-row select {
+            .hero-banner .hero-content .hero-search input,
+            .hero-banner .hero-content .hero-search select {
                 min-width: 100%;
-                font-size: 11px;
-                padding: 6px 10px;
+                font-size: 12px;
+                padding: 8px 12px;
             }
-            .page-banner .banner-content .banner-search-row .search-btn {
+            .hero-banner .hero-content .hero-search .search-btn {
                 width: 100%;
                 justify-content: center;
-                padding: 6px 12px;
-                font-size: 11px;
+                padding: 8px 16px;
+                font-size: 12px;
             }
-            .page-banner .banner-image img {
-                max-height: 120px;
+            .hero-banner .hero-categories {
+                gap: 8px;
             }
-            .page-banner .banner-image .floating-badge {
-                display: none;
+            .hero-banner .hero-categories .cat-icon-item {
+                padding: 6px 10px;
+                min-width: 50px;
+            }
+            .hero-banner .hero-categories .cat-icon-item i {
+                font-size: 18px;
+            }
+            .hero-banner .hero-categories .cat-icon-item span {
+                font-size: 9px;
             }
             .section-title h1 {
                 font-size: 22px;
@@ -1461,13 +1491,10 @@
             hr {
                 margin: 20px auto 10px;
             }
-            [dir="rtl"] .page-banner .banner-content {
-                text-align: center;
-            }
         }
         @media (max-width: 380px) {
-            .page-banner .banner-content h1 {
-                font-size: 20px;
+            .hero-banner .hero-content h1 {
+                font-size: 24px;
             }
             .section-title h1 {
                 font-size: 20px;
@@ -1483,25 +1510,20 @@
             }
         }
         @media (min-width: 1400px) {
-            .page-banner {
-                padding: 35px 100px;
-                gap: 30px;
+            .hero-banner {
+                padding: 60px 100px 70px;
             }
-            .page-banner .banner-content h1 {
-                font-size: 38px;
-            }
-            .page-banner .banner-image img {
-                max-height: 250px;
+            .hero-banner .hero-content h1 {
+                font-size: 52px;
             }
         }
 
         /* ===== 12. RTL ===== */
-        [dir="rtl"] .page-banner .banner-content {
-            text-align: right;
+        [dir="rtl"] .hero-banner .hero-content {
+            text-align: center;
         }
-        [dir="rtl"] .page-banner .banner-image .floating-badge {
-            left: auto;
-            right: -5px;
+        [dir="rtl"] .hero-banner .hero-categories {
+            flex-direction: row-reverse;
         }
         [dir="rtl"] nav ul li .nav-dropdown {
             left: auto;
@@ -1510,11 +1532,6 @@
         [dir="rtl"] .cat-card .cat-price .old-price {
             margin-left: 0;
             margin-right: 8px;
-        }
-        @media (max-width: 1024px) {
-            [dir="rtl"] .page-banner .banner-content {
-                text-align: center;
-            }
         }
 
         /* ===== 13. THEME COLOR SUPPORT ===== */
@@ -1591,13 +1608,13 @@
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== PAGE BANNER - FIXED ALIGNMENT ===== -->
-    <section class="page-banner" id="top">
-        <div class="banner-content">
-            <span class="banner-tag"><i class="fas fa-tag"></i> Shop by Category</span>
+    <!-- ===== NEW HERO BANNER - CENTERED GRADIENT LAYOUT ===== -->
+    <section class="hero-banner" id="top">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-tag"></i> Shop by Category</span>
             <h1>Explore <span>Auto Parts</span> & Accessories</h1>
             <p>Find the right parts, accessories, and automotive products for your vehicle.</p>
-            <div class="banner-search-row">
+            <div class="hero-search">
                 <input type="text" placeholder="Search parts..." />
                 <select>
                     <option value="">All Categories</option>
@@ -1608,18 +1625,27 @@
                 </select>
                 <button class="search-btn" onclick="window.location.href='#categories'"><i class="fas fa-search"></i> Search</button>
             </div>
-            <div class="banner-quick-links">
-                <a href="#engine">Engine Parts</a>
-                <a href="#brakes">Brake Systems</a>
-                <a href="#lighting">Lighting</a>
-                <a href="#bestsellers">Best Sellers</a>
-            </div>
-        </div>
-        <div class="banner-image">
-            <img src="images/hero car.jpg" alt="Auto Parts Categories">
-            <div class="floating-badge">
-                <i class="fas fa-tags"></i>
-                200+ Products
+            <div class="hero-categories">
+                <a href="#engine" class="cat-icon-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Engine</span>
+                </a>
+                <a href="#brakes" class="cat-icon-item">
+                    <i class="fas fa-circle-stop"></i>
+                    <span>Brake</span>
+                </a>
+                <a href="#lighting" class="cat-icon-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Lighting</span>
+                </a>
+                <a href="#bestsellers" class="cat-icon-item">
+                    <i class="fas fa-star"></i>
+                    <span>Best Sellers</span>
+                </a>
+                <a href="categories.html" class="cat-icon-item">
+                    <i class="fas fa-tools"></i>
+                    <span>All Parts</span>
+                </a>
             </div>
         </div>
     </section>
