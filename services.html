@@ -190,31 +190,31 @@
         [dir="rtl"] nav ul li .nav-dropdown { left: auto; right: 0; }
         [dir="rtl"] .mobile-actions button { flex-direction: row-reverse; }
 
-        /* ===== HERO - SPLIT LAYOUT (FIXED ALIGNMENT & REDUCED SPACING) ===== */
+        /* ===== HERO - FIXED ALIGNMENT (REDUCED SPACING) ===== */
         .page-banner {
             width: 100%;
-            padding: 40px 60px;
+            padding: 30px 60px;
             position: relative;
             z-index: 2;
             min-height: auto;
             height: auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             overflow: hidden;
             background: var(--bg-gradient-1);
             border-bottom: 1px solid var(--card-border);
-            gap: 30px;
+            gap: 20px;
         }
         .page-banner::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             right: 15%;
-            top: -100px;
+            top: -80px;
             filter: blur(10px);
             z-index: 0;
         }
@@ -222,7 +222,7 @@
             position: relative;
             z-index: 1;
             flex: 1 1 50%;
-            max-width: 500px;
+            max-width: 460px;
         }
         .page-banner .banner-content .hero-tag {
             display: inline-block;
@@ -234,13 +234,13 @@
             border: 1px solid var(--tag-border);
             font-weight: 600;
             letter-spacing: 0.5px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .page-banner .banner-content h1 {
-            font-size: 36px;
+            font-size: 32px;
             line-height: 1.1;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--text-color);
         }
         .page-banner .banner-content h1 span {
@@ -250,8 +250,8 @@
             font-size: 14px;
             line-height: 1.7;
             opacity: 0.75;
-            max-width: 420px;
-            margin-bottom: 16px;
+            max-width: 380px;
+            margin-bottom: 14px;
             color: var(--text-color);
         }
         .page-banner .banner-content .hero-buttons {
@@ -260,7 +260,7 @@
             flex-wrap: wrap;
         }
         .page-banner .banner-content .btn-primary {
-            padding: 9px 24px;
+            padding: 8px 22px;
             border: none;
             border-radius: 60px;
             background: var(--gold);
@@ -280,7 +280,7 @@
             box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
         }
         .page-banner .banner-content .btn-secondary {
-            padding: 9px 24px;
+            padding: 8px 22px;
             border: 1px solid var(--card-border);
             border-radius: 60px;
             background: transparent;
@@ -303,7 +303,7 @@
             position: relative;
             z-index: 1;
             flex: 1 1 45%;
-            max-width: 420px;
+            max-width: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -314,7 +314,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px var(--shadow);
             object-fit: cover;
-            max-height: 250px;
+            max-height: 220px;
         }
         .page-banner .banner-image .floating-badge {
             position: absolute;
@@ -322,17 +322,17 @@
             left: -5px;
             background: var(--gold);
             color: #fff;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 10px;
+            font-size: 9px;
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
         .page-banner .banner-image .floating-badge i {
-            font-size: 11px;
+            font-size: 10px;
         }
 
         [data-theme="light"] .page-banner {
@@ -457,14 +457,14 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .page-banner { padding: 35px 30px; flex-direction: column; text-align: center; gap: 20px; }
+            .page-banner { padding: 25px 30px; flex-direction: column; text-align: center; gap: 18px; }
             .page-banner .banner-content { max-width: 100%; text-align: center; }
             .page-banner .banner-content p { max-width: 100%; margin-left: auto; margin-right: auto; }
             .page-banner .banner-content .hero-buttons { justify-content: center; }
-            .page-banner .banner-content h1 { font-size: 32px; }
+            .page-banner .banner-content h1 { font-size: 28px; }
             .page-banner .banner-image { max-width: 100%; flex: 1 1 100%; margin-left: 0; margin-top: 5px; }
-            .page-banner .banner-image img { max-height: 200px; width: 100%; object-fit: cover; }
-            .page-banner .banner-image .floating-badge { bottom: 5px; left: 5px; padding: 5px 10px; font-size: 9px; }
+            .page-banner .banner-image img { max-height: 180px; width: 100%; object-fit: cover; }
+            .page-banner .banner-image .floating-badge { bottom: 5px; left: 5px; padding: 4px 8px; font-size: 8px; }
             .services-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 600px; }
             .service-card .service-img { height: 160px; }
             .service-card .service-body h2 { font-size: 18px; }
@@ -477,12 +477,12 @@
             .glass-card p { font-size: 13px; }
         }
         @media (max-width: 600px) {
-            .page-banner { padding: 25px 20px; gap: 15px; }
-            .page-banner .banner-content h1 { font-size: 26px; }
+            .page-banner { padding: 20px 16px; gap: 14px; }
+            .page-banner .banner-content h1 { font-size: 22px; }
             .page-banner .banner-content p { font-size: 13px; }
             .page-banner .banner-content .btn-primary, .page-banner .banner-content .btn-secondary { padding: 8px 18px; font-size: 12px; width: 100%; justify-content: center; }
             .page-banner .banner-content .hero-buttons { flex-direction: column; width: 100%; align-items: center; }
-            .page-banner .banner-image img { max-height: 150px; }
+            .page-banner .banner-image img { max-height: 130px; }
             .section-title h1 { font-size: 24px; }
             .section-title p { font-size: 14px; }
             .services-grid { grid-template-columns: 1fr; gap: 16px; max-width: 360px; }
@@ -519,7 +519,7 @@
             hr { margin: 20px auto 10px; }
         }
         @media (max-width: 380px) {
-            .page-banner .banner-content h1 { font-size: 22px; }
+            .page-banner .banner-content h1 { font-size: 20px; }
             .service-parts-grid { grid-template-columns: 1fr; max-width: 260px; }
             .glass-grid { grid-template-columns: 1fr; max-width: 260px; }
         }
@@ -585,7 +585,7 @@
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- ===== HERO - SPLIT LAYOUT (FIXED ALIGNMENT) ===== -->
+    <!-- ===== HERO - FIXED ALIGNMENT ===== -->
     <section class="page-banner" id="top">
         <div class="banner-content">
             <span class="hero-tag"><i class="fas fa-wrench"></i> Expert Auto Care</span>
